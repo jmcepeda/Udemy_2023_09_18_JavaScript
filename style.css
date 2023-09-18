@@ -21,3 +21,41 @@ h3 {
     border-radius: 4px;
     padding: 5px;
 }
+
+#torpedo {
+    color: rgba(1, 109, 109, 0.651);
+    background-color: rgb(195, 247, 144);
+    border-style: solid;
+    border: 8px;
+    border-radius: 15px;
+    margin: 20px;
+    padding: 10px;
+    border-color: rgba(192, 207, 255, 0.288);
+}
+
+a[href="infancia.html"]{
+    background-color: coral;
+    background-color: burlywood;
+    border: solid;
+    border: rebeccapurple;
+}
+
+p:hover{
+    color: chocolate;
+    font-weight: bolder;
+}
+
+p:first-child {
+    color: rgb(142, 24, 158);
+    font-weight: lighter;
+    background-color: rgb(255, 254, 240);
+}
+
+h1 + h2 {
+    color: crimson;
+}
+
+h1 ~ h2 {
+    background-color: rgb(232, 255, 127);
+    font-weight: bold;
+}
