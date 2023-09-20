@@ -7,6 +7,15 @@
     <title>Saludar</title>
 </head>
 <body>
-    <button>Saludar</button>
+    <input id="nombre_input" type="Introduce tu nombre">
+    
+    <button onclick="saludar()">Saludar</button>
+    
+    <script>
+        function saludar() {
+            let name=document.getElementById("nombre_input").value;
+            alert(`Hola ${name}`);
+        }
+    </script>
 </body>
 </html>
