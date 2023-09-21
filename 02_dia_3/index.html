@@ -11,8 +11,31 @@
     <input id="nombre_input" type="Text">
     
     <button onclick="saludar()">Saludar</button>
+
+    <br>
+    <br>
+
+    <input type="text" id="inputTexto" value="Este es un mensaje">
+    <button onclick="mostrarTexto()">Click aqui</button>
+    <h1 id="titulo">Mama Porras - Cambiame</h1>
+    <br>
+    <br>
+
+    <input type="text" id="inputTexto2" value="Luis Miguel">
+    <button onclick="mostrarTexto2()">Click aqui</button>
+    <h1 id="titulo2">Traga que Traga - Cambiame</h1>
+
+    <br><br>
+
+    <p>Introduce Tu Tiempo en Segundos</p>
+    <input type="number"  id="tiempo">
+    <button onclick="comenzarTiempo()">Alarma</button>
+
+        <h1 id="textoAlarma" style="color:red">APAGADO</h1>
     
     <script>
+        
+
         function saludar() {
             let name=document.getElementById("nombre_input").value;
             alert(`Hola ${name}`);
@@ -39,7 +62,37 @@
         let miVariable9=["Pablo","Federico", "Alberto"];
 
         let miVariable10=["Anatoly", 33, "Carolina",[1,2,3,4]];
+        
+        function mostrarTexto(){
+            let mensaje=document.getElementById("inputTexto").value;
+            console.log(mensaje);
+            console.log(document.getElementById("titulo").textContent);
+            document.getElementById("titulo").textContent=mensaje;
+        }
 
+        function mostrarTexto2(){
+                let nombre=document.getElementById("inputTexto2").value;
+                document.getElementById("titulo2").textContent=`Mi artista favorito es ${nombre}`;
+            }
+
+            let elementoTextoAlarma=document.getElementById("textoAlarma");
+            let elementoTiempo=document.getElementById("textoAlarma");
+
+            function comenzarTiempo(){
+                //let seconds=document.getElementById("tiempo").value;
+                setTimeout(tiempoCumplido,elementoTiempo.value*1000);
+            }
+
+            function tiempoCumplido(){
+                let seconds=document.getElementById("tiempo").value;
+                console.log("Dentro de TiempoCumplido, mostrar tiempo en Segundos:" + seconds + "s.");
+                alert(`Se acabó Tu Tiempo de ${seconds} Segundos`);
+                elementoTextoAlarma.textContent="ENCENDIDO";
+                
+                textoAlarma.style.color="green";
+
+
+            }
     </script>
 </body>
 </html>
