@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="empiezaTiempo()">
+    
+    <h2>Trata de Responder lo Más Rápido que Puedas</h2>
+    <h1 id="tiempo"></h1>
+    <br>
+    <p>¿Cual es la Capital de Francia?</p>
+    <input type="text" id="respuesta1">
+ 
+    <p>¿Cual es el Resultado de la Operación: 4*(12+4)?</p>
+    <input type="text" id="respuesta2">
+
+    <p>¿Que año se descubrió América?</p>
+    <input type="text" id="respuesta3">
+
+    <p>¿Tenián los Aztecas Pirámides?</p>
+    <input type="text" id="respuesta4">
+
+    <p>¿Dónde Nació el Emprerador Romano Trajano?</p>
+    <input type="text" id="respuesta5">
+
+    <br>
+
+    <button onclick="finalizado()">He Terminado!!</button>
+    <br>
+    <button onclick="limpiar()">Reiniciar</button>
+    
+    <audio>
+        <source src="https://cld2099web.audiovideoweb.com/va90web25003/companions/Foundations%20of%20Rock/13.01.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        //let tiempo=document.getElementById("avisarAcaboTiempo");
+        function empiezaTiempo(){
+            let time = new Date();
+            let date=time.toLocaleDateString("es-Es");
+            let timeNow=time.toLocaleTimeString("es-Es")
+
+            
+            //console.log("Toma mi rabo y Corre: " + timeNow);
+            setTimeout(avisarAcaboTiempo,10000);
+            cuentaRegresiva();
+        }
+
+        function cuentaRegresiva(){
+
+            let tiempo=document.getElementById("tiempo");
+            tiempo.textContent="Te quedan 30 segundos.";
+            let segundosQuedan=30;
+            for (let i=0;i<=30;i++){
+                setTimeout(actualizaSegundos, 1000);
+                console.log("Traga Semen " + i + " veces.")
+                segundosQuedan=30-i;
+                //console.log(timeNow);
+                tiempo.textContent=" Te quedan " + segundosQuedan + " segundos.";
+            }
+        }
+
+        function actualizaSegundos(){
+            let tiempo=document.getElementById("tiempo");
+            let time = new Date();
+            let timeNow=time.toLocaleTimeString("es-Es");
+            console.log(timeNow);
+            tiempo.textContent=timeNow;
+
+        }
+        function avisarAcaboTiempo() {
+            alert("Tragate todo mi Semen Cerda");
+        }
+
+        function finalizado(){
+
+        }
+        function limpiar(){
+
+        }
+
+
+    </script>
+</body>
+</html>
