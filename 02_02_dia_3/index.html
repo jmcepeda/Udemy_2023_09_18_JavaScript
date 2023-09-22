@@ -9,7 +9,7 @@
 <body onload="empiezaTiempo()">
     
     <h2>Trata de Responder lo Más Rápido que Puedas</h2>
-    <h1 id="tiempo"></h1>
+    <h1 id="parrafoTiempo">Te Quedan <span id="tiempo">30</span> segundos</h1>
     <br>
     <p>¿Cual es la Capital de Francia?</p>
     <input type="text" id="respuesta1">
@@ -48,15 +48,15 @@
             setInterval(cuentaRegresiva,1000);
             console.log("Empieza la cuenta Regresiva");
             let tiempo=document.getElementById("tiempo");
-            tiempo.textContent="Te quedan 30 segundos.";
+            tiempo.textContent="30";
         }
 
         function cuentaRegresiva(){
             
             let tiempo=document.getElementById("tiempo");
-            let segundosQuedan=tiempo.textContent;
+            let segundosQuedan=Number(tiempo.textContent);
             segundosQuedan=segundosQuedan-1;
-            tiempo.textContent=" Te quedan " + segundosQuedan + " segundos.";
+            tiempo.textContent=segundosQuedan;
 
         }
 
@@ -69,7 +69,11 @@
         //
         //}
         function avisarAcaboTiempo() {
-            //alert("Tragate todo mi Semen Cerda");
+            
+            let tiempo=document.getElementById("parrafoTiempo");
+            tiempo.textContent="Se Acabó tu tiempo";
+            tiempo.style.color="red";
+            alert("Tragate todo mi Semen Cerda");
         }
 
         function finalizado(){
