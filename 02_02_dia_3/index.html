@@ -44,25 +44,20 @@
 
             
             //console.log("Toma mi rabo y Corre: " + timeNow);
-            //setTimeout(avisarAcaboTiempo,10000);
-            cuentaRegresiva();
-        }
-
-        function cuentaRegresiva(){
+            setTimeout(avisarAcaboTiempo,5000);
+            setInterval(cuentaRegresiva,1000);
             console.log("Empieza la cuenta Regresiva");
             let tiempo=document.getElementById("tiempo");
             tiempo.textContent="Te quedan 30 segundos.";
-            let segundosQuedan=30;
-            for (let i=0;i<=30;i++){
-                //setTimeout(actualizaSegundos, 1000);
-                console.log(i);
-                
-                setTimeout( (i,segundosQuedan) => {
-                    console.log("Traga Semen " + i + " veces.")
-                    segundosQuedan=30-i;
-                    tiempo.textContent=" Te quedan " + segundosQuedan + " segundos.";
-                },100);
-            }
+        }
+
+        function cuentaRegresiva(){
+            
+            let tiempo=document.getElementById("tiempo");
+            let segundosQuedan=tiempo.textContent;
+            segundosQuedan=segundosQuedan-1;
+            tiempo.textContent=" Te quedan " + segundosQuedan + " segundos.";
+
         }
 
         //function actualizaSegundos(){
