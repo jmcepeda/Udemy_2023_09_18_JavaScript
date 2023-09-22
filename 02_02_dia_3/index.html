@@ -44,34 +44,37 @@
 
             
             //console.log("Toma mi rabo y Corre: " + timeNow);
-            setTimeout(avisarAcaboTiempo,10000);
+            //setTimeout(avisarAcaboTiempo,10000);
             cuentaRegresiva();
         }
 
         function cuentaRegresiva(){
-
+            console.log("Empieza la cuenta Regresiva");
             let tiempo=document.getElementById("tiempo");
             tiempo.textContent="Te quedan 30 segundos.";
             let segundosQuedan=30;
             for (let i=0;i<=30;i++){
-                setTimeout(actualizaSegundos, 1000);
-                console.log("Traga Semen " + i + " veces.")
-                segundosQuedan=30-i;
-                //console.log(timeNow);
-                tiempo.textContent=" Te quedan " + segundosQuedan + " segundos.";
+                //setTimeout(actualizaSegundos, 1000);
+                console.log(i);
+                
+                setTimeout( (i,segundosQuedan) => {
+                    console.log("Traga Semen " + i + " veces.")
+                    segundosQuedan=30-i;
+                    tiempo.textContent=" Te quedan " + segundosQuedan + " segundos.";
+                },100);
             }
         }
 
-        function actualizaSegundos(){
-            let tiempo=document.getElementById("tiempo");
-            let time = new Date();
-            let timeNow=time.toLocaleTimeString("es-Es");
-            console.log(timeNow);
-            tiempo.textContent=timeNow;
-
-        }
+        //function actualizaSegundos(){
+        //    let tiempo=document.getElementById("tiempo");
+        //    let time = new Date();
+        //    let timeNow=time.toLocaleTimeString("es-Es");
+        //    console.log(timeNow);
+        //    tiempo.textContent=timeNow;
+        //
+        //}
         function avisarAcaboTiempo() {
-            alert("Tragate todo mi Semen Cerda");
+            //alert("Tragate todo mi Semen Cerda");
         }
 
         function finalizado(){
