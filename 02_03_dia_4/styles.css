@@ -1,0 +1,11 @@
+p {
+    font-size: larger;
+    color: blue;
+}
+
+h1 {
+    border: solid;
+    border:blue;
+    border-radius: 5px;
+    padding: 5px;
+}
