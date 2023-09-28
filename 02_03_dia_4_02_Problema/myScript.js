@@ -57,9 +57,9 @@ function potencia() {
     let numeros=cogeNumeros();
     let num1=numeros[0];
     let num2=numeros[1];
-    console.log("Num1: " + num1 + ". Num2: " + num2 + ".");
+    //console.log("Num1: " + num1 + ". Num2: " + num2 + ".");
     let resultado=Math.pow(num1,num2);
-    console.log("Resultado: " + resultado + ".");
+    //console.log("Resultado: " + resultado + ".");
     mostrarResultado(resultado);
 }
 
@@ -69,6 +69,42 @@ function raiz() {
     let resultado=Math.sqrt(num2);
     mostrarResultado(resultado);
 }
+
+function absoluto() {
+    let numeros=cogeNumeros();
+    let num2=numeros[1];
+    let resultado=Math.abs(num2);
+    mostrarResultado(resultado);
+}
+
+
+function random() {
+    let numeros=cogeNumeros();
+    let num1=numeros[0];
+    let num2=numeros[1];
+    let resultado=Math.round(Math.random()*(num2-num1))+num1;
+    mostrarResultado(resultado);
+}
+
+function redondear() {
+    let numero=Math.round(Number(document.getElementById("resultado").textContent));
+    let resultado=numero;
+    mostrarResultado(resultado);
+}
+
+function floor() {
+    let numero=Math.floor(Number(document.getElementById("resultado").textContent));
+    let resultado=numero;
+    mostrarResultado(resultado);
+}
+
+function ceil() {
+    let numero=Math.ceil(Number(document.getElementById("resultado").textContent));
+    let resultado=numero;
+    mostrarResultado(resultado);
+}
+
+
 
  function mostrarResultado(resultado){
     document.getElementById("resultado").textContent=resultado; 
