@@ -1,4 +1,43 @@
 img {
-    width: 50%;
-    margin: 15px;
+    width: 40%;
+    margin: 25px;
+}
+
+#contenedor {
+    width: 90%;
+    display: flex; 
+    justify-content: space-around;
+} 
+
+label {
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: larger;
+}
+
+select {
+    margin: bottom 10px;
+    margin-top: 10px;
+}
+
+form {
+    margin-right: 50px;
+    border-style: solid;
+    border-radius: 30px;
+    background-color:#FFFDDD;
+    border-color: blue;
+    padding: 30px;
+
+}
+
+select {
+    font-size: large;
+}
+
+button {
+    font-size: larger;
+}
+
+h3 {
+    font-size: x-large;
 }
