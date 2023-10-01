@@ -18,50 +18,50 @@ function seleccionaPelicula() {
 
     switch (combinado) {
         case "kidscomedia":
-            pelicula="1";
+            pelicula="Papa Canguro";
             break;
 
         case "kidsaccion":
-            pelicula="2";
+            pelicula="Los niños al Poder";
             break;
         
         case "kidstodalaFamilia":
-            pelicula="3";
+            pelicula="Las mejores Vacaciones";
             break;
 
         case "kidscienciaFiccion":
-            pelicula="4";
+            pelicula="Niños de otra Galaxia";
             break;
 
         case "adolescentescomedia":
-            pelicula="5";
+            pelicula="Adolescentes sin Limites";
             break;
 
         case "adolescentesaccion":
-            pelicula="6";
+            pelicula="Adolescentes Zombies";
             break;
         
         case "adolescentestodalaFamilia":
-            pelicula="7";
+            pelicula="Harry Potter";
             break;
 
         case "adolescentescienciaFiccion":
-            pelicula="8";
+            pelicula="Adolescentes que vienen del Espacio";
             break;
         case "adultoscomedia":
-            pelicula="9";
+            pelicula="Despedida de Soltero en Las Vegas";
             break;
 
         case "adultosaccion":
-            pelicula="10";
+            pelicula="Fast & Furious";
             break;
         
         case "adultostodalaFamilia":
-            pelicula="11";
+            pelicula="Ghost";
             break;
 
         case "adultoscienciaFiccion":
-            pelicula="12";
+            pelicula="Terminator";
             break;
 
         default:

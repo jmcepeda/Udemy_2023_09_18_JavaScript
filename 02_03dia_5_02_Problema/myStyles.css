@@ -1,6 +1,6 @@
 img {
-    width: 50%;
-    margin: 15px;
+    width: 35%;
+    margin: 30px;
 }
 
 #contenedor {
@@ -11,21 +11,22 @@ img {
 
 label {
     margin-bottom: 10px;
-    margin-top: 10px;
+    margin-top: 60px;
     font-size: larger;
 }
 
 select {
-    margin: bottom 10px;
+    margin: bottom 30px;
     margin-top: 10px;
 }
 
-form {
+section {
     margin-right: 30px;
+    border: 5px;
     border-style: solid;
     border-radius: 30px;
     background-color:#FFFDDD;
-    border-color: blue;
+    border-color:pink;
     padding: 30px;
 
 }
@@ -38,6 +39,9 @@ button {
     font-size: larger;
 }
 
-h3 {
+h2 {
     font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue;
+    font-style: italic;
 }
