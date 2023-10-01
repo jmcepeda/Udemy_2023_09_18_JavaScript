@@ -3,6 +3,8 @@ h1 {
     width: 430px;
     height: 40px;
     text-align: center;
+    color: #951FCF;
+    font-style:unset;
 }
 
 .entrada {
