@@ -70,5 +70,7 @@ function seleccionaPelicula() {
     
     peliculaSeleccionada.textContent=pelicula;
 
+    document.write(`<p>Perra Judia. Hija de Puta ${pelicula}</p>`);
+
     
 }

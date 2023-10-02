@@ -45,3 +45,12 @@ h2 {
     color: blue;
     font-style: italic;
 }
+
+p {
+    color: brown;
+
+    background-color: aquamarine;
+    border-style: solid;
+    border-radius: 3px;
+    border-color: black;
+}
