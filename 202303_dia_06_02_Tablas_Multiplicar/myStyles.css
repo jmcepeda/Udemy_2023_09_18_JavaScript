@@ -16,7 +16,8 @@ img {
 }
 
 .listado {
-    width: 75%;
+    width: 450px;
+    height: 15px;
     display:flex;
     justify-content: space-around;
     align-items: center;
@@ -66,12 +67,7 @@ h2 {
 }
 
 p {
-    color: brown;
-
-    background-color: white;
-    border-style: solid;
-    border-radius: 3px;
-    border-color: black;
+    color: rgb(156, 13, 13);
 }
 
 input {
