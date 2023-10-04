@@ -86,7 +86,7 @@ section {
     margin:25px;
     padding:30px;
     border-style:solid;
-    border-color:blue;
+    border-color:rgb(233, 48, 250);
     border-radius: 20px;
     width:400px;
     background-color:blanchedalmond
@@ -111,3 +111,7 @@ h1 {
     width:250px;
     background-color:white;
 }
+
+#l2 {
+    visibility: hidden;
+}   
