@@ -11,7 +11,7 @@ img {
 } 
 
 .listado {
-    width: 300px;
+    width: 400px;
     height: 15px;
     display:flex;
     justify-content: space-around;
@@ -19,10 +19,12 @@ img {
     margin-top: 3px;
     margin-bottom: 3px;
     margin-left: 75px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .resultado {
-    width: 300px;
+    width: 400px;
     height: 15px;
     display:flex;
     justify-content: space-around;
@@ -37,7 +39,7 @@ img {
 }
 
 .balance {
-    width: 350px;
+    width: 450px;
     height: 50px;
     margin-left: 50px;
     align-items: center;
@@ -108,7 +110,7 @@ section {
     border-style:solid;
     border-color:rgb(233, 48, 250);
     border-radius: 20px;
-    width:400px;
+    width:500px;
     background-color:blanchedalmond
 
 }
@@ -141,4 +143,13 @@ h1 {
 
 #contCentrar {
     justify-items: center;
+}
+
+.numListado {
+    font-size: small;
+}
+
+.operacion {
+    font-size:x-large;
+    font-weight:bolder;
 }
