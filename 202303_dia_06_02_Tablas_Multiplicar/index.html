@@ -13,80 +13,99 @@
     <section>
         <h1>Tabla de Multiplicar</h1>
         <br>
-        <div id="contenedor">
-            <h2 id="textoNombre">NOMBRE</h2>
-            <button onclick="cambiarNombre()" id="cambiaNombre">CAMBIA NOMBRE</button>
-        </div>
+        
         <h2>Elige Número para Repasar Tabla</h2>
-
-        <input id="numero" type="number" min="1" max="10">
-
+        
         <br>
-        <button onclick="muestraTabla()">Muestra Tabla</button>
+
+        <div class="contenedor">
+            <h2 id="textoNombre">NOMBRE</h2>
+            <button id="cambiaNombre" onclick="cambiarNombre()">CAMBIA NOMBRE</button>
+        </div>
+        
+
+        <div class="contenedor">
+            <input id="numero" type="number" min="1" max="10">
+            <button onclick="muestraTabla()">Muestra Tabla</button>
+        </div>
 
         <ul id="listaResultado"></ul>
     
+    </section>
+
+    <section class="balance">
+        <div class="listado">
+            <p>BIEN</p>
+            <p>MAL</p>
+        </div>
+        <br>
+        <div class="listado">
+            <p id="numBien">3</p>
+            <p id="numMal">4</p>
+        </div>
+        
     </section>
 
     <section class="listado" id="l1">
         <p >1. </p>
         <p id="1p">1 x 1 = </p>
         <input id="1i" type="number">
-        <p id="1resultado">MAL</p>
+        <img class="imgLogo" id="img1" src="https://cdn-icons-png.flaticon.com/512/6785/6785304.png" alt="" srcset="">
     </section>
 
     <section class="listado" id="l2">
         <p id="2p"></p>
         <input id="2i" type="number">
-        <p id="2resultado"></p>
+        <img class="imgLogo" id="img2" alt="" srcset="">
     </section>
 
     <section class="listado" id="l3">
         <p id="3p"></p>
         <input id="3i" type="number">
-        <p id="3resultado"></p>
+        <img class="imgLogo" id="img3" alt="" srcset="">
     </section>
 
     <section class="listado" id="l4">
         <p id="4p"></p>
         <input id="4i" type="number">
-        <p id="4resultado"></p>
+        <img class="imgLogo" id="img4" alt="" srcset="">
     </section>
 
     <section class="listado" id="l5">
         <p id="5p"></p>
         <input id="5i" type="number">
-        <p id="5resultado"></p>
+        <img class="imgLogo" id="img5" alt="" srcset="">
     </section>
 
     <section class="listado" id="l6">
         <p id="6p"></p>
         <input id="6i" type="number">
-        <p id="6resultado"></p>
+        <img class="imgLogo" id="img6" alt="" srcset="">
+        
     </section>
 
     <section class="listado" id="l7">
         <p id="7p"></p>
         <input id="7i" type="number">
-        <p id="7resultado"></p>
+        <img class="imgLogo" id="img7" alt="" srcset="">
     </section>
 
     <section class="listado" id="l8">
         <p id="8p"></p>
         <input id="8i" type="number">
-        <p id="8resultado"></p>
+        <img class="imgLogo" id="img6" alt="" srcset="">
     </section>
 
     <section class="listado" id="l9">
         <p id="9p"></p>
         <input id="9i" type="number">
-        <p id="9resultado"></p>
+        <img class="imgLogo" id="img9" alt="" srcset="">
     </section>
 
     <section class="listado" id="l10">
         <p id="10p"></p>
         <input id="10i" type="number">
-        <p id="10resultado"></p>
+        <img class="imgLogo" id="img6" alt="" srcset="">
     </section>
 
 </body>

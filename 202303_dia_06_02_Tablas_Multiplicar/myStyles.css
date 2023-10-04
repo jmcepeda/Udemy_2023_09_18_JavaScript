@@ -10,23 +10,34 @@ img {
     align-items: center;
 } 
 
-#cambiaNombre{
-    height: 30px;
-    font-weight: bolder;
+.listado {
+    width: 300px;
+    height: 15px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
-.listado {
-    width: 450px;
-    height: 15px;
+#cambiaNombre {
+    height:  10px;
+}
+
+.balance {
+    width: 250px;
+    height: 50px;
     display:flex;
     justify-content: space-around;
     align-items: center;
 }
 
-#contenedor {
+.contenedor {
     width: 90%;
     display: flex; 
     justify-content: space-around;
+    margin-top: 15px;
+    margin-bottom: 15px;
 } 
 
 label {
@@ -67,16 +78,17 @@ h2 {
 }
 
 p {
-    color: rgb(156, 13, 13);
+    color: black;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
 input {
-    width:150px;
-    margin-bottom: 25px;
+    width: 50px;
     font-size:larger;
-    font-weight:bolder;
-    text-align:center;
-}
+    font-weight: 400;
+}    
 
 section {
     margin:25px;
@@ -110,4 +122,7 @@ h1 {
 
 #l2 {
     visibility: hidden;
-}   
+} 
+.imgLogo {
+    width: 50px;
+}
