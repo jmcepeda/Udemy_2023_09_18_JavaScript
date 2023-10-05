@@ -29,4 +29,46 @@ function muestraTabla() {
     }
 }
 
+function inserListado(){
+
+    let container = document.getElementById("contCentrar");
+    let section = document.createElement("section");
+    
+    
+    section.id = "l11";
+    section.class = "listado";
+    container.appendChild(section);
+
+    let pId = document.createElement("p");
+    pId.id="11p";
+    pId.class="numListado";
+    pId.textContent="01. &nbsp &nbsp &nbsp &nbsp  &nbsp";
+    section.appendChild(pId);
+    let pIdDom=document.getElementById("11p");
+    pIdDom.class="numListado";
+
+    let pOper = document.createElement("p");
+    pOper.id="11Op";
+    pOper.textContent=" &nbsp 10 x 10 =  &nbsp ";
+    section.appendChild(pOper);
+    let POperDom=document.getElementById("Op");
+    POperDom.class="operacion";
+
+
+    let input = document.createElement("input");
+    input.id="l11";
+    input.type="number";
+    section.appendChild(input);
+
+    let img=document.createElement("img");
+    img.id="img11";
+    img.class="imgLogo";
+    img.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
+    img.alt = "Logo Javascript";
+    section.appendChild(img);
+    let imgDom=document.getElementById("img11");
+    imgDom.class="imgLogo";
+
+}
+
 
