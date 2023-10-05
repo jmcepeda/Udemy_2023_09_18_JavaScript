@@ -31,42 +31,56 @@ function muestraTabla() {
 
 function inserListado(){
 
+    let numeroCaja=document.getElementById("numero").value;
+    let i=Number(numeroCaja);
+
+
     let container = document.getElementById("contCentrar");
     let section = document.createElement("section");
+    let numStr;
+
+    if(i<10){
+        numStr="0"+i;
+        console.log(numStr);
+    } else {
+        numStr=i.toString();
+        console.log(numStr);
+    }
     
-    
-    section.id = "l11";
+    section.id = "l"+numStr;
     section.className = "listado";
     container.appendChild(section);
-    let sectionDom=document.getElementById("l11");
+    let sectionDom=document.getElementById("l"+numStr);
     sectionDom.className="listado";
 
     let pId = document.createElement("p");
-    pId.id="11p";
-    pId.innerHTML="11. &nbsp &nbsp &nbsp &nbsp  &nbsp";
+    pId.id=numStr+"p";
+    pId.innerHTML=numStr+". &nbsp &nbsp &nbsp &nbsp  &nbsp";
     section.appendChild(pId);
-    let pIdDom=document.getElementById("11p");
+    let pIdDom=document.getElementById(numStr+"p");
     pIdDom.className="numListado";
 
     let pOper = document.createElement("p");
-    pOper.id="11o";
-    pOper.innerHTML=" &nbsp 11 x 11 =  &nbsp ";
+    pOper.id=numStr+"o";
+    pOper.innerHTML=" &nbsp" + i + " x " + i + " =  &nbsp ";
     section.appendChild(pOper);
-    let POperDom=document.getElementById("11o");
+    let POperDom=document.getElementById(numStr + "o");
     POperDom.className="operacion";
 
 
     let inputIn = document.createElement("input");
-    inputIn.id="l11";
+    inputIn.id="l"+ numStr;
     inputIn.type="number";
     section.appendChild(inputIn);
 
     let imgIn=document.createElement("img");
-    imgIn.id="img11";
+    imgIn.id="img"+numStr;
+    console.log(ImgIn);
+    console.log(ImgIn.id);
+    console.log(numStr);
     imgIn.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
-    imgIn.alt = "Logo Javascript";
     section.appendChild(imgIn);
-    let imgDom=document.getElementById("img11");
+    let imgDom=document.getElementById("img" + numStr);
     imgDom.className="imgLogo";
 
 }
