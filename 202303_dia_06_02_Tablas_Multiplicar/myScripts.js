@@ -38,6 +38,9 @@ function inserListado(){
     section.id = "l11";
     section.class = "listado";
     container.appendChild(section);
+    let sectionDom=document.getElementById("l11");
+    sectionDom.className="listado";
+
 
     let pId = document.createElement("p");
     pId.id="11p";
@@ -45,29 +48,29 @@ function inserListado(){
     pId.textContent="01. &nbsp &nbsp &nbsp &nbsp  &nbsp";
     section.appendChild(pId);
     let pIdDom=document.getElementById("11p");
-    pIdDom.class="numListado";
+    pIdDom.className="numListado";
 
     let pOper = document.createElement("p");
-    pOper.id="11Op";
+    pOper.id="11p";
     pOper.textContent=" &nbsp 10 x 10 =  &nbsp ";
     section.appendChild(pOper);
-    let POperDom=document.getElementById("Op");
-    POperDom.class="operacion";
+    let POperDom=document.getElementById("11p");
+    POperDom.className="operacion";
 
 
-    let input = document.createElement("input");
-    input.id="l11";
-    input.type="number";
-    section.appendChild(input);
+    let inputIn = document.createElement("input");
+    inputIn.id="l11";
+    inputIn.type="number";
+    section.appendChild(inputIn);
 
-    let img=document.createElement("img");
-    img.id="img11";
-    img.class="imgLogo";
-    img.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
-    img.alt = "Logo Javascript";
-    section.appendChild(img);
+    let imgIn=document.createElement("img");
+    imgIn.id="img11";
+    imgIn.class="imgLogo";
+    imgIn.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
+    imgIn.alt = "Logo Javascript";
+    section.appendChild(imgIn);
     let imgDom=document.getElementById("img11");
-    imgDom.class="imgLogo";
+    imgDom.className="imgLogo";
 
 }
 
