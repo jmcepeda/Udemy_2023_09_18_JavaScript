@@ -36,25 +36,23 @@ function inserListado(){
     
     
     section.id = "l11";
-    section.class = "listado";
+    section.className = "listado";
     container.appendChild(section);
     let sectionDom=document.getElementById("l11");
     sectionDom.className="listado";
 
-
     let pId = document.createElement("p");
     pId.id="11p";
-    pId.class="numListado";
-    pId.textContent="01. &nbsp &nbsp &nbsp &nbsp  &nbsp";
+    pId.innerHTML="11. &nbsp &nbsp &nbsp &nbsp  &nbsp";
     section.appendChild(pId);
     let pIdDom=document.getElementById("11p");
     pIdDom.className="numListado";
 
     let pOper = document.createElement("p");
-    pOper.id="11p";
-    pOper.textContent=" &nbsp 10 x 10 =  &nbsp ";
+    pOper.id="11o";
+    pOper.innerHTML=" &nbsp 11 x 11 =  &nbsp ";
     section.appendChild(pOper);
-    let POperDom=document.getElementById("11p");
+    let POperDom=document.getElementById("11o");
     POperDom.className="operacion";
 
 
@@ -65,7 +63,6 @@ function inserListado(){
 
     let imgIn=document.createElement("img");
     imgIn.id="img11";
-    imgIn.class="imgLogo";
     imgIn.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
     imgIn.alt = "Logo Javascript";
     section.appendChild(imgIn);
