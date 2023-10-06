@@ -105,18 +105,22 @@ function empezar(){
     let arrComp=[];
 
     for (let i=1;i<=numerRepeticiones;i++){
-        arrNum[i-1]=aleatorio(num,arrNum);
+        arrNum[i-1]=aleatorio(arrNum);
         inserListado(i,num,arrNum[i-1]);
     }
 
     
 }
 
-function aleatorio (arrNum) { 
+function aleatorio (arrNum) {
+    let num; 
     let random=Math.random();
+    let k=0;
     do {
-        let num=10*random+1;
-    } while (arrNum.includes(num)==true);
+        num=Math.round(10*random)+1;
+        k=k+1;
+        console.log(k);
+    } while ((arrNum.includes(num)==true) && (k<10));
     return num;
     
 }
