@@ -106,6 +106,7 @@ function empezar(){
 
     for (let i=1;i<=numerRepeticiones;i++){
         arrNum[i-1]=aleatorio(arrNum);
+        console.log("arrNum" +arrNum);
         inserListado(i,num,arrNum[i-1]);
     }
 
@@ -114,13 +115,17 @@ function empezar(){
 
 function aleatorio (arrNum) {
     let num; 
-    let random=Math.random();
+    let random;
     let k=0;
     do {
-        num=Math.round(10*random)+1;
+        random=Math.random();
+        num=Math.round(random*10);
+        if (num==0){
+            num=1;
+        }
         k=k+1;
         console.log(k);
-    } while ((arrNum.includes(num)==true) && (k<10));
+    } while ((arrNum.includes(num)==true));
     return num;
     
 }

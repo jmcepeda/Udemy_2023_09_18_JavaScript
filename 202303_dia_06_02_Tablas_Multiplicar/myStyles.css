@@ -120,9 +120,12 @@ p {
 }
 
 input {
-    width: 50px;
-    font-size:larger;
-    font-weight: 400;
+    width: 80px;
+    height: 40px;
+    font-size:1.8em;
+    font-weight: bolder;
+    text-align: center;
+
 }    
 
 section {
