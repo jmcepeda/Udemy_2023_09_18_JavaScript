@@ -14,17 +14,51 @@
         <h1>Tabla de Multiplicar</h1>
         <br>
         
-        <h2>Elige Número para Repasar Tabla</h2>
-
         <div class="contenedor">
             <h2 id="textoNombre">NOMBRE</h2>
             <button id="cambiaNombre" onclick="cambiarNombre()">CAMBIA NOMBRE</button>
         </div>
 
+        <br>
+
+        <h2>Número Tabla</h2>
 
         <div class="contenedor">
-            <input id="numero" type="number" min="1" max="10">
+            <!-- <input id="numero" type="number" min="1" max="10"> -->
+            <select id="numero">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+                <option value=11>11</option>
+                <option value=12>12</option>
+                <option value=13>13</option>
+                <option value=14>14</option>
+                <option value=15>15</option>
+            </select>
             <button onclick="muestraTabla()">Muestra Tabla</button>
+        </div>
+
+        
+        <h3>Repeticiones</h3>
+
+        <div class="contenedor">
+            <!-- <input id="numero" type="number" min="1" max="10"> -->    
+            <select  id="repeticiones">
+                <option value=3>3</option>
+                <option value=5>5</option>
+                <option value=7>7</option>
+                <option selected="selected" value=10>10</option>
+                <option value=15>15</option>
+                <option value=20>20</option>
+            </select>
+            <button onclick="empezar()">Empezar</button>
         </div>
 
         <ul id="listaResultado"></ul>
@@ -36,18 +70,18 @@
     <div id="contCentrar">
         <section class="balance">
             <div class="resultado">
-                <p>BIEN</p>
-                <p>MAL</p>
+                <p id="bien" >BIEN</p>
+                <p id="mal"> MAL</p>
             </div>
             <br>
             <div class="resultado">
-                <p id="numBien">3</p>
-                <p id="numMal">4</p>
+                <p id="numBien">0</p>
+                <p id="numMal">0</p>
             </div>
             
         </section>
 
-        <section class="listado" id="l1">
+        <!-- <section class="listado" id="l1">
             <p class="numListado">01. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
             <p class="operacion" id="01p"> &nbsp 10 x 10 =  &nbsp </p>
             <input id="1i" type="number">
@@ -60,9 +94,9 @@
             <p class="operacion" id="02p"> 1 x 2 = </p>
             <input id="2i" type="number">
             <img class="imgLogo" id="img2" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
-        </section>
+        </section> -->
 
-        <section class="listado" id="l3">
+        <!-- <section class="listado" id="l3">
             <p class="numListado">03. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
             <p class="operacion" id="03p"> 1 x 3 = </p>
             <input id="3i" type="number">
@@ -96,9 +130,9 @@
             <p class="operacion" id="07p"> 1 x 7 = </p>
             <input id="7i" type="number">
             <img class="imgLogo" id="img7" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
-        </section>
+        </section> -->
 
-        <section class="listado" id="l8">
+        <!-- <section class="listado" id="l8">
             <p class="numListado">08. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
             <p class="operacion" id="08p"> 1 x 8 = </p>
             <input id="8i" type="number">
@@ -117,7 +151,7 @@
             <p class="operacion" id="10p"> 1 x 10 = </p>
             <input id="10i" type="number">
             <img class="imgLogo" id="img10" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
-        </section>
+        </section> -->
     </div>
 </body>
 </html>

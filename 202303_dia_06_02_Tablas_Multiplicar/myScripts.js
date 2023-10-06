@@ -29,10 +29,10 @@ function muestraTabla() {
     }
 }
 
-function inserListado(){
+function inserListado(i,num, multi){
 
-    let numeroCaja=document.getElementById("numero").value;
-    let i=Number(numeroCaja);
+    // let numeroCaja=document.getElementById("numero").value;
+    // let i=Number(numeroCaja);
 
 
     let container = document.getElementById("contCentrar");
@@ -57,12 +57,17 @@ function inserListado(){
     pId.id=numStr+"p";
     pId.innerHTML=numStr+". &nbsp &nbsp &nbsp &nbsp  &nbsp";
     section.appendChild(pId);
+
     let pIdDom=document.getElementById(numStr+"p");
+    console.log("Probando Nombre de id de párrafo de Numero Listado:")
+    console.log(pIdDom);
+    console.log(pIdDom.id);
+    console.log(numStr + "p");
     pIdDom.className="numListado";
 
     let pOper = document.createElement("p");
     pOper.id=numStr+"o";
-    pOper.innerHTML=" &nbsp" + i + " x " + i + " =  &nbsp ";
+    pOper.innerHTML=" &nbsp" + num + " x " + multi + " =  &nbsp ";
     section.appendChild(pOper);
     let POperDom=document.getElementById(numStr + "o");
     POperDom.className="operacion";
@@ -75,14 +80,43 @@ function inserListado(){
 
     let imgIn=document.createElement("img");
     imgIn.id="img"+numStr;
-    console.log(ImgIn);
-    console.log(ImgIn.id);
+    console.log(imgIn);
+    console.log(imgIn.id);
     console.log(numStr);
-    imgIn.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
+    // imgIn.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
     section.appendChild(imgIn);
     let imgDom=document.getElementById("img" + numStr);
     imgDom.className="imgLogo";
 
 }
 
+function empezar(){
 
+    let num=Number(document.getElementById("numero").value);
+    
+    let numerRepeticiones=Number(document.getElementById("repeticiones").value);
+
+    console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
+    
+    let arrNum=[];
+
+    let arrRes=[];
+
+    let arrComp=[];
+
+    for (let i=1;i<=numerRepeticiones;i++){
+        arrNum[i-1]=aleatorio(num,arrNum);
+        inserListado(i,num,arrNum[i-1]);
+    }
+
+    
+}
+
+function aleatorio (arrNum) { 
+    let random=Math.random();
+    do {
+        let num=10*random+1;
+    } while (arrNum.includes(num)==true);
+    return num;
+    
+}
