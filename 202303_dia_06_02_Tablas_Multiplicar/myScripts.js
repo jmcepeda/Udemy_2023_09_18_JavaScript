@@ -55,7 +55,7 @@ function inserListado(i,num, multi){
 
     let pId = document.createElement("p");
     pId.id=numStr+"p";
-    pId.innerHTML=numStr+". &nbsp &nbsp &nbsp &nbsp  &nbsp";
+    pId.innerHTML=numStr+". &nbsp &nbsp";
     section.appendChild(pId);
 
     let pIdDom=document.getElementById(numStr+"p");

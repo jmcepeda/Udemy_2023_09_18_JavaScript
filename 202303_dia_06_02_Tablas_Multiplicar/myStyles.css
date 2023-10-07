@@ -137,7 +137,13 @@ input {
     font-size:1.8em;
     font-weight: bolder;
     text-align: center;
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom:20px;
+    margin-left: 3px;
+    margin-right:3px;
+    padding-left: 3px;
+    padding-right:3px;
+    
 
 }    
 
@@ -208,7 +214,7 @@ p {
     /* padding-top:20px; */
     /* padding-bottom:10px; */
     /* align-content: center; */
-    vertical-align:middle;
+    vertical-align:bottom;
 }
 
 .numListado {
