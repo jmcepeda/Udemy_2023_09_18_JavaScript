@@ -186,6 +186,10 @@ h1 {
 #l2 {
     /* visibility: hidden; */
 } 
+
+#comprobrResultados{
+    margin-left: 180px;
+}
 .imgLogo {
     width: 50px;
 }

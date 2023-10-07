@@ -72,9 +72,20 @@ function inserListado(i,num, multi){
     let POperDom=document.getElementById(numStr + "o");
     POperDom.className="operacion";
 
+    let pRes = document.createElement("p");
+    pRes.id=numStr+"Res";
+    
+    section.appendChild(pRes);
+    
+    let PResDom=document.getElementById(numStr + "Res");
+    PResDom.style="display:none";
+    
+    PResDom.textContent=num*multi;
+    console.log("Este es el resultado de multiplicar" + num + " x " + multi + "= " + num*multi + ". Debería ser esto en el textContent: " + PResDom.textContent);
+
 
     let inputIn = document.createElement("input");
-    inputIn.id="l"+ numStr;
+    inputIn.id="inp"+ numStr;
     inputIn.type="number";
     section.appendChild(inputIn);
 
@@ -93,14 +104,8 @@ function inserListado(i,num, multi){
 function eliminarListado(sectionId) {
 
     let container=document.getElementById("contCentrar");
-
-    // let section=document.getElementB
-
     let section=document.getElementById(sectionId);
     section.remove();
-
-
-
 }
 
 function empezar(){
@@ -163,4 +168,52 @@ function aleatorio (arrNum) {
     } while ((arrNum.includes(num)==true));
     return num;
     
+}
+
+function comprobarResultados(){
+
+    // let num=Number(document.getElementById("numero").value);
+    let numerRepeticiones=Number(document.getElementById("repeticiones").value);
+    let resBien=0;
+    let resMal=0;
+
+    let numStr;
+    let imgId;
+    let img;
+    let pResId;
+    let pRes;
+    let input;
+    let inputId;
+    for (let i=1;i<=numerRepeticiones;i++){
+        if(i<10){
+            numStr="0"+i;
+            console.log(numStr);
+        } else {
+            numStr=i.toString();
+            console.log(numStr);
+        }
+        imgId = "img"+numStr;
+        pResId= numStr+ "Res";
+        inputId="inp"+numStr;
+
+        img=document.getElementById(imgId);
+        pRes=document.getElementById(pResId);
+        console.log("Id es: " + inputId + " y este es el Objeto" + input);
+        input=document.getElementById(inputId);
+        console.log('Number(pRes.textContent): ' + Number(pRes.textContent));
+
+        console.log("Number(input.value): " + Number(input.value));
+
+        if (Number(pRes.textContent)==Number(input.value)) {
+            img.src="https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
+            resBien+=1;
+        } else {
+            img.src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
+            resMal+=1;
+        }
+        
+
+    }
+    document.getElementById("numBien").textContent=resBien;
+    document.getElementById("numMal").textContent=resMal;
 }
