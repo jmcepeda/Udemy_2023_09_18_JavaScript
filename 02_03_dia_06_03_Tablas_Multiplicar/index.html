@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="myStyles.css">
+    <link rel="shortcut icon" href="https://cdn.pixabay.com/photo/2017/01/30/14/20/time-2020934_1280.png" type="image/x-icon">
+    <script src="myScripts.js"></script>
+
+    <title>Tablas de Multiplicar</title>
+</head>
+<body>
+    <section>
+        <p class="tablaMultiplicar">Tabla de Multiplicar</p>
+        
+        <div class="contenedor">
+            <h3 class="tablaMultiplicar" id="textoNombre"></h3>
+            <button id="cambiaNombre" onclick="cambiarNombre()">ESCRIBE TU NOMBRE</button>
+        </div>
+
+        <h2>Número Tabla</h2>
+
+        <div class="contenedor">
+            <!-- <input id="numero" type="number" min="1" max="10"> -->
+            <select id="numero">
+                <option value=1>1</option>
+                <option value=2>2</option>
+                <option value=3>3</option>
+                <option value=4>4</option>
+                <option value=5>5</option>
+                <option value=6>6</option>
+                <option value=7>7</option>
+                <option value=8>8</option>
+                <option value=9>9</option>
+                <option value=10>10</option>
+                <option value=11>11</option>
+                <option value=12>12</option>
+                <option value=13>13</option>
+                <option value=14>14</option>
+                <option value=15>15</option>
+            </select>
+            <button onclick="muestraTabla()">Muestra Tabla</button>
+        </div>
+
+        
+        <h3>Repeticiones</h3>
+
+        <div class="contenedor">
+            <!-- <input id="numero" type="number" min="1" max="10"> -->    
+            <select  id="repeticiones">
+                <option value=3>3</option>
+                <option value=5>5</option>
+                <option value=7>7</option>
+                <option selected="selected" value=10>10</option>
+                <option value=15>15</option>
+                <option value=20>20</option>
+            </select>
+            <button id="IdEmpezar" onclick="empezar()">Empezar</button>
+        </div>
+
+        <ul id="listaResultado"></ul>
+    
+    </section>
+
+    <button id="comprobrResultados" onclick="comprobarResultados()">Comprobar Resultados </button>
+
+    <div id="contCentrar">
+        <section class="balance">
+            <div class="resultado">
+                <p id="bien" >BIEN</p>
+                <p id="mal"> MAL</p>
+            </div>
+            <br>
+            <div class="resultado">
+                <p id="numBien">0</p>
+                <p id="numMal">0</p>
+            </div>
+            
+        </section>
+
+        <!-- <section class="listado" id="l1">
+            <p class="numListado">01. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
+            <p class="operacion" id="01p"> &nbsp 10 x 10 =  &nbsp </p>
+            <input id="1i" type="number">
+            <img class="imgLogo" id="img1" src="https://cdn-icons-png.flaticon.com/512/6785/6785304.png" alt="" srcset="">
+        </section>
+
+        <section class="listado" id="l2">
+            
+            <p class="numListado">02. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
+            <p class="operacion" id="02p"> 1 x 2 = </p>
+            <input id="2i" type="number">
+            <img class="imgLogo" id="img2" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
+        </section> -->
+
+        <!-- <section class="listado" id="l3">
+            <p class="numListado">03. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
+            <p class="operacion" id="03p"> 1 x 3 = </p>
+            <input id="3i" type="number">
+            <img class="imgLogo" id="img3" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
+        </section>
+
+        <section class="listado" id="l4">
+            <p class="numListado">04. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
+            <p class="operacion" id="04p"> 1 x 4 = </p>
+            <input id="4i" type="number">
+            <img class="imgLogo" id="img4" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
+        </section>
+
+        <section class="listado" id="l5">
+            <p class="numListado">05. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
+            <p class="operacion" id="05p"> 1 x 5 = </p>
+            <input id="5i" type="number">
+            <img class="imgLogo" id="img5" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
+        </section>
+
+        <section class="listado" id="l6">
+            <p class="numListado">06. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
+            <p class="operacion" id="06p"> 1 x 6 = </p>
+            <input id="6i" type="number">
+            <img class="imgLogo" id="img6" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
+            
+        </section>
+
+        <section class="listado" id="l7">
+            <p class="numListado">07. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
+            <p class="operacion" id="07p"> 1 x 7 = </p>
+            <input id="7i" type="number">
+            <img class="imgLogo" id="img7" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
+        </section> -->
+
+        <!-- <section class="listado" id="l8">
+            <p class="numListado">08. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
+            <p class="operacion" id="08p"> 1 x 8 = </p>
+            <input id="8i" type="number">
+            <img class="imgLogo" id="img8" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
+        </section>
+
+        <section class="listado" id="l9">
+            <p class="numListado">09. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
+            <p class="operacion" id="09p"> 1 x 9 = </p>
+            <input id="9i" type="number">
+            <img class="imgLogo" id="img9" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
+        </section>
+
+        <section class="listado" id="l10">
+            <p class="numListado">10. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>
+            <p class="operacion" id="10p"> 1 x 10 = </p>
+            <input id="10i" type="number">
+            <img class="imgLogo" id="img10" alt="" src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png">
+        </section> -->
+    </div>
+</body>
+</html>

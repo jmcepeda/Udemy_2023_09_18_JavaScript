@@ -1,0 +1,233 @@
+img {
+    width: 35%;
+    margin: 30px;
+}
+
+#contenedor {
+    width: 90%;
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+} 
+
+.listado {
+    width: 400px;
+    height: 15px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 75px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.resultado {
+    width: 400px;
+    height: 15px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+button{
+    border-radius: 10px;
+}
+
+#cambiaNombre {
+    height:  30px;
+    align-self: center;
+    
+}
+
+.balance {
+    width: 450px;
+    height: 50px;
+    margin-left: 50px;
+    align-items: center;
+    justify-self: center;
+}
+
+.contenedor {
+    width: 90%;
+    display: flex; 
+    justify-content: space-around;
+    margin-top: 15px;
+    margin-bottom: 15px;
+} 
+
+label {
+    margin-bottom: 10px;
+    margin-top: 60px;
+    font-size: larger;
+}
+
+select {
+    margin: bottom 30px;
+    margin-top: 10px;
+}
+
+section {
+    margin-right: 30px;
+    border: 5px;
+    border-style: solid;
+    border-radius: 30px;
+    background-color:#FFFDDD;
+    border-color:pink;
+    padding: 30px;
+
+}
+
+select {
+    font-size: large;
+}
+
+button {
+    font-size: larger;
+}
+
+h2 {
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue;
+    font-style: italic;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+h3 {
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3B48CB;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+p {
+    color: black;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+#numero {
+    width: 100px;
+    text-align-last: center;
+    /* align-content: center;
+    align-items: center; */
+}
+
+#repeticiones {
+    margin-top: 5px;
+    /* margin-left: 50px; */
+    width: 100px;
+}
+
+input {
+    width: 80px;
+    height: 40px;
+    font-size:1.8em;
+    font-weight: bolder;
+    text-align: center;
+
+}    
+
+section {
+    margin:10px;
+    padding:20px;
+    border-style:solid;
+    border-color:rgb(233, 48, 250);
+    border-radius: 20px;
+    width:500px;
+    background-color:blanchedalmond
+
+}
+
+li {
+    margin:15px;
+    font-size:x-large;
+    font-weight:bolder;
+}
+
+h1 {
+    color:blueviolet;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:x-large;
+    font-weight:bolder;
+    padding: 20px;
+    border-style:solid;
+    border-color:purple;
+    border-radius:10px;
+    width:250px;
+    background-color:white;
+}
+
+.tablaMultiplicar{
+    font-size: 2em;
+    font-weight: bolder;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:blue;
+    font-style: italic;
+}
+
+#l2 {
+    /* visibility: hidden; */
+} 
+
+#comprobrResultados{
+    margin-left: 180px;
+}
+.imgLogo {
+    width: 50px;
+}
+
+#contCentrar {
+    justify-items: center;
+}
+
+.numListado {
+    font-size: small;
+}
+
+.operacion {
+    font-size:x-large;
+    font-weight:bolder;
+}
+
+#bien{
+    color: #14C12E;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+#mal {
+    color:#EC2525;
+    font-size:xx-large;
+    font-weight: bolder;
+}
+
+#numBien{
+    color:#14C12E;
+    font-size: x-large;
+    font-weight: bolder;
+
+}
+
+#numMal {
+    color:#EC2525;
+    font-size: x-large;
+    font-weight: bolder;
+}
