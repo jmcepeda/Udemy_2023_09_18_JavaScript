@@ -142,6 +142,8 @@ function empezar(){
             }
             sectionId = "l"+numStr;
             eliminarListado(sectionId);
+            document.getElementById("numBien").textContent=0;
+            document.getElementById("numMal").textContent=0;
         }
         accion.textContent="Empezar"
     }
