@@ -37,9 +37,14 @@ img {
     margin-bottom: 3px;
 }
 
+button{
+    border-radius: 10px;
+}
+
 #cambiaNombre {
-    height:  10px;
+    height:  30px;
     align-self: center;
+    
 }
 
 .balance {

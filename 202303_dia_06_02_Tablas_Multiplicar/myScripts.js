@@ -90,6 +90,19 @@ function inserListado(i,num, multi){
 
 }
 
+function eliminarListado(sectionId) {
+
+    let container=document.getElementById("contCentrar");
+
+    // let section=document.getElementB
+
+    let section=document.getElementById(sectionId);
+    section.remove();
+
+
+
+}
+
 function empezar(){
 
     let num=Number(document.getElementById("numero").value);
@@ -97,18 +110,40 @@ function empezar(){
     let numerRepeticiones=Number(document.getElementById("repeticiones").value);
 
     console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
-    
-    let arrNum=[];
 
-    let arrRes=[];
+    let accion=document.getElementById("IdEmpezar");
 
-    let arrComp=[];
+    if (accion.textContent=="Empezar") {
+        let arrNum=[];
+        let arrRes=[];
+        let arrComp=[];
 
-    for (let i=1;i<=numerRepeticiones;i++){
-        arrNum[i-1]=aleatorio(arrNum);
-        console.log("arrNum" +arrNum);
-        inserListado(i,num,arrNum[i-1]);
+        for (let i=1;i<=numerRepeticiones;i++){
+            arrNum[i-1]=aleatorio(arrNum);
+            console.log("arrNum" +arrNum);
+            inserListado(i,num,arrNum[i-1]);
+        }
+        accion.textContent="Limpiar"
+    } else {
+        let numStr;
+        let sectionId;
+        for (let i=1;i<=numerRepeticiones;i++){
+            if(i<10){
+                numStr="0"+i;
+                console.log(numStr);
+            } else {
+                numStr=i.toString();
+                console.log(numStr);
+            }
+            sectionId = "l"+numStr;
+            eliminarListado(sectionId);
+        }
+        accion.textContent="Empezar"
     }
+
+    
+    
+    
 
     
 }
