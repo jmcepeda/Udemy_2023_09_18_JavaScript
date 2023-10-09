@@ -27,15 +27,7 @@ img {
     padding-right: 10px;
 }
 
-.resultado {
-    width: 400px;
-    height: 15px;
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 3px;
-    margin-bottom: 3px;
-}
+
 
 button{
     border-radius: 10px;
@@ -48,19 +40,12 @@ button{
 }
 
 #comprobarResultados{
-    background-color: #4cf010;
-    border-style: solid;
-    border-width: 4px;
-    border-color:#0fd819;
-    color:#41b616;
-    font-weight: bolder;
     padding: 10px;
     height: 60px;
     margin-left:180px;
-
 }
 
-#comprobarResultados:hover{
+/* #comprobarResultados:hover{
     background-color: #1075f048;
     border-style: solid;
     border-width: 4px;
@@ -71,12 +56,23 @@ button{
     height: 60px;
     margin-left:180px;
 
+} */
+
+.resultado {
+    width: 400px;
+    height: 40px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 .balance {
     width: 450px;
-    height: 70px;
-    padding-top: 25px;
+    height: 120px;
+    /* padding-top: 25px; */
+    padding: 10px;
     margin-left: 50px;
     align-items: center;
     justify-self: center;
@@ -169,9 +165,14 @@ input {
     margin-right:3px;
     padding-left: 3px;
     padding-right:3px;
-    
-
 }    
+
+p {
+    color: black;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
 
 section {
     margin:10px;
@@ -227,17 +228,7 @@ h1 {
     justify-items: center;
 }
 
-p {
-    color: black;
-    font-size: larger;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    /* text-align: center; */
-    /* padding-top:20px; */
-    /* padding-bottom:10px; */
-    /* align-content: center; */
-    vertical-align:bottom;
-}
+
 
 .numListado {
     font-size: small;
@@ -263,23 +254,27 @@ p {
     color: #14C12E;
     font-size: xx-large;
     font-weight: bolder;
+    margin-bottom: 0px;
 }
 
 #mal {
     color:#EC2525;
     font-size:xx-large;
     font-weight: bolder;
+    margin-bottom: 0px;
 }
 
 #numBien{
     color:#14C12E;
-    font-size: x-large;
+    font-size: 2.5em;
     font-weight: bolder;
+    margin-bottom: 0px;
 
 }
 
 #numMal {
     color:#EC2525;
-    font-size: x-large;
+    font-size: 2.5em;
     font-weight: bolder;
+    margin-bottom: 0px;
 }

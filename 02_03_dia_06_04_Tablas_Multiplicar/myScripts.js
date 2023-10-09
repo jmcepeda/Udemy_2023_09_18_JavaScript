@@ -156,6 +156,31 @@ function empezar(){
     
 }
 
+function todoBien() {
+    let nombre=document.getElementById("textoNombre").textContent;
+    console.log(nombre);
+    if (nombre==null) {
+        nombre="";
+    }
+
+    Swal.fire(
+        {
+            title: `Enhorabuena ${nombre}`,
+            text: `La Respuesta es CORRECTA`,
+            icon: "success",
+            imageUrl: "https://images.pexels.com/photos/751374/pexels-photo-751374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" ,
+            imageWidth: 400,
+            imageHeight: 200,
+            backdrop: `
+                rgba(0,0,123,0.4)
+                url("https://www.gifsanimados.org/cat-fuegos-artificiales-492.htm"><img src="https://www.gifsanimados.org/data/media/492/fuegos-artificiales-imagen-animada-0065.gif")
+            `
+        }
+    )
+
+    
+}
+
 function aleatorio (arrNum) {
     let num; 
     let random;
