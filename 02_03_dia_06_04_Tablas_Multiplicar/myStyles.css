@@ -47,6 +47,19 @@ button{
     
 }
 
+#comprobarResultados{
+    background-color: #64F332;
+    border-style: solid;
+    border-width: 4px;
+    border-color:#63DB69;
+    color:#5AC933;
+    font-weight: bolder;
+    padding: 10px;
+    height: 60px;
+    margin-left:180px;
+
+}
+
 .balance {
     width: 450px;
     height: 70px;
@@ -193,10 +206,6 @@ h1 {
     /* visibility: hidden; */
 } 
 
-#comprobrResultados{
-    margin-left: 180px;
-    height: 30px;
-}
 .imgLogo {
     width: 50px;
 }
