@@ -1,6 +1,6 @@
 img {
-    width: 35%;
-    margin: 30px;
+    width: 25px;
+    margin: 5px;
 }
 
 #contenedor {
@@ -232,6 +232,9 @@ p {
     /* align-content: center; */
 }
 
+.resultadoAlmacenado {
+    width: 0px;
+}
 
 
 #bien{

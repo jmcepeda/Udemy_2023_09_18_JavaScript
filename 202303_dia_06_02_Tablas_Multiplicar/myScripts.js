@@ -81,6 +81,7 @@ function inserListado(i,num, multi){
     PResDom.style="display:none";
     
     PResDom.textContent=num*multi;
+    PResDom.className="resultadoAlmacenado";
     console.log("Este es el resultado de multiplicar" + num + " x " + multi + "= " + num*multi + ". Debería ser esto en el textContent: " + PResDom.textContent);
 
 
