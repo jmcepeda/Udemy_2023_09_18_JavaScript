@@ -109,7 +109,7 @@ function eliminarListado(sectionId) {
     section.remove();
 }
 
-function empezar(){
+function empezar2(){
 
     let num=Number(document.getElementById("numero").value);
     
@@ -119,34 +119,39 @@ function empezar(){
 
     document.getElementById("numOperacReal").textCaption=numOperacionReal+1;
     
+    if ((numOperacionReal)<numerRepeticiones) {
+
     
-    if(numOperacion){
-        console.log("Continuamos por aquí");
-    }
-
-
-    console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
-
-    let accion=document.getElementById("IdEmpezar");
-
-    if (accion.textContent=="Empezar") {
-        let arrNum=[];
-        let arrRes=[];
-        let arrComp=[];
-
-        accion.textContent="Comprobar"
-
-        inserListado(i,num,arrNum[i-1]);
-
-        for (let i=1;i<=numerRepeticiones;i++){
-            arrNum[i-1]=aleatorio(arrNum);
-            console.log("arrNum" +arrNum);
-            inserListado(i,num,arrNum[i-1]);
+        if(numOperacion){
+            console.log("Continuamos por aquí");
         }
-        
-    } 
-    accion.textContent="Empezar"
+
+
+        console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
+
+        let accion=document.getElementById("IdEmpezar");
+
+        if (accion.textContent=="Empezar") {
+            let arrNum=[];
+            let arrRes=[];
+            let arrComp=[];
+
+            accion.textContent="Comprobar"
+
+            inserListado(i,num,arrNum[i-1]);
+
+            for (let i=1;i<=numerRepeticiones;i++){
+                arrNum[i-1]=aleatorio(arrNum);
+                console.log("arrNum" +arrNum);
+                inserListado(i,num,arrNum[i-1]);
+            }
+            
+        } 
+    } else {
+     
+        accion.textContent="Empezar"
     
+    }
     
 }
 
