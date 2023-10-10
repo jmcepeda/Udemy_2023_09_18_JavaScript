@@ -27,7 +27,10 @@ img {
     padding-right: 10px;
 }
 
-
+#numOperacReal {
+    visibility: hidden;
+    width: 0px;
+}
 
 button{
     border-radius: 10px;

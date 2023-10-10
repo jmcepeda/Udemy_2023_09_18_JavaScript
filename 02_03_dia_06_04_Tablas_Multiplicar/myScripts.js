@@ -115,6 +115,47 @@ function empezar(){
     
     let numerRepeticiones=Number(document.getElementById("repeticiones").value);
 
+    let numOperacionReal=Number(document.getElementById("numOperacReal").textCaption);
+
+    document.getElementById("numOperacReal").textCaption=numOperacionReal+1;
+    
+    
+    if(numOperacion){
+        console.log("Continuamos por aquí");
+    }
+
+
+    console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
+
+    let accion=document.getElementById("IdEmpezar");
+
+    if (accion.textContent=="Empezar") {
+        let arrNum=[];
+        let arrRes=[];
+        let arrComp=[];
+
+        accion.textContent="Comprobar"
+
+        inserListado(i,num,arrNum[i-1]);
+
+        for (let i=1;i<=numerRepeticiones;i++){
+            arrNum[i-1]=aleatorio(arrNum);
+            console.log("arrNum" +arrNum);
+            inserListado(i,num,arrNum[i-1]);
+        }
+        
+    } 
+    accion.textContent="Empezar"
+    
+    
+}
+
+function empezar(){
+
+    let num=Number(document.getElementById("numero").value);
+    
+    let numerRepeticiones=Number(document.getElementById("repeticiones").value);
+
     console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
 
     let accion=document.getElementById("IdEmpezar");
@@ -148,13 +189,10 @@ function empezar(){
         }
         accion.textContent="Empezar"
     }
-
-    
-    
-    
-
     
 }
+
+
 
 function todoBien() {
     let nombre=document.getElementById("textoNombre").textContent;
@@ -170,11 +208,7 @@ function todoBien() {
             icon: "success",
             imageUrl: "https://images.pexels.com/photos/751374/pexels-photo-751374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" ,
             imageWidth: 400,
-            imageHeight: 200,
-            backdrop: `
-                rgba(0,0,123,0.4)
-                url("https://www.gifsanimados.org/cat-fuegos-artificiales-492.htm"><img src="https://www.gifsanimados.org/data/media/492/fuegos-artificiales-imagen-animada-0065.gif")
-            `
+            imageHeight: 200
         }
     )
 
