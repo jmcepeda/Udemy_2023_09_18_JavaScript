@@ -66,7 +66,13 @@
     </section>
 
     <div id="contCentrar">
-        <section class="balance">
+
+        <button id="comprobarResultados" onclick="comprobarResultados()" type="button" class="btn btn-success">Comprobar Resultados </button>
+        <div id="contListado"></div>
+        <br>
+        <button type="button" class="btn btn-danger" onclick="todoBien()"> Exito</button>
+        
+        <section id="balance">
             <div class="resultado">
                 <p id="bien" >BIEN</p>
                 <p id="mal"> MAL</p>
@@ -77,11 +83,6 @@
             </div>
             
         </section>
-
-        <button id="comprobarResultados" onclick="comprobarResultados()" type="button" class="btn btn-success">Comprobar Resultados </button>
-        <br>
-        <button type="button" class="btn btn-danger" onclick="todoBien()"> Exito</button>
-    
 
         <!-- <section class="listado" id="l1">
             <p class="numListado">01. &nbsp &nbsp &nbsp &nbsp  &nbsp</p>

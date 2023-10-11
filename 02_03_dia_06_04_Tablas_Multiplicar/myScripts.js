@@ -42,7 +42,7 @@ function inserListado(i,num, multi){
     // let i=Number(numeroCaja);
 
 
-    let container = document.getElementById("contCentrar");
+    let container = document.getElementById("contListado");
     let section = document.createElement("section");
     let numStr;
 
@@ -61,35 +61,35 @@ function inserListado(i,num, multi){
     sectionDom.className="listado";
 
     let pId = document.createElement("p");
-    pId.id=numStr+"p";
+    pId.id="p"+numStr;
     pId.innerHTML=numStr+". &nbsp &nbsp";
     section.appendChild(pId);
 
-    let pIdDom=document.getElementById(numStr+"p");
+    let pIdDom=document.getElementById("p"+numStr);
     console.log("Probando Nombre de id de párrafo de Numero Listado:")
     console.log(pIdDom);
     console.log(pIdDom.id);
-    console.log(numStr + "p");
+    console.log("p"+numStr);
     pIdDom.className="numListado";
 
     let pOper = document.createElement("p");
-    pOper.id=numStr+"o";
+    pOper.id="o"+numStr;
     pOper.innerHTML=" &nbsp" + num + " x " + multi + " =  &nbsp ";
     section.appendChild(pOper);
-    let POperDom=document.getElementById(numStr + "o");
+    let POperDom=document.getElementById("o"+numStr);
     POperDom.className="operacion";
 
     let pRes = document.createElement("p");
-    pRes.id=numStr+"Res";
+    pRes.id="Res"+numStr;
     
     section.appendChild(pRes);
     
-    let PResDom=document.getElementById(numStr + "Res");
+    let PResDom=document.getElementById("Res"+numStr);
     PResDom.style="display:none";
     
     PResDom.textContent=num*multi;
     PResDom.className="resultadoAlmacenado";
-    console.log("Este es el resultado de multiplicar" + num + " x " + multi + "= " + num*multi + ". Debería ser esto en el textContent: " + PResDom.textContent);
+    //console.log("Este es el resultado de multiplicar" + num + " x " + multi + "= " + num*multi + ". Debería ser esto en el textContent: " + PResDom.textContent);
 
 
     let inputIn = document.createElement("input");
@@ -143,35 +143,81 @@ function empezar2(){
     if (accion.textContent=="Empezar") {
             // let arrNum=[];
 
-        document.getElementById("contenedorRepeticiones").style.visibility="visible";
-        document.getElementById("numero").disabled=true;
-        console.log("disabled=true")
-
-        accion.textContent="Comprobar";
-
         numOperacionReal=1;
+        document.getElementById("contenedorRepeticiones").style.visibility="visible";
+        document.getElementById("comprobarResultados").style.visibility="visible";
+        console.log("disabled=true");  
+        num=document.getElementById("numero").value;
+        console.log("Numero es: " + num + ". Numero de Repeticiones:" +numerRepeticiones );
+        document.getElementById("numOperacion").textContent=numOperacionReal;
+        document.getElementById("numTotalOpera").textContent=numerRepeticiones;
 
-        inserListado(numOperacionReal,num,arrNum[numOperacionReal-1]);
+        //document.getElementById()
+
+        accion.textContent="Terminar";
+
+        
+
+        
 
         for (let i=1;i<=numerRepeticiones;i++){
             arrRep[i-1]=i;
             arrNum[i-1]=aleatorio(arrNum);
             console.log("arrNum" +arrNum);
         }
+
+        inserListado(numOperacionReal,num,arrNum[numOperacionReal-1]);
+
         let i=1;
-        inserListado(i,num,arrNum[i-1]);
-            
-    } else if ((accion.textContent=="Comprobar") &&  (num<numerRepeticiones)) {
+        //inserListado(i,num,arrNum[i-1]);
         
     
-    } else if (((accion.textContent=="Comprobar") &&  (num<numerRepeticiones))) {
-        visibility="hidden";
-        accion.textContent="Empezar"
-        document.getElementById("numero").disabled=false;
-        arrRep=[];
-        arrNum=[];
-        arrRes=[];
-        arrComp=[];
+    } else if ((accion.textContent=="Terminar")) {
+        swal.fire({
+            title: "¿Estás Segura?",
+            text: "Una vez que hayas 'Terminado' se Eliminarán 'Todos' los Resultados y Tendrás que Empezar",
+            icon: "warning",
+            showCancelButton: true,   
+            confirmButtonColor: "#DD6B55",   
+            confirmButtonText: "Borrar Resultados",   
+            cancelButtonText: "Volver",  
+            confirmButtonColor: "#14C12", 
+            closeOnConfirm: false,   
+            closeOnCancel: false,
+            dangerMode: true,
+          },
+          function(isConfirm){   
+            if (isConfirm) {     
+                swal.fire("Han Sido Borrados todas los Resultados.", "success");  
+                document.getElementById("listaResultado").style.visibility="hidden";
+                document.getElementById("comprobarResultados").style.visibility="hidden";
+                document.getElementById("contenedorRepeticiones").style.visibility="hidden";
+                document.getElementById("balance").style.visibility="hidden";
+                accion.textContent="Empezar"
+                document.getElementById("numero").disabled=false;
+                sectionId = "l01";
+                eliminarListado(sectionId);
+                arrRep=[];
+                arrNum=[];
+                arrRes=[];
+                arrComp=[]; 
+            } else {     
+                swal.fire("Cancelled", "No se ha borrado ningun Resultado. Puedes Continuar", "error");   
+            } });
+
+        //   .then((willDelete) => {
+        //     if (willDelete) {
+        //       swal.fire("Han Sido Eliminadas todas los Resultados", {
+        //         icon: "success",
+        //       });
+                
+        //     } else {
+        //       swal.fire("No se ha borrado ningun Resultado. Puedes Continuar");
+        //     }
+        //   });
+                
+    } else if((numerRepeticiones==numOperacionReal)){
+        document.getElementById("balance").style.visibility="visible";
     }
     
 }
@@ -253,7 +299,7 @@ function aleatorio (arrNum) {
             num=1;
         }
         k=k+1;
-        console.log(k);
+        //console.log(k);
     } while ((arrNum.includes(num)==true));
     return num;
     
@@ -282,7 +328,7 @@ function comprobarResultados2(){
             console.log(numStr);
         }
         imgId = "img"+numStr;
-        pResId= numStr+ "Res";
+        pResId= "Res"+numStr;
         inputId="inp"+numStr;
 
         img=document.getElementById(imgId);
@@ -330,7 +376,7 @@ function comprobarResultados(){
             console.log(numStr);
         }
         imgId = "img"+numStr;
-        pResId= numStr+ "Res";
+        pResId= "Res"+numStr;
         inputId="inp"+numStr;
 
         img=document.getElementById(imgId);
