@@ -121,10 +121,11 @@ function empezar2(){
     
     if ((numOperacionReal)<numerRepeticiones) {
 
-    
-        if(numOperacion){
-            console.log("Continuamos por aquí");
+        if (numOperacionReal==0) {
+            
         }
+    
+        
 
 
         console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);

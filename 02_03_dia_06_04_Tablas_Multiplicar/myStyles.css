@@ -14,9 +14,13 @@ img {
     padding-bottom: 5px;
 } 
 
+#IdEmpezar{
+    margin-left: 50px;
+}
+
 .listado {
     width: 400px;
-    height: 40px;
+    height: 60px;
     display:flex;
     justify-content: space-around;
     align-items: center;
@@ -27,9 +31,22 @@ img {
     padding-right: 10px;
 }
 
-#numOperacReal {
+#listadoResultado{
+    margin-top: 0px;
+    padding-top: 5px;
+}
+
+/* #numOperacReal {
     visibility: hidden;
     width: 0px;
+} */
+
+#contenedorRepeticiones {
+    margin-top: 30px;
+    margin-bottom: 0px;
+    width: 80px;
+    height: 30px;
+    margin-left: 50px;
 }
 
 button{
@@ -248,6 +265,11 @@ h1 {
 #l2 {
     /* visibility: hidden; */
 } 
+
+#numOperac {
+    visibility:hidden;
+    width: 0px;
+}
 
 .imgLogo {
     width: 50px;
