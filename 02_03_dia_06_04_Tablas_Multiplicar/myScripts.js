@@ -1,3 +1,10 @@
+let arrRep=[];
+let arrNum=[];
+let arrRes=[];
+let arrComp=[];
+let num;
+let numOperacionReal;
+
 function cambiarNombre(){
     let nombre=prompt("POR FAVOR, ESCRIBE TU NOMBRE");
     document.getElementById("textoNombre").textContent=nombre.toUpperCase();
@@ -111,55 +118,69 @@ function eliminarListado(sectionId) {
 
 function empezar2(){
 
-    let num=Number(document.getElementById("numero").value);
-    
+    num=Number(document.getElementById("numero").value);
+
     let numerRepeticiones=Number(document.getElementById("repeticiones").value);
 
-    let numOperacionReal=Number(document.getElementById("numOperacReal").textCaption);
+    numOperacionReal=Number(document.getElementById("numOperacion").textCaption);
 
-    document.getElementById("numOperacReal").textCaption=numOperacionReal+1;
+    console.log("numOperacionReal es: " + numOperacionReal);
+
+    console.log("numerRepeticiones es: " + numerRepeticiones);
+
+    console.log("num es: " + num);
+
     
-    if ((numOperacionReal)<numerRepeticiones) {
 
-        if (numOperacionReal==0) {
-            
+    document.getElementById("numOperacion").textCaption=numOperacionReal+1;
+    
+  
+    
+    console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
+
+    let accion=document.getElementById("IdEmpezar");
+
+    if (accion.textContent=="Empezar") {
+            // let arrNum=[];
+
+        document.getElementById("contenedorRepeticiones").style.visibility="visible";
+        document.getElementById("numero").disabled=true;
+        console.log("disabled=true")
+
+        accion.textContent="Comprobar";
+
+        numOperacionReal=1;
+
+        inserListado(numOperacionReal,num,arrNum[numOperacionReal-1]);
+
+        for (let i=1;i<=numerRepeticiones;i++){
+            arrRep[i-1]=i;
+            arrNum[i-1]=aleatorio(arrNum);
+            console.log("arrNum" +arrNum);
         }
-    
-        
-
-
-        console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
-
-        let accion=document.getElementById("IdEmpezar");
-
-        if (accion.textContent=="Empezar") {
-            let arrNum=[];
-            let arrRes=[];
-            let arrComp=[];
-
-            accion.textContent="Comprobar"
-
-            inserListado(i,num,arrNum[i-1]);
-
-            for (let i=1;i<=numerRepeticiones;i++){
-                arrNum[i-1]=aleatorio(arrNum);
-                console.log("arrNum" +arrNum);
-                inserListado(i,num,arrNum[i-1]);
-            }
+        let i=1;
+        inserListado(i,num,arrNum[i-1]);
             
-        } 
-    } else {
-     
-        accion.textContent="Empezar"
+    } else if ((accion.textContent=="Comprobar") &&  (num<numerRepeticiones)) {
+        
     
+    } else if (((accion.textContent=="Comprobar") &&  (num<numerRepeticiones))) {
+        visibility="hidden";
+        accion.textContent="Empezar"
+        document.getElementById("numero").disabled=false;
+        arrRep=[];
+        arrNum=[];
+        arrRes=[];
+        arrComp=[];
     }
     
 }
 
 function empezar(){
 
-    let num=Number(document.getElementById("numero").value);
+    num=Number(document.getElementById("numero").value);
     
+    let numerOperacion=Number(document.getElementById("repeticiones").value);
     let numerRepeticiones=Number(document.getElementById("repeticiones").value);
 
     console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
@@ -167,7 +188,7 @@ function empezar(){
     let accion=document.getElementById("IdEmpezar");
 
     if (accion.textContent=="Empezar") {
-        let arrNum=[];
+        // let arrNum=[];
         let arrRes=[];
         let arrComp=[];
 
@@ -236,6 +257,54 @@ function aleatorio (arrNum) {
     } while ((arrNum.includes(num)==true));
     return num;
     
+}
+
+function comprobarResultados2(){
+
+    // let num=Number(document.getElementById("numero").value);
+    let numerRepeticiones=Number(document.getElementById("repeticiones").value);
+    let resBien=0;
+    let resMal=0;
+
+    let numStr;
+    let imgId;
+    let img;
+    let pResId;
+    let pRes;
+    let input;
+    let inputId;
+    for (let i=1;i<=numerRepeticiones;i++){
+        if(i<10){
+            numStr="0"+i;
+            console.log(numStr);
+        } else {
+            numStr=i.toString();
+            console.log(numStr);
+        }
+        imgId = "img"+numStr;
+        pResId= numStr+ "Res";
+        inputId="inp"+numStr;
+
+        img=document.getElementById(imgId);
+        pRes=document.getElementById(pResId);
+        console.log("Id es: " + inputId + " y este es el Objeto" + input);
+        input=document.getElementById(inputId);
+        console.log('Number(pRes.textContent): ' + Number(pRes.textContent));
+
+        console.log("Number(input.value): " + Number(input.value));
+
+        if (Number(pRes.textContent)==Number(input.value)) {
+            img.src="https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
+            resBien+=1;
+        } else {
+            img.src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
+            resMal+=1;
+        }
+        
+
+    }
+    document.getElementById("numBien").textContent=resBien;
+    document.getElementById("numMal").textContent=resMal;
 }
 
 function comprobarResultados(){

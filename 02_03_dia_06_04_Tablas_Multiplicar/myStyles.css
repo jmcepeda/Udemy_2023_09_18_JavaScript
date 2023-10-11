@@ -1,3 +1,8 @@
+#introduceDatos{
+    width: 550px;
+    margin-left: 50px;
+}
+
 img {
     width: 25px;
     margin: 5px;
@@ -19,7 +24,7 @@ img {
 }
 
 .listado {
-    width: 400px;
+    width: 500px;
     height: 60px;
     display:flex;
     justify-content: space-around;
@@ -31,9 +36,10 @@ img {
     padding-right: 10px;
 }
 
-#listadoResultado{
+#listaResultado{
     margin-top: 0px;
     padding-top: 5px;
+    margin-bottom: 0px;
 }
 
 /* #numOperacReal {
@@ -42,11 +48,12 @@ img {
 } */
 
 #contenedorRepeticiones {
-    margin-top: 30px;
+    margin-top: 5px;
     margin-bottom: 0px;
     width: 80px;
     height: 30px;
-    margin-left: 50px;
+    margin-left: 420px;
+    visibility:hidden;
 }
 
 button{
@@ -83,7 +90,7 @@ button{
 } */
 
 .resultado {
-    width: 400px;
+    width: 500px;
     height: 40px;
     display:flex;
     justify-content: space-around;
@@ -93,7 +100,7 @@ button{
 }
 
 .balance {
-    width: 450px;
+    width: 550px;
     height: 120px;
     /* padding-top: 25px; */
     padding: 10px;
@@ -327,5 +334,9 @@ h1 {
     color:#EC2525;
     font-size: 2.5em;
     font-weight: bolder;
+    margin-bottom: 0px;
+}
+
+section p {
     margin-bottom: 0px;
 }
