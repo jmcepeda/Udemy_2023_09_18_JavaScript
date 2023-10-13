@@ -333,37 +333,30 @@ function comprobarResultados2(){
     let pRes;
     let input;
     let inputId;
-    for (let i=1;i<=numerRepeticiones;i++){
-        if(i<10){
-            numStr="0"+i;
-            console.log(numStr);
-        } else {
-            numStr=i.toString();
-            console.log(numStr);
-        }
-        imgId = "img"+numStr;
-        pResId= "Res"+numStr;
-        inputId="inp"+numStr;
+    
+    img=document.getElementById("img01");
+    pRes=document.getElementById(pResId);
+    console.log("Id es: " + inputId + " y este es el Objeto" + input);
+    input=document.getElementById(inputId);
+    console.log('Number(pRes.textContent): ' + Number(pRes.textContent));
 
-        img=document.getElementById(imgId);
-        pRes=document.getElementById(pResId);
-        console.log("Id es: " + inputId + " y este es el Objeto" + input);
-        input=document.getElementById(inputId);
-        console.log('Number(pRes.textContent): ' + Number(pRes.textContent));
+    console.log("Number(input.value): " + Number(input.value));
 
-        console.log("Number(input.value): " + Number(input.value));
-
-        if (Number(pRes.textContent)==Number(input.value)) {
-            img.src="https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
-            resBien+=1;
-        } else {
-            img.src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
-            resMal+=1;
-        }
-        
-
+    if (Number(pRes.textContent)==Number(input.value)) {
+        img.src="https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
+        resBien+=1;
+    } else {
+        img.src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
+        resMal+=1;
     }
-    document.getElementById("numBien").textContent=resBien;
+    let arrRep=[];
+    let arrNum=[];
+    let arrRes=[];
+    let arrComp=[];
+    let num;
+    let numOperacionReal;
+
+    document.getElementById("numOperacion").textContent=numOperacionReal;
     document.getElementById("numMal").textContent=resMal;
 }
 
