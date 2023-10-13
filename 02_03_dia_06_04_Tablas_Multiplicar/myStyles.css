@@ -73,7 +73,7 @@ button{
 #comprobarResultados{
     padding: 10px;
     height: 60px;
-    margin-left:180px;
+    margin-left:250px;
 }
 
 /* #comprobarResultados:hover{
@@ -224,7 +224,7 @@ input {
     margin-right:3px;
     padding-left: 3px;
     padding-right:3px;
-    color: #14C12E;
+    color:#5B5D65;
 }    
 
 
