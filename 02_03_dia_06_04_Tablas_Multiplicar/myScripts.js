@@ -151,6 +151,8 @@ function empezar2(){
         console.log("Numero es: " + num + ". Numero de Repeticiones:" +numerRepeticiones );
         document.getElementById("numOperacion").textContent=numOperacionReal;
         document.getElementById("numTotalOpera").textContent=numerRepeticiones;
+        document.getElementById("repeticiones").disabled=true;
+        document.getElementById("numero").disabled=true;
 
         //document.getElementById()
 
@@ -177,18 +179,24 @@ function empezar2(){
             title: "¿Estás Segura?",
             text: "Una vez que hayas 'Terminado' se Eliminarán 'Todos' los Resultados y Tendrás que Empezar",
             icon: "warning",
-            showCancelButton: true,   
-            confirmButtonColor: "#DD6B55",   
-            confirmButtonText: "Borrar Resultados",   
-            cancelButtonText: "Volver",  
-            confirmButtonColor: "#14C12", 
-            closeOnConfirm: false,   
-            closeOnCancel: false,
-            dangerMode: true,
-          },
-          function(isConfirm){   
-            if (isConfirm) {     
-                swal.fire("Han Sido Borrados todas los Resultados.", "success");  
+            showDenyButton:true,
+            //showCancelButton:true,
+            confirmButtonText:'Borrar Resultados', 
+            denyButtonText:'Volver',
+            //confirmButtonColor: "#DD6B55",   
+            //confirmButtonText: "Borrar Resultados",   
+            //cancelButtonText: "Volver",  
+            denyButtonColor: "#14C12", 
+            // closeOnConfirm: false,   
+            // closeOnCancel: false,
+            //dangerMode: true,
+          }).then((result) =>{   
+            console.log("result.isConfirm: "+result.isConfirm);
+            if (result.isConfirmed) {     
+                swal.fire({
+                    title: "Han Sido Borrados todas los Resultados.",
+                    icon: "success"
+                });  
                 document.getElementById("listaResultado").style.visibility="hidden";
                 document.getElementById("comprobarResultados").style.visibility="hidden";
                 document.getElementById("contenedorRepeticiones").style.visibility="hidden";
@@ -197,12 +205,18 @@ function empezar2(){
                 document.getElementById("numero").disabled=false;
                 sectionId = "l01";
                 eliminarListado(sectionId);
+                document.getElementById("repeticiones").disabled=false;
+                document.getElementById("numero").disabled=false;
                 arrRep=[];
                 arrNum=[];
                 arrRes=[];
                 arrComp=[]; 
-            } else {     
-                swal.fire("Cancelled", "No se ha borrado ningun Resultado. Puedes Continuar", "error");   
+            } else if (result.isDenied) {     
+                swal.fire({
+                    title: "NO se ha Borrado ningún resultado. Puedes Continuar",
+                    text: "Continua Haciendo Multiplicaciones",
+                    icon: "sucess"
+                })   
             } });
 
         //   .then((willDelete) => {
