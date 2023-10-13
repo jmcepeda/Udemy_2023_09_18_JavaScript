@@ -4,6 +4,8 @@ let arrRes=[];
 let arrComp=[];
 let num;
 let numOperacionReal;
+let resBien=0;
+let resMal=0;
 
 function cambiarNombre(){
     let nombre=prompt("POR FAVOR, ESCRIBE TU NOMBRE");
@@ -211,6 +213,8 @@ function empezar2(){
                 arrNum=[];
                 arrRes=[];
                 arrComp=[]; 
+                resBien=0;
+                resMal=0;
             } else if (result.isDenied) {     
                 swal.fire({
                     title: "NO se ha Borrado ningún resultado. Puedes Continuar",
@@ -335,29 +339,31 @@ function comprobarResultados2(){
     let inputId;
     
     img=document.getElementById("img01");
-    pRes=document.getElementById(pResId);
+    pRes=document.getElementById("Res01");
     console.log("Id es: " + inputId + " y este es el Objeto" + input);
     input=document.getElementById(inputId);
     console.log('Number(pRes.textContent): ' + Number(pRes.textContent));
 
     console.log("Number(input.value): " + Number(input.value));
 
+    arrRes=[numOperacionReal-1]=input.value;
     if (Number(pRes.textContent)==Number(input.value)) {
         img.src="https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
         resBien+=1;
+        arrComp=[numOperacionReal-1]=true;
     } else {
         img.src="https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
         resMal+=1;
+        arrComp=[numOperacionReal-1]=true;
     }
-    let arrRep=[];
-    let arrNum=[];
-    let arrRes=[];
-    let arrComp=[];
-    let num;
-    let numOperacionReal;
+    //let arrRep=[];
+    //let arrNum=[];
+    
+    //let num;
+    //let numOperacionReal;
 
     document.getElementById("numOperacion").textContent=numOperacionReal;
-    document.getElementById("numMal").textContent=resMal;
+    //document.getElementById("numMal").textContent=resMal;
 }
 
 function comprobarResultados(){
