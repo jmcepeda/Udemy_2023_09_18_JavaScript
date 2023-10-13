@@ -4,6 +4,7 @@ let arrRes=[];
 let arrComp=[];
 let num;
 let numOperacionReal;
+let numerRepeticiones;
 let resBien=0;
 let resMal=0;
 
@@ -120,26 +121,7 @@ function eliminarListado(sectionId) {
 
 function empezar2(){
 
-    num=Number(document.getElementById("numero").value);
-
-    let numerRepeticiones=Number(document.getElementById("repeticiones").value);
-
-    numOperacionReal=Number(document.getElementById("numOperacion").textCaption);
-
-    console.log("numOperacionReal es: " + numOperacionReal);
-
-    console.log("numerRepeticiones es: " + numerRepeticiones);
-
-    console.log("num es: " + num);
-
     
-
-    document.getElementById("numOperacion").textCaption=numOperacionReal+1;
-    
-  
-    
-    console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
-
     let accion=document.getElementById("IdEmpezar");
 
     if (accion.textContent=="Empezar") {
@@ -155,6 +137,26 @@ function empezar2(){
         document.getElementById("numTotalOpera").textContent=numerRepeticiones;
         document.getElementById("repeticiones").disabled=true;
         document.getElementById("numero").disabled=true;
+
+        num=Number(document.getElementById("numero").value);
+
+        numerRepeticiones=Number(document.getElementById("repeticiones").value);
+
+
+        console.log("numOperacionReal es: " + numOperacionReal);
+
+        console.log("numerRepeticiones es: " + numerRepeticiones);
+
+        console.log("num es: " + num);
+
+    
+
+        document.getElementById("numOperacion").textCaption=numOperacionReal;
+    
+  
+    
+        console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
+
 
         //document.getElementById()
 
@@ -212,7 +214,10 @@ function empezar2(){
                 arrRep=[];
                 arrNum=[];
                 arrRes=[];
-                arrComp=[]; 
+                arrComp=[];
+                numerOperacion=0;
+                numOperacionReal=0;
+                numerRepeticiones=0;
                 resBien=0;
                 resMal=0;
             } else if (result.isDenied) {     
@@ -356,13 +361,61 @@ function comprobarResultados2(){
         resMal+=1;
         arrComp=[numOperacionReal-1]=true;
     }
+
+
     //let arrRep=[];
     //let arrNum=[];
     
     //let num;
     //let numOperacionReal;
 
-    document.getElementById("numOperacion").textContent=numOperacionReal;
+    if (numOperacionReal==numerRepeticiones) {
+        document.getElementById("listaResultado").style.visibility="hidden";
+        document.getElementById("comprobarResultados").style.visibility="hidden";
+        document.getElementById("contenedorRepeticiones").style.visibility="hidden";
+        document.getElementById("balance").style.visibility="hidden";
+        accion.textContent="Empezar"
+        document.getElementById("numero").disabled=false;
+        sectionId = "l01";
+        eliminarListado(sectionId);
+        document.getElementById("repeticiones").disabled=false;
+        document.getElementById("numero").disabled=false;
+        arrRep=[];
+        arrNum=[];
+        arrRes=[];
+        arrComp=[];
+        numerOperacion=0;
+        numOperacionReal=0;
+        numerRepeticiones=0;
+        resBien=0;
+        resMal=0;
+        if (resBien==numerRepeticiones) {
+            Swal.fire(
+                {
+                    title: `Enhorabuena ${nombre}`,
+                    text: `Todas las Respuesta han sido CORRECTAS`,
+                    icon: "success",
+                    imageUrl: "https://images.pexels.com/photos/751374/pexels-photo-751374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" ,
+                    imageWidth: 400,
+                    imageHeight: 200
+                }
+            )
+        } else {
+            Swal.fire(
+                {
+                    title: `Bien ${nombre}`,
+                    text: `Has tenido ${resBien} CORRECTAS y has tenido ${resMal} INCORRECTAS`,
+                    imageUrl: "https://images.pexels.com/photos/751374/pexels-photo-751374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" ,
+                    imageWidth: 400,
+                    imageHeight: 200
+                }
+            )
+        }
+    }
+    else {
+        document.getElementById("numOperacion").textContent=numOperacionReal+1;
+    }
+        
     //document.getElementById("numMal").textContent=resMal;
 }
 
