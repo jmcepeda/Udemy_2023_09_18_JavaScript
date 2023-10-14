@@ -228,16 +228,17 @@ function empezar2(){
                 })   
             } });
 
-        //   .then((willDelete) => {
-        //     if (willDelete) {
-        //       swal.fire("Han Sido Eliminadas todas los Resultados", {
-        //         icon: "success",
-        //       });
-                
-        //     } else {
-        //       swal.fire("No se ha borrado ningun Resultado. Puedes Continuar");
-        //     }
-        //   });
+        //    .then((willDelete) => {
+        //      if (willDelete) {
+        //        swal.fire({
+        //             title: "Han Sido Eliminadas todas los Resultados", 
+        //             text: "Puedes Empezar a hacer multiplicaciones Cuando Quieras",
+        //           icon: "success"
+        //        }); 
+        //      } else {
+        //        swal.fire("No se ha borrado ningun Resultado. Puedes Continuar");
+        //      }
+        //    });
                 
     } else if((numerRepeticiones==numOperacionReal)){
         document.getElementById("balance").style.visibility="visible";
@@ -266,7 +267,7 @@ function empezar(){
             console.log("arrNum" +arrNum);
             inserListado(i,num,arrNum[i-1]);
         }
-        accion.textContent="Limpiar"
+        accion.textContent="Limpiar";
     } else {
         let numStr;
         let sectionId;
@@ -283,7 +284,7 @@ function empezar(){
             document.getElementById("numBien").textContent=0;
             document.getElementById("numMal").textContent=0;
         }
-        accion.textContent="Empezar"
+        accion.textContent="Empezar";
     }
     
 }
@@ -380,6 +381,11 @@ function comprobarResultados2(){
         eliminarListado(sectionId);
         document.getElementById("repeticiones").disabled=false;
         document.getElementById("numero").disabled=false;
+        console.log("arrRep: " & arrRep);
+        console.log("arrNum: " & arrNum);
+        console.log("arrRes: " & arrRes);
+        console.log("arrComp: " & arrComp);
+        
         arrRep=[];
         arrNum=[];
         arrRes=[];
@@ -389,6 +395,7 @@ function comprobarResultados2(){
         numerRepeticiones=0;
         resBien=0;
         resMal=0;
+
         if (resBien==numerRepeticiones) {
             Swal.fire(
                 {
