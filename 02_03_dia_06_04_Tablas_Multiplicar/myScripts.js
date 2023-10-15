@@ -4,6 +4,7 @@ let arrRes = [];
 let arrComp = [];
 let num;
 let numOperacionReal;
+let numerRepeticiones
 let resBien = 0;
 let resMal = 0;
 
@@ -153,7 +154,7 @@ function empezar() {
 
     num = Number(document.getElementById("numero").value);
 
-    let numerRepeticiones = Number(document.getElementById("repeticiones").value);
+    numerRepeticiones = Number(document.getElementById("repeticiones").value);
 
     numOperacionReal = Number(document.getElementById("numOperacion").textCaption);
 
@@ -245,20 +246,20 @@ function comprobarResultados() {
     input = document.getElementById("inp01");
     console.log('Number(pRes.textContent): ' + Number(pRes.textContent));
 
-    numOperacionReal += 1;
-
     console.log("Number(input.value): " + Number(input.value));
 
     arrRes[numOperacionReal - 1] = input.value;
+
     console.log("arrRes" + arrRes);
+
     if (Number(pRes.textContent) == Number(input.value)) {
         img.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
         resBien += 1;
 
         arrComp[numOperacionReal - 1] = true;
-
-        console.log("resBien" + resBien);
-        console.log("arrComp" + arrComp);
+        
+        console.log("resBien:" + resBien);
+        console.log("arrComp: " + arrComp);
 
         Swal.fire(
             {
@@ -288,8 +289,39 @@ function comprobarResultados() {
     }
 
     if (numOperacionReal == numerRepeticiones) {
-
+        if (numerRepeticiones==resBien){
+            Swal.fire(
+                {
+                    title: `ENHORABUENA ${nombre}!!!!`,
+                    html: "Has Respondico CORRECTAMENTE las <strong><b style='color:green; font-size:xx-large'>" + numerRepeticiones + "</strong></b>" + " de la Tabla del <strong><b style='color:green; font-size:xx-large'>" + num + "</strong></b> te la Sabes muy Bien ",
+                    text: `Campeona!!`,
+                    icon: "sucess",
+                    imageUrl: cogerPurpurina(),
+                    imageWidth: 500,
+                    imageHeight: 300
+                }
+            )
+        } else {
+            Swal.fire(
+                {
+                    title: `Respuesta INCORRECTA ${nombre}`,
+                    html: "La respuesta Correcta es <strong><b style='color:green; font-size:xx-large'>" + num + " x " + arrNum[numOperacionReal] + " = " + num*arrNum[numOperacionReal] +"</strong></b>",
+                    text: `Sigue Intentándolo`,
+                    icon: "error",
+                    imageUrl: cogerTristeza(),
+                    imageWidth: 300,
+                    imageHeight: 150
+                }
+            )
+        }
     } else {
+        document.getElementById("p01").textCaption= arrRep[numOperacionReal-1]+ ". &nbsp &nbsp";
+        numOperacionReal += 1;
+        console.log("numOperacionReal: " + numOperacionReal);
+        console.log("arrNum:  " + arrNum);
+        document.getElementById("o01").textCaption= " &nbsp" + num + " x " + arrNum[numOperacionReal-1] + " =  &nbsp ";
+        document.getElementById("inp01").value="";
+        img.src="";
         document.getElementById("numOperacion").textContent = numOperacionReal;
     }
 
