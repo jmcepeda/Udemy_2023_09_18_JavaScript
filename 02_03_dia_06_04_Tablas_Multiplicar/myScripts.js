@@ -12,7 +12,7 @@ let resMal = 0;
 function muestraTabla() {
     let numero = Number(document.getElementById("numero").value);
     let listaUl = document.getElementById("listaResultado");
-    console.log(numero);
+    // console.log(numero);
 
     let first = listaUl.firstElementChild;
     while (first) {
@@ -23,7 +23,7 @@ function muestraTabla() {
     let item;
     for (i = 1; i <= 10; i++) {
         texto = `${numero} x ${i} = ${numero * i}`;
-        console.log(i);
+        // console.log(i);
         item = document.createElement("li");
         item.innerHTML = texto;
         listaUl.appendChild(item);
@@ -93,9 +93,9 @@ function inserListado(i, num, multi) {
 
     let imgIn = document.createElement("img");
     imgIn.id = "img" + numStr;
-    console.log(imgIn);
-    console.log(imgIn.id);
-    console.log(numStr);
+    // console.log(imgIn);
+    // console.log(imgIn.id);
+    // console.log(numStr);
     // imgIn.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
     section.appendChild(imgIn);
     let imgDom = document.getElementById("img" + numStr);
@@ -158,11 +158,11 @@ function empezar() {
 
     numOperacionReal = Number(document.getElementById("numOperacion").textCaption);
 
-    console.log("numOperacionReal es: " + numOperacionReal);
+    // console.log("numOperacionReal es: " + numOperacionReal);
 
-    console.log("numerRepeticiones es: " + numerRepeticiones);
+    // console.log("numerRepeticiones es: " + numerRepeticiones);
 
-    console.log("num es: " + num);
+    // console.log("num es: " + num);
 
 
 
@@ -170,7 +170,7 @@ function empezar() {
 
 
 
-    console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
+    // console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
 
     let accion = document.getElementById("IdEmpezar");
 
@@ -179,9 +179,9 @@ function empezar() {
         numOperacionReal = 1;
         document.getElementById("contenedorRepeticiones").style.visibility = "visible";
         document.getElementById("comprobarResultados").style.visibility = "visible";
-        console.log("disabled=true");
+        // console.log("disabled=true");
         num = document.getElementById("numero").value;
-        console.log("Numero es: " + num + ". Numero de Repeticiones:" + numerRepeticiones);
+        // console.log("Numero es: " + num + ". Numero de Repeticiones:" + numerRepeticiones);
         document.getElementById("numOperacion").textContent = numOperacionReal;
         document.getElementById("numTotalOpera").textContent = numerRepeticiones;
         document.getElementById("repeticiones").disabled = true;
@@ -192,7 +192,7 @@ function empezar() {
         for (let i = 1; i <= numerRepeticiones; i++) {
             arrRep[i - 1] = i;
             arrNum[i - 1] = aleatorio(arrNum);
-            console.log("arrNum" + arrNum);
+            // console.log("arrNum" + arrNum);
         }
 
         inserListado(numOperacionReal, num, arrNum[numOperacionReal - 1]);
@@ -244,22 +244,23 @@ function comprobarResultados() {
     img = document.getElementById("img01");
     pRes = document.getElementById("Res01");
     input = document.getElementById("inp01");
-    console.log('Number(pRes.textContent): ' + Number(pRes.textContent));
 
-    console.log("Number(input.value): " + Number(input.value));
+    // console.log('Number(pRes.textContent): ' + Number(pRes.textContent));
+
+    // console.log("Number(input.value): " + Number(input.value));
 
     arrRes[numOperacionReal - 1] = input.value;
 
-    console.log("arrRes" + arrRes);
+    console.log("arrRes: " + arrRes);
+
+    
+    img.style.visibility="visible";
 
     if (Number(pRes.textContent) == Number(input.value)) {
         img.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
         resBien += 1;
 
         arrComp[numOperacionReal - 1] = true;
-        
-        console.log("resBien:" + resBien);
-        console.log("arrComp: " + arrComp);
 
         Swal.fire(
             {
@@ -272,13 +273,14 @@ function comprobarResultados() {
             }
         )
     } else {
+
         img.src = "https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
         resMal += 1;
         arrComp[numOperacionReal - 1] = false;
         Swal.fire(
             {
                 title: `Respuesta INCORRECTA ${nombre}`,
-                html: "La respuesta Correcta es <strong><b style='color:green; font-size:xx-large'>" + num + " x " + arrNum[numOperacionReal] + " = " + num*arrNum[numOperacionReal] +"</strong></b>",
+                html: "La respuesta Correcta es <strong><b style='color:green; font-size:xx-large'>" + num + " x " + arrNum[numOperacionReal-1] + " = " + num*arrNum[numOperacionReal-1] +"</strong></b>",
                 text: `Sigue Intentándolo`,
                 icon: "error",
                 imageUrl: cogerTristeza(),
@@ -315,15 +317,38 @@ function comprobarResultados() {
             )
         }
     } else {
-        document.getElementById("p01").textCaption= arrRep[numOperacionReal-1]+ ". &nbsp &nbsp";
         numOperacionReal += 1;
-        console.log("numOperacionReal: " + numOperacionReal);
-        console.log("arrNum:  " + arrNum);
-        document.getElementById("o01").textCaption= " &nbsp" + num + " x " + arrNum[numOperacionReal-1] + " =  &nbsp ";
-        document.getElementById("inp01").value="";
-        img.src="";
+        console.log("Vamos a intentar actualizar el texto para preguntar por la segunda Operación");
+        console.log("numOperacionReal es: " + numOperacionReal);
+        console.log("arrRep[numOperacionReal-1] es: " + arrRep[numOperacionReal-1]);
+        
+        console.log(arrRep[numOperacionReal-1]+ ". &nbsp &nbsp");
+        let numStr;
+        if (arrRep[numOperacionReal-1] < 10) {
+            numStr = "0" + arrRep[numOperacionReal-1];
+            //console.log(numStr);
+        } else {
+            numStr = arrRep[numOperacionReal-1].toString();
+            //console.log(numStr);
+        }
+
+        document.getElementById("p01").innerHTML= numStr + ". &nbsp &nbsp";
+        document.getElementById("o01").innerHTML= " &nbsp" + num + " x " + arrNum[numOperacionReal-1] + " =  &nbsp ";
+        document.getElementById("inp01").value=null;
+        img.style.visibility="hidden";
         document.getElementById("numOperacion").textContent = numOperacionReal;
+        
     }
+
+    console.log("num: " + num);
+    console.log("numerRepeticiones: " + numerRepeticiones);
+    console.log("numOperacionReal: " + numOperacionReal);
+    console.log("resBien: " + resBien);
+    console.log("resMal: " + resMal);
+    console.log("arrRep: " + arrRep);
+    console.log("arrNum: " + arrNum);
+    console.log("arrRes: " + arrRes);
+    console.log("arrComp: " + arrComp);
 
 
 }
