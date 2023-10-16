@@ -35,7 +35,6 @@ function inserListado(i, num, multi) {
     // let numeroCaja=document.getElementById("numero").value;
     // let i=Number(numeroCaja);
 
-
     let container = document.getElementById("contListado");
     let section = document.createElement("section");
     let numStr;
@@ -164,11 +163,7 @@ function empezar() {
 
     // console.log("num es: " + num);
 
-
-
     document.getElementById("numOperacion").textCaption = numOperacionReal + 1;
-
-
 
     // console.log(`Número para el que se hace la Tabla: ${num}. Se van a hacer ${numerRepeticiones} repeticiones `);
 
@@ -198,7 +193,6 @@ function empezar() {
         inserListado(numOperacionReal, num, arrNum[numOperacionReal - 1]);
 
         let i = 1;
-
 
     } else if ((accion.textContent == "Terminar")) {
         swal.fire({
@@ -249,12 +243,12 @@ function comprobarResultados() {
     // alert("Number(pRes.textContent): " + Number(pRes.textContent));
     // alert("Number(input.value): " + Number(input.value));
 
-    alert("numOperacionReal: " + numOperacionReal + " - " + "numRepeticiones: " + numerRepeticiones);
+    //alert("numOperacionReal: " + numOperacionReal + " - " + "numRepeticiones: " + numerRepeticiones);
 
     console.log("arrRes: " + arrRes);
     img.style.visibility="visible";
 
-    alert("Number(pRes.textContent) == Number(input.value): " + (Number(pRes.textContent) == Number(input.value)));
+    //alert("Number(pRes.textContent) == Number(input.value): " + (Number(pRes.textContent) == Number(input.value)));
 
     if ((Number(pRes.textContent) === Number(input.value))==true) {
 
@@ -265,14 +259,15 @@ function comprobarResultados() {
 
         Swal.fire(
             {
-                title: `Enhorabuena ${nombre}`,
+                title: `Enhorabuena ${nombre}. Numero de Operación Real: ${numOperacionReal}`,
                 text: `La Respuesta es CORRECTA`,
                 icon: "success",
                 imageUrl: cogerPurpurina(),
                 imageWidth: 400,
                 imageHeight: 200
             }
-        )
+        );
+        alert("Respuesta Correcta!! Número de Operación Real:" + numOperacionReal);
     } else {
 
         img.src = "https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
@@ -280,15 +275,16 @@ function comprobarResultados() {
         arrComp[numOperacionReal - 1] = false;
         Swal.fire(
             {
-                title: `${nombre} Respuesta INCORRECTA `,
+                title: `${nombre} Respuesta INCORRECTA. Numero de Operación Real: ${numOperacionReal}`,
                 html: "La respuesta Correcta es <strong><b style='color:green; font-size:xx-large'>" + num + " x " + arrNum[numOperacionReal-1] + " = " + num*arrNum[numOperacionReal-1] +"</strong></b>",
-                text: `Sigue Intentándolo`,
+                text: "Sigue Intentándolo",
                 icon: "error",
                 imageUrl: cogerTristeza(),
                 imageWidth: 400,
                 imageHeight: 200
             }
-        )
+        );
+        alert("Respuesta Incorrecta!!. Número de Operación Real:" + numOperacionReal);
     }
 
     if (numOperacionReal == numerRepeticiones) {
@@ -296,26 +292,34 @@ function comprobarResultados() {
             Swal.fire(
                 {
                     title: `ENHORABUENA ${nombre}!!!!`,
-                    html: "De la Tabla del <strong><b style='color:blue; font-size:xx-large'>" + num + "</strong></b> <br> Has Respondico CORRECTAMENTE las <strong><b style='color:green; font-size:xx-large'>" + numerRepeticiones + "</strong></b>" + " <br>  Te la Sabes muy BIEN ",
+                    html: "Has Respondico CORRECTAMENTE las <strong><b style='color:green; font-size:xx-large'>" + numerRepeticiones + "</strong></b> Preguntas." + " <br>  Te Sabes muy BIEN la Tabla del <strong><b style='color:blue; font-size:xx-large'>" + num + "</strong></b>.",
                     text: `Campeona!!`,
                     icon: "sucess",
                     imageUrl: cogerPurpurina(),
                     imageWidth: 500,
                     imageHeight: 300
                 }
-            )
+            );
         } else {
+            let preguntasMal="Preguntas";
+            let preguntasBien="Preguntas";
+            if (resMal==1) {
+                preguntasMal="Pregunta";
+            }
+            if (resBien==1) {
+                preguntasBien="Pregunta";
+            }
             Swal.fire(
                 {
                     title: `Gracias por el Esfuerzo ${nombre}`,
-                    html: "De la Tabla del <strong><b style='color:Blue; font-size:xx-large'>" + num + "</strong></b> <br>  Has Respondido <strong><b style='color:green; font-size:xx-large'> BIEN " + resBien + "</strong></b> Preguntas" + "<br>  Has Respondico <strong><b style='color:red; font-size:xx-large'> MAL " + resMal + "</strong></b> preguntas",
+                    html: "De la Tabla del:  <strong><b style='color:Blue; font-size:xx-large'>" + num + "</strong></b> <br>  Has Respondido <strong><b style='color:green; font-size:xx-large'> BIEN: " + resBien + "</strong></b>. " + preguntasBien+ "." + "<br>  Has Respondico <strong><b style='color:red; font-size:xx-large'> MAL: " + resMal + "</strong></b>  " + preguntasMal + ".",
                     text: `Sigue Intentándolo`,
                     icon: "error",
                     imageUrl: cogerTristeza(),
                     imageWidth: 300,
                     imageHeight: 150
                 }
-            )
+            );
         }
         //document.getElementById("balance").style.visibility = "visible";
         eliminarListado("l01");
@@ -323,6 +327,13 @@ function comprobarResultados() {
         document.getElementById("numero").disabled = false;
         document.getElementById("contenedorRepeticiones").style.visibility="hidden";
         document.getElementById("comprobarResultados").style.visibility="hidden";
+        document.getElementById("IdEmpezar").textContent="Empezar";
+        resBien=0;
+        resMal=0;
+        arrComp=[];
+        arrNum=[];
+        arrRep=[];
+        arrRes=[];
 
         // document.getElementById("p01").innerHTML= numStr + ". &nbsp &nbsp";
         // document.getElementById("o01").innerHTML= " &nbsp" + num + " x " + arrNum[numOperacionReal-1] + " =  &nbsp ";
@@ -332,11 +343,11 @@ function comprobarResultados() {
         // document.getElementById("numOperacion").textContent = numOperacionReal;
     } else {
         numOperacionReal += 1;
-        console.log("Vamos a intentar actualizar el texto para preguntar por la segunda Operación");
-        console.log("numOperacionReal es: " + numOperacionReal);
-        console.log("arrRep[numOperacionReal-1] es: " + arrRep[numOperacionReal-1]);
+        //console.log("Vamos a intentar actualizar el texto para preguntar por la segunda Operación");
+        //console.log("numOperacionReal es: " + numOperacionReal);
+        //console.log("arrRep[numOperacionReal-1] es: " + arrRep[numOperacionReal-1]);
 
-        console.log(arrRep[numOperacionReal-1]+ ". &nbsp &nbsp");
+        //console.log(arrRep[numOperacionReal-1]+ ". &nbsp &nbsp");
         let numStr;
         if (arrRep[numOperacionReal-1] < 10) {
             numStr = "0" + arrRep[numOperacionReal-1];
@@ -355,17 +366,15 @@ function comprobarResultados() {
 
     }
 
-    console.log("num: " + num);
-    console.log("numerRepeticiones: " + numerRepeticiones);
-    console.log("numOperacionReal: " + numOperacionReal);
-    console.log("resBien: " + resBien);
-    console.log("resMal: " + resMal);
-    console.log("arrRep: " + arrRep);
-    console.log("arrNum: " + arrNum);
-    console.log("arrRes: " + arrRes);
-    console.log("arrComp: " + arrComp);
-
-
+    // console.log("num: " + num);
+    // console.log("numerRepeticiones: " + numerRepeticiones);
+    // console.log("numOperacionReal: " + numOperacionReal);
+    // console.log("resBien: " + resBien);
+    // console.log("resMal: " + resMal);
+    // console.log("arrRep: " + arrRep);
+    // console.log("arrNum: " + arrNum);
+    // console.log("arrRes: " + arrRes);
+    // console.log("arrComp: " + arrComp);
 }
 
 function limpiarTablero() {
