@@ -244,19 +244,20 @@ function comprobarResultados() {
     img = document.getElementById("img01");
     pRes = document.getElementById("Res01");
     input = document.getElementById("inp01");
-
-    // console.log('Number(pRes.textContent): ' + Number(pRes.textContent));
-
-    // console.log("Number(input.value): " + Number(input.value));
-
     arrRes[numOperacionReal - 1] = input.value;
 
-    console.log("arrRes: " + arrRes);
+    // alert("Number(pRes.textContent): " + Number(pRes.textContent));
+    // alert("Number(input.value): " + Number(input.value));
 
-    
+    alert("numOperacionReal: " + numOperacionReal + " - " + "numRepeticiones: " + numerRepeticiones);
+
+    console.log("arrRes: " + arrRes);
     img.style.visibility="visible";
 
-    if (Number(pRes.textContent) == Number(input.value)) {
+    alert("Number(pRes.textContent) == Number(input.value): " + (Number(pRes.textContent) == Number(input.value)));
+
+    if ((Number(pRes.textContent) === Number(input.value))==true) {
+
         img.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
         resBien += 1;
 
@@ -279,7 +280,7 @@ function comprobarResultados() {
         arrComp[numOperacionReal - 1] = false;
         Swal.fire(
             {
-                title: `Respuesta INCORRECTA ${nombre}`,
+                title: `${nombre} Respuesta INCORRECTA `,
                 html: "La respuesta Correcta es <strong><b style='color:green; font-size:xx-large'>" + num + " x " + arrNum[numOperacionReal-1] + " = " + num*arrNum[numOperacionReal-1] +"</strong></b>",
                 text: `Sigue Intentándolo`,
                 icon: "error",
@@ -295,7 +296,7 @@ function comprobarResultados() {
             Swal.fire(
                 {
                     title: `ENHORABUENA ${nombre}!!!!`,
-                    html: "Has Respondico CORRECTAMENTE las <strong><b style='color:green; font-size:xx-large'>" + numerRepeticiones + "</strong></b>" + " de la Tabla del <strong><b style='color:green; font-size:xx-large'>" + num + "</strong></b> te la Sabes muy Bien ",
+                    html: "De la Tabla del <strong><b style='color:blue; font-size:xx-large'>" + num + "</strong></b> <br> Has Respondico CORRECTAMENTE las <strong><b style='color:green; font-size:xx-large'>" + numerRepeticiones + "</strong></b>" + " <br>  Te la Sabes muy BIEN ",
                     text: `Campeona!!`,
                     icon: "sucess",
                     imageUrl: cogerPurpurina(),
@@ -306,8 +307,8 @@ function comprobarResultados() {
         } else {
             Swal.fire(
                 {
-                    title: `Respuesta INCORRECTA ${nombre}`,
-                    html: "La respuesta Correcta es <strong><b style='color:green; font-size:xx-large'>" + num + " x " + arrNum[numOperacionReal] + " = " + num*arrNum[numOperacionReal] +"</strong></b>",
+                    title: `Gracias por el Esfuerzo ${nombre}`,
+                    html: "De la Tabla del <strong><b style='color:Blue; font-size:xx-large'>" + num + "</strong></b> <br>  Has Respondido <strong><b style='color:green; font-size:xx-large'> BIEN " + resBien + "</strong></b> Preguntas" + "<br>  Has Respondico <strong><b style='color:red; font-size:xx-large'> MAL " + resMal + "</strong></b> preguntas",
                     text: `Sigue Intentándolo`,
                     icon: "error",
                     imageUrl: cogerTristeza(),
@@ -316,12 +317,25 @@ function comprobarResultados() {
                 }
             )
         }
+        //document.getElementById("balance").style.visibility = "visible";
+        eliminarListado("l01");
+        document.getElementById("repeticiones").disabled = false;
+        document.getElementById("numero").disabled = false;
+        document.getElementById("contenedorRepeticiones").style.visibility="hidden";
+        document.getElementById("comprobarResultados").style.visibility="hidden";
+
+        // document.getElementById("p01").innerHTML= numStr + ". &nbsp &nbsp";
+        // document.getElementById("o01").innerHTML= " &nbsp" + num + " x " + arrNum[numOperacionReal-1] + " =  &nbsp ";
+        // document.getElementById("inp01").value=null;
+        // document.getElementById("Res01").innerHTML=num*arrNum[numOperacionReal-1];
+        // img.style.visibility="hidden";
+        // document.getElementById("numOperacion").textContent = numOperacionReal;
     } else {
         numOperacionReal += 1;
         console.log("Vamos a intentar actualizar el texto para preguntar por la segunda Operación");
         console.log("numOperacionReal es: " + numOperacionReal);
         console.log("arrRep[numOperacionReal-1] es: " + arrRep[numOperacionReal-1]);
-        
+
         console.log(arrRep[numOperacionReal-1]+ ". &nbsp &nbsp");
         let numStr;
         if (arrRep[numOperacionReal-1] < 10) {
@@ -335,9 +349,10 @@ function comprobarResultados() {
         document.getElementById("p01").innerHTML= numStr + ". &nbsp &nbsp";
         document.getElementById("o01").innerHTML= " &nbsp" + num + " x " + arrNum[numOperacionReal-1] + " =  &nbsp ";
         document.getElementById("inp01").value=null;
+        document.getElementById("Res01").innerHTML=num*arrNum[numOperacionReal-1];
         img.style.visibility="hidden";
         document.getElementById("numOperacion").textContent = numOperacionReal;
-        
+
     }
 
     console.log("num: " + num);
