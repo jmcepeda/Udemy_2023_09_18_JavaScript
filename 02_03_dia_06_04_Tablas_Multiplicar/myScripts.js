@@ -194,115 +194,7 @@ function empezar() {
 
         let i = 1;
 
-    } else if ((accion.textContent == "Terminar")) {
-        swal.fire({
-            title: "¿Estás Segura?",
-            text: "Una vez que hayas 'Terminado' se Eliminarán 'Todos' los Resultados y Tendrás que Empezar",
-            icon: "error",
-            showDenyButton: true,
-            confirmButtonText: 'Borrar Resultados',
-            denyButtonText: 'Volver',
-            confirmButtonColor: "#C0392B",
-            denyButtonColor: "#3085d6",
-        }).then((result) => {
-            console.log("result.isConfirm: " + result.isConfirm);
-            if (result.isConfirmed) {
-                swal.fire({
-                    title: "Han Sido Borrados todas los Resultados.",
-                    icon: "success"
-                });
-                limpiarTablero();
-            } else if (result.isDenied) {
-                swal.fire({
-                    title: "NO se han Borrado los Resultados.",
-                    text: "Puedes Continuar Haciendo Multiplicaciones",
-                    icon: "sucess"
-                })
-            }
-        });
-
-    } else if ((numerRepeticiones == numOperacionReal)) {
-        document.getElementById("balance").style.visibility = "visible";
-    }
-
-}
-
-function comprobarResultados() {
-
-    let nombre = document.getElementById("textoNombre").value;
-    let img;
-    let pRes;
-    let input;
-    let inputId;
-
-    img = document.getElementById("img01");
-    pRes = document.getElementById("Res01");
-    input = document.getElementById("inp01");
-    arrRes[numOperacionReal - 1] = input.value;
-
-    // alert("Number(pRes.textContent): " + Number(pRes.textContent));
-    // alert("Number(input.value): " + Number(input.value));
-
-    //alert("numOperacionReal: " + numOperacionReal + " - " + "numRepeticiones: " + numerRepeticiones);
-
-    console.log("arrRes: " + arrRes);
-    img.style.visibility="visible";
-
-    //alert("Number(pRes.textContent) == Number(input.value): " + (Number(pRes.textContent) == Number(input.value)));
-
-    if ((Number(pRes.textContent) === Number(input.value))==true) {
-
-        img.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
-        resBien += 1;
-
-        arrComp[numOperacionReal - 1] = true;
-        alert("arrNum[numOperacionReal-1]: " + arrNum[numOperacionReal-1]);
-        alert(nombre);
-        alert(num);
-        Swal.fire(
-            {   title: "Comeme el Rabo Perra. Respuesta Correcta",
-                text: "Hasta los huevos"
-            }
-        );
-        Swal.fire(
-            {
-                title: `Enhorabuena ${nombre}. Numero de Operación Real: ${numOperacionReal}`,
-                text: `La Respuesta es CORRECTA`,
-                icon: "success",
-                imageUrl: cogerPurpurina(),
-                imageWidth: 400,
-                imageHeight: 200
-            }
-        );
-        alert("Respuesta Correcta!! Número de Operación Real:" + numOperacionReal);
-    } else {
-
-        img.src = "https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
-        resMal += 1;
-        arrComp[numOperacionReal - 1] = false;
-        alert("arrNum[numOperacionReal-1]: " + arrNum[numOperacionReal-1]);
-        alert(nombre);
-        alert(num);
-        Swal.fire({   
-            title: "Comeme el Rabo. Respuesta Incorrecta",
-            text: "Hasta los huevos"
-            }
-        );
-        Swal.fire(
-            {
-                title: `${nombre} Respuesta INCORRECTA. Numero de Operación Real: ${numOperacionReal}`,
-                html: "La respuesta Correcta es <strong><b style='color:green; font-size:xx-large'>" + num + " x " + arrNum[numOperacionReal-1] + " = " + num*arrNum[numOperacionReal-1] +"</strong></b>",
-                text: "Sigue Intentándolo",
-                icon: "error",
-                imageUrl: cogerTristeza(),
-                imageWidth: 400,
-                imageHeight: 200
-            }
-        );
-        alert("Respuesta Incorrecta!!. Número de Operación Real:" + numOperacionReal);
-    }
-
-    if (numOperacionReal == numerRepeticiones) {
+    } else if((accion.textContent == "Comprobar")){
         if (numerRepeticiones==resBien){
             Swal.fire(
                 {
@@ -336,8 +228,35 @@ function comprobarResultados() {
                 }
             );
         }
-        //document.getElementById("balance").style.visibility = "visible";
-        eliminarListado("l01");
+    } else if ((accion.textContent == "Terminar")) {
+        swal.fire({
+            title: "¿Estás Segura?",
+            text: "Una vez que hayas 'Terminado' se Eliminarán 'Todos' los Resultados y Tendrás que Empezar",
+            icon: "error",
+            showDenyButton: true,
+            confirmButtonText: 'Borrar Resultados',
+            denyButtonText: 'Volver',
+            confirmButtonColor: "#C0392B",
+            denyButtonColor: "#3085d6",
+        }).then((result) => {
+            console.log("result.isConfirm: " + result.isConfirm);
+            if (result.isConfirmed) {
+                swal.fire({
+                    title: "Han Sido Borrados todas los Resultados.",
+                    icon: "success"
+                });
+                limpiarTablero();
+            } else if (result.isDenied) {
+                swal.fire({
+                    title: "NO se han Borrado los Resultados.",
+                    text: "Puedes Continuar Haciendo Multiplicaciones",
+                    icon: "sucess"
+                })
+            }
+        });
+
+    } else if ((numerRepeticiones == numOperacionReal)) {
+        document.getElementById("balance").style.visibility = "visible";
         document.getElementById("repeticiones").disabled = false;
         document.getElementById("numero").disabled = false;
         document.getElementById("contenedorRepeticiones").style.visibility="hidden";
@@ -349,6 +268,87 @@ function comprobarResultados() {
         arrNum=[];
         arrRep=[];
         arrRes=[];
+    }
+
+}
+
+function comprobarResultados() {
+
+    let nombre = document.getElementById("textoNombre").value;
+    let img;
+    let pRes;
+    let input;
+    let inputId;
+
+    let accion=document.getElementById("IdEmpezar");
+
+    img = document.getElementById("img01");
+    pRes = document.getElementById("Res01");
+    input = document.getElementById("inp01");
+    arrRes[numOperacionReal - 1] = input.value;
+
+    // alert("Number(pRes.textContent): " + Number(pRes.textContent));
+    // alert("Number(input.value): " + Number(input.value));
+
+    //alert("numOperacionReal: " + numOperacionReal + " - " + "numRepeticiones: " + numerRepeticiones);
+
+    console.log("arrRes: " + arrRes);
+    img.style.visibility="visible";
+
+    //alert("Number(pRes.textContent) == Number(input.value): " + (Number(pRes.textContent) == Number(input.value)));
+
+    if ((Number(pRes.textContent) === Number(input.value))==true) {
+
+        img.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
+        resBien += 1;
+
+        arrComp[numOperacionReal - 1] = true;
+        // alert("arrNum[numOperacionReal-1]: " + arrNum[numOperacionReal-1]);
+        // alert(nombre);
+        // alert(num);
+        Swal.fire(
+            {
+                title: `Enhorabuena ${nombre}.`,
+                text: `La Respuesta es CORRECTA`,
+                icon: "success",
+                imageUrl: cogerPurpurina(),
+                imageWidth: 400,
+                imageHeight: 200
+            }
+        );
+        // alert("Respuesta Correcta!! Número de Operación Real:" + numOperacionReal);
+    } else {
+
+        img.src = "https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
+        resMal += 1;
+        arrComp[numOperacionReal - 1] = false;
+        // alert("arrNum[numOperacionReal-1]: " + arrNum[numOperacionReal-1]);
+        // alert(nombre);
+        // alert(num);
+        Swal.fire({   
+            title: "Comeme el Rabo. Respuesta Incorrecta",
+            text: "Hasta los huevos"
+            }
+        );
+        Swal.fire(
+            {
+                title: `${nombre} Respuesta INCORRECTA.`,
+                html: "La respuesta Correcta es <strong><b style='color:green; font-size:xx-large'>" + num + " x " + arrNum[numOperacionReal-1] + " = " + num*arrNum[numOperacionReal-1] +"</strong></b>",
+                text: "Sigue Intentándolo",
+                icon: "error",
+                imageUrl: cogerTristeza(),
+                imageWidth: 400,
+                imageHeight: 200
+            }
+        );
+        alert("Respuesta Incorrecta!!. Número de Operación Real:" + numOperacionReal);
+    }
+
+    if (numOperacionReal == numerRepeticiones) {
+        
+        //document.getElementById("balance").style.visibility = "visible";
+        eliminarListado("l01");
+        accion.textContent == "Comprobar"
 
         // document.getElementById("p01").innerHTML= numStr + ". &nbsp &nbsp";
         // document.getElementById("o01").innerHTML= " &nbsp" + num + " x " + arrNum[numOperacionReal-1] + " =  &nbsp ";
