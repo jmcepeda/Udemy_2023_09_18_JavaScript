@@ -157,6 +157,8 @@ function empezar() {
 
     numOperacionReal = Number(document.getElementById("numOperacion").textCaption);
 
+    let nombre=document.getElementById("textoNombre").value;
+
     // console.log("numOperacionReal es: " + numOperacionReal);
 
     // console.log("numerRepeticiones es: " + numerRepeticiones);
@@ -194,7 +196,7 @@ function empezar() {
 
         let i = 1;
 
-    } else if((accion.textContent == "Comprobar")){
+    } else if((accion.textContent == "Repasar")){
         if (numerRepeticiones==resBien){
             Swal.fire(
                 {
@@ -228,6 +230,10 @@ function empezar() {
                 }
             );
         }
+        //document.getElementById("comprobarResultados").style.visibility="hidden";
+        //Tengo que hacer que se muestren todos los resultados con su imagen
+        //Tengo que mostrar el Balance con el Total de Bien y Mal
+        //Seguir mañana por aquí
     } else if ((accion.textContent == "Terminar")) {
         swal.fire({
             title: "¿Estás Segura?",
@@ -274,13 +280,15 @@ function empezar() {
 
 function comprobarResultados() {
 
-    let nombre = document.getElementById("textoNombre").value;
+    
     let img;
     let pRes;
     let input;
     let inputId;
 
-    let accion=document.getElementById("IdEmpezar");
+    let nombre=document.getElementById("textoNombre").value;
+
+    //let accion=document.getElementById("IdEmpezar");
 
     img = document.getElementById("img01");
     pRes = document.getElementById("Res01");
@@ -325,11 +333,6 @@ function comprobarResultados() {
         // alert("arrNum[numOperacionReal-1]: " + arrNum[numOperacionReal-1]);
         // alert(nombre);
         // alert(num);
-        Swal.fire({   
-            title: "Comeme el Rabo. Respuesta Incorrecta",
-            text: "Hasta los huevos"
-            }
-        );
         Swal.fire(
             {
                 title: `${nombre} Respuesta INCORRECTA.`,
@@ -341,14 +344,17 @@ function comprobarResultados() {
                 imageHeight: 200
             }
         );
-        alert("Respuesta Incorrecta!!. Número de Operación Real:" + numOperacionReal);
+        //alert("Respuesta Incorrecta!!. Número de Operación Real:" + numOperacionReal);
     }
 
     if (numOperacionReal == numerRepeticiones) {
         
         //document.getElementById("balance").style.visibility = "visible";
         eliminarListado("l01");
-        accion.textContent == "Comprobar"
+        document.getElementById("IdEmpezar").textContent="Repasar";
+        document.getElementById("comprobarResultados").style.visibility="hidden";
+        document.getElementById("contenedorRepeticiones").style.visibility="hidden";
+
 
         // document.getElementById("p01").innerHTML= numStr + ". &nbsp &nbsp";
         // document.getElementById("o01").innerHTML= " &nbsp" + num + " x " + arrNum[numOperacionReal-1] + " =  &nbsp ";
