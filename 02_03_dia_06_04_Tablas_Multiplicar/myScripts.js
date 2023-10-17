@@ -257,6 +257,13 @@ function comprobarResultados() {
 
         arrComp[numOperacionReal - 1] = true;
         alert("arrNum[numOperacionReal-1]: " + arrNum[numOperacionReal-1]);
+        alert(nombre);
+        alert(num);
+        Swal.fire(
+            {   title: "Comeme el Rabo Perra. Respuesta Correcta",
+                text: "Hasta los huevos"
+            }
+        );
         Swal.fire(
             {
                 title: `Enhorabuena ${nombre}. Numero de Operación Real: ${numOperacionReal}`,
@@ -274,6 +281,13 @@ function comprobarResultados() {
         resMal += 1;
         arrComp[numOperacionReal - 1] = false;
         alert("arrNum[numOperacionReal-1]: " + arrNum[numOperacionReal-1]);
+        alert(nombre);
+        alert(num);
+        Swal.fire({   
+            title: "Comeme el Rabo. Respuesta Incorrecta",
+            text: "Hasta los huevos"
+            }
+        );
         Swal.fire(
             {
                 title: `${nombre} Respuesta INCORRECTA. Numero de Operación Real: ${numOperacionReal}`,
