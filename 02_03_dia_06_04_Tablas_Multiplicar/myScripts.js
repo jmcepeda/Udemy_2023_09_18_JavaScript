@@ -256,7 +256,7 @@ function comprobarResultados() {
         resBien += 1;
 
         arrComp[numOperacionReal - 1] = true;
-
+        alert("arrNum[numOperacionReal-1]: " + arrNum[numOperacionReal-1]);
         Swal.fire(
             {
                 title: `Enhorabuena ${nombre}. Numero de Operación Real: ${numOperacionReal}`,
@@ -273,6 +273,7 @@ function comprobarResultados() {
         img.src = "https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
         resMal += 1;
         arrComp[numOperacionReal - 1] = false;
+        alert("arrNum[numOperacionReal-1]: " + arrNum[numOperacionReal-1]);
         Swal.fire(
             {
                 title: `${nombre} Respuesta INCORRECTA. Numero de Operación Real: ${numOperacionReal}`,
@@ -312,10 +313,10 @@ function comprobarResultados() {
             Swal.fire(
                 {
                     title: `Gracias por el Esfuerzo ${nombre}`,
-                    html: "De la Tabla del:  <strong><b style='color:Blue; font-size:xx-large'>" + num + "</strong></b> <br>  Has Respondido <strong><b style='color:green; font-size:xx-large'> BIEN: " + resBien + "</strong></b>. " + preguntasBien+ "." + "<br>  Has Respondico <strong><b style='color:red; font-size:xx-large'> MAL: " + resMal + "</strong></b>  " + preguntasMal + ".",
+                    html: "De la Tabla del:  <strong><b style='color:Blue; font-size:xx-large'>" + num + "</strong></b>. <br>  Has Respondido <strong><b style='color:green; font-size:xx-large'> BIEN: " + resBien + "</strong></b> " + preguntasBien + "." + "<br>  Has Respondido <strong><b style='color:red; font-size:xx-large'> MAL: " + resMal + "</strong></b>  " + preguntasMal + ".",
                     text: `Sigue Intentándolo`,
-                    icon: "error",
-                    imageUrl: cogerTristeza(),
+                    //icon: "error",
+                    imageUrl: cogerAnimo(),
                     imageWidth: 300,
                     imageHeight: 150
                 }
@@ -416,6 +417,27 @@ function cogerPurpurina() {
     let aleatorio = Math.round(Math.random() * 10);
 
     return purpurina[aleatorio];
+
+}
+
+function cogerAnimo() {
+
+    let animo = [
+        "https://images.pexels.com/photos/4792492/pexels-photo-4792492.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/1646953/pexels-photo-1646953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/7676849/pexels-photo-7676849.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/5415778/pexels-photo-5415778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/7676306/pexels-photo-7676306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/3865712/pexels-photo-3865712.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/235990/pexels-photo-235990.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/36478/amazing-beautiful-beauty-blue.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/2531237/pexels-photo-2531237.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    ]
+    let aleatorio = Math.round(Math.random() * 10);
+
+    return animo[aleatorio];
 
 }
 
