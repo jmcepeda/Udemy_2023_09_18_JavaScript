@@ -4,7 +4,7 @@ let arrRes = [];
 let arrComp = [];
 let num;
 let numOperacionReal;
-let numerRepeticiones
+let numerRepeticiones;
 let resBien = 0;
 let resMal = 0;
 
@@ -89,6 +89,8 @@ function inserListado(i, num, multi) {
     inputIn.id = "inp" + numStr;
     inputIn.type = "number";
     section.appendChild(inputIn);
+    let InputDom = document.getElementById("inp" + numStr);
+    InputDom.className = "inputResultado";
 
     let imgIn = document.createElement("img");
     imgIn.id = "img" + numStr;
@@ -99,6 +101,84 @@ function inserListado(i, num, multi) {
     section.appendChild(imgIn);
     let imgDom = document.getElementById("img" + numStr);
     imgDom.className = "imgLogo";
+
+}
+
+function hacerRepaso(i, num, multi, res, compro){
+    let container = document.getElementById("contListado");
+    let section = document.createElement("section");
+    let numStr;
+    i+=1;
+    if (i < 10) {
+        numStr = "0" + i;
+        console.log(numStr);
+    } else {
+        numStr = i.toString();
+        console.log(numStr);
+    }
+
+    section.id = "l" + numStr;
+    section.className = "listado";
+    container.appendChild(section);
+    let sectionDom = document.getElementById("l" + numStr);
+    sectionDom.className = "listado";
+
+    let pId = document.createElement("p");
+    pId.id = "p" + numStr;
+    pId.innerHTML = numStr + ". &nbsp &nbsp";
+    section.appendChild(pId);
+
+    let pIdDom = document.getElementById("p" + numStr);
+    console.log("Probando Nombre de id de párrafo de Numero Listado:")
+    console.log(pIdDom);
+    console.log(pIdDom.id);
+    console.log("p" + numStr);
+    pIdDom.className = "numListado";
+
+    let pOper = document.createElement("p");
+    pOper.id = "o" + numStr;
+    pOper.innerHTML = " &nbsp" + num + " x " + multi + " =  &nbsp ";
+    section.appendChild(pOper);
+    let POperDom = document.getElementById("o" + numStr);
+    POperDom.className = "operacion";
+
+    let pRes = document.createElement("p");
+    pRes.id = "Res" + numStr;
+
+    section.appendChild(pRes);
+
+    let PResDom = document.getElementById("Res" + numStr);
+    PResDom.style = "display:none";
+
+    PResDom.textContent = num * multi;
+    PResDom.className = "resultadoAlmacenado";
+    //console.log("Este es el resultado de multiplicar" + num + " x " + multi + "= " + num*multi + ". Debería ser esto en el textContent: " + PResDom.textContent);
+
+
+    let inputIn = document.createElement("input");
+    inputIn.id = "inp" + numStr;
+    inputIn.type = "number";
+    section.appendChild(inputIn);
+    let InputDom = document.getElementById("inp" + numStr);
+    InputDom.className = "inputResultado";
+
+    let imgIn = document.createElement("img");
+    imgIn.id = "img" + numStr;
+    // console.log(imgIn);
+    // console.log(imgIn.id);
+    // console.log(numStr);
+    // imgIn.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
+    section.appendChild(imgIn);
+    let imgDom = document.getElementById("img" + numStr);
+    imgDom.className = "imgLogo";
+
+    inputIn.value=res;
+
+    if(compro==true){
+        imgDom.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
+    } else {
+        imgDom.src = "https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
+    }
 
 }
 
@@ -153,8 +233,6 @@ function empezar() {
 
     num = Number(document.getElementById("numero").value);
 
-    numerRepeticiones = Number(document.getElementById("repeticiones").value);
-
     numOperacionReal = Number(document.getElementById("numOperacion").textCaption);
 
     let nombre=document.getElementById("textoNombre").value;
@@ -172,7 +250,7 @@ function empezar() {
     let accion = document.getElementById("IdEmpezar");
 
     if (accion.textContent == "Empezar") {
-
+        numerRepeticiones = Number(document.getElementById("repeticiones").value);
         numOperacionReal = 1;
         document.getElementById("contenedorRepeticiones").style.visibility = "visible";
         document.getElementById("comprobarResultados").style.visibility = "visible";
@@ -234,6 +312,14 @@ function empezar() {
         //Tengo que hacer que se muestren todos los resultados con su imagen
         //Tengo que mostrar el Balance con el Total de Bien y Mal
         //Seguir mañana por aquí
+        for (let k=0;k<numerRepeticiones;k++){
+            hacerRepaso(k,num,arrNum[k],arrRes[k],arrComp[k]);
+        }
+        accion.textContent = "Terminar";
+        alert("Estoy Cambiado el Texto del Boton de Accion:" + accion.textContent == "Terminar");
+        document.getElementById("balance").style.visibility="visible";
+        document.getElementById("numBien").textContent=resBien;
+        document.getElementById("numMal").textContent=resMal;
     } else if ((accion.textContent == "Terminar")) {
         swal.fire({
             title: "¿Estás Segura?",
@@ -345,6 +431,14 @@ function comprobarResultados() {
             }
         );
         //alert("Respuesta Incorrecta!!. Número de Operación Real:" + numOperacionReal);
+        //Tengo que insertar los errores para repasarlos
+        arrNum.push(arrNum[numOperacionReal-1]);
+        arrRep.push(numerRepeticiones+1);
+        numerRepeticiones+=1;
+        document.getElementById("numTotalOpera").textContent=numerRepeticiones;
+        //alert("numerRepeticiones: " + numerRepeticiones);
+        //alert("resBien: " + resBien);
+
     }
 
     if (numOperacionReal == numerRepeticiones) {

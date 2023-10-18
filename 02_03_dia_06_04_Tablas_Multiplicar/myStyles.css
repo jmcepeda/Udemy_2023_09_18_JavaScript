@@ -229,7 +229,8 @@ input {
 }    
 
 
-#inp01 {
+
+.inputResultado {
     width: 100px;
     height: 70px;
     font-size:3rem;
@@ -242,6 +243,7 @@ input {
     padding-left: 3px;
     padding-right:3px;
 }    
+
 
 p {
     color: black;
