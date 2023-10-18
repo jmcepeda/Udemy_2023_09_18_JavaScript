@@ -282,6 +282,7 @@ function empezar() {
         document.getElementById("numero").disabled = true;
 
         accion.textContent = "Terminar";
+        document.getElementById("tabla").disabled=true;
 
         for (let i = 1; i <= numerRepeticiones; i++) {
             arrRep[i - 1] = i;
@@ -362,6 +363,7 @@ function empezar() {
                 document.getElementById("IdEmpezar").textContent="Empezar";
                 document.getElementById("repeticiones").disabled = false;
                 document.getElementById("numero").disabled = false;
+                document.getElementById("tabla").disabled=false;
                 resBien=0;
                 resMal=0;
                 arrRep=[];
