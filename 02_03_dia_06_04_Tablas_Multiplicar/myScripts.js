@@ -118,7 +118,7 @@ function hacerRepaso(i, num, multi, res, compro){
     }
 
     section.id = "l" + numStr;
-    section.className = "listado";
+    //section.className = "listado";
     container.appendChild(section);
     let sectionDom = document.getElementById("l" + numStr);
     sectionDom.className = "listado";
@@ -187,6 +187,25 @@ function eliminarListado(sectionId) {
     let container = document.getElementById("contCentrar");
     let section = document.getElementById(sectionId);
     section.remove();
+}
+
+function eliminarTodosListados () {
+   let numStr;
+   let sectionId;
+   alert("Se Inicia la Eliminacion de las Secciones")
+    for (let i=1;i<=numerRepeticiones;i++) {
+        if (i < 10) {
+            numStr = "0" + i;
+            console.log(numStr);
+        } else {
+            numStr = i.toString();
+            console.log(numStr);
+        }
+        
+        sectionId = "l" + numStr;
+        alert("sectionId: " +sectionId);
+        document.getElementById(sectionId).remove();
+    }   
 }
 
 
@@ -316,7 +335,7 @@ function empezar() {
             hacerRepaso(k,num,arrNum[k],arrRes[k],arrComp[k]);
         }
         accion.textContent = "Terminar";
-        alert("Estoy Cambiado el Texto del Boton de Accion:" + accion.textContent == "Terminar");
+        //alert("Estoy Cambiado el Texto del Boton de Accion:" + accion.textContent == "Terminar");
         document.getElementById("balance").style.visibility="visible";
         document.getElementById("numBien").textContent=resBien;
         document.getElementById("numMal").textContent=resMal;
@@ -337,7 +356,19 @@ function empezar() {
                     title: "Han Sido Borrados todas los Resultados.",
                     icon: "success"
                 });
-                limpiarTablero();
+                //limpiarTablero();
+                eliminarTodosListados();
+                document.getElementById("balance").style.visibility="hidden";
+                document.getElementById("IdEmpezar").textContent="Empezar";
+                document.getElementById("repeticiones").disabled = false;
+                document.getElementById("numero").disabled = false;
+                resBien=0;
+                resMal=0;
+                arrRep=[];
+                arrNum=[];
+                arrRes=[];
+                arrComp=[];
+
             } else if (result.isDenied) {
                 swal.fire({
                     title: "NO se han Borrado los Resultados.",
