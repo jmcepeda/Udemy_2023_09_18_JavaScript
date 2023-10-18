@@ -192,7 +192,7 @@ function eliminarListado(sectionId) {
 function eliminarTodosListados () {
    let numStr;
    let sectionId;
-   alert("Se Inicia la Eliminacion de las Secciones")
+   //alert("Se Inicia la Eliminacion de las Secciones")
     for (let i=1;i<=numerRepeticiones;i++) {
         if (i < 10) {
             numStr = "0" + i;
@@ -203,7 +203,7 @@ function eliminarTodosListados () {
         }
         
         sectionId = "l" + numStr;
-        alert("sectionId: " +sectionId);
+        //alert("sectionId: " +sectionId);
         document.getElementById(sectionId).remove();
     }   
 }
