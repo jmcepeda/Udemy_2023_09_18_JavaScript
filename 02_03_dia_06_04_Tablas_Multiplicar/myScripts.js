@@ -292,6 +292,7 @@ function empezar() {
 
         inserListado(numOperacionReal, num, arrNum[numOperacionReal - 1]);
 
+        document.getElementById("inp01").focus();
         let i = 1;
 
     } else if((accion.textContent == "Repasar")){
@@ -423,7 +424,7 @@ function comprobarResultados() {
     img.style.visibility="visible";
 
     //alert("Number(pRes.textContent) == Number(input.value): " + (Number(pRes.textContent) == Number(input.value)));
-
+    document.getElementById("inp01").focus();
     if ((Number(pRes.textContent) === Number(input.value))==true) {
 
         img.src = "https://cdn-icons-png.flaticon.com/512/6785/6785304.png";
@@ -444,6 +445,7 @@ function comprobarResultados() {
             }
         );
         // alert("Respuesta Correcta!! Número de Operación Real:" + numOperacionReal);
+        document.getElementById("inp01").focus();
     } else {
 
         img.src = "https://cdn-icons-png.flaticon.com/512/3572/3572260.png";
@@ -469,6 +471,8 @@ function comprobarResultados() {
         arrRep.push(numerRepeticiones+1);
         numerRepeticiones+=1;
         document.getElementById("numTotalOpera").textContent=numerRepeticiones;
+        
+
         //alert("numerRepeticiones: " + numerRepeticiones);
         //alert("resBien: " + resBien);
 
@@ -511,9 +515,14 @@ function comprobarResultados() {
         document.getElementById("Res01").innerHTML=num*arrNum[numOperacionReal-1];
         img.style.visibility="hidden";
         document.getElementById("numOperacion").textContent = numOperacionReal;
+        //alert("Focus en Input");
+        document.getElementById("inp01").focus();
 
     }
-
+    if (numOperacionReal!=numerRepeticiones) {
+        console.log("Focus en Iput");
+        document.getElementById("inp01").focus();
+    }
     // console.log("num: " + num);
     // console.log("numerRepeticiones: " + numerRepeticiones);
     // console.log("numOperacionReal: " + numOperacionReal);
