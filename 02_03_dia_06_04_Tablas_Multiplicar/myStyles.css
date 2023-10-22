@@ -8,6 +8,8 @@ img {
     margin: 5px;
 }
 
+
+
 #contenedor {
     width: 90%;
     display: flex; 
@@ -207,6 +209,7 @@ h3 {
     margin-top: 5px;
     /* margin-left: 50px; */
     width: 100px;
+    text-align-last: center;
 }
 
 #comprobarResultados{
@@ -336,6 +339,11 @@ h1 {
     width: 0px;
 }
 
+#textoNombre {
+    width: 100px;
+    font-size: x-large;
+    height: 80px;
+}
 
 #bien{
     color: #14C12E;

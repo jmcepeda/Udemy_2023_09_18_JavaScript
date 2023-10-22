@@ -10,23 +10,41 @@ let resMal = 0;
 
 
 function muestraTabla() {
-    let numero = Number(document.getElementById("numero").value);
-    let listaUl = document.getElementById("listaResultado");
-    // console.log(numero);
 
-    let first = listaUl.firstElementChild;
-    while (first) {
-        first.remove();
-        first = listaUl.firstElementChild;
-    }
+    let muestraTabla = document.getElementById("tabla");
 
-    let item;
-    for (i = 1; i <= 10; i++) {
-        texto = `${numero} x ${i} = ${numero * i}`;
-        // console.log(i);
-        item = document.createElement("li");
-        item.innerHTML = texto;
-        listaUl.appendChild(item);
+    if (muestraTabla.textContent == "Muestra Tabla") {
+        numerRepeticiones = Number(document.getElementById("repeticiones").value);
+        numOperacionReal = 1;
+        let numero = Number(document.getElementById("numero").value);
+        let listaUl = document.getElementById("listaResultado");
+        // console.log(numero);
+
+        let first = listaUl.firstElementChild;
+        while (first) {
+            first.remove();
+            first = listaUl.firstElementChild;
+        }
+
+        let item;
+        for (i = 1; i <= 10; i++) {
+            texto = `${numero} x ${i} = ${numero * i}`;
+            // console.log(i);
+            item = document.createElement("li");
+            item.innerHTML = texto;
+            listaUl.appendChild(item);
+        }
+        document.getElementById("tabla").textContent="Borra Tabla";
+
+    } else if (muestraTabla.textContent == "Borra Tabla") {
+        let listaUl = document.getElementById("listaResultado");
+
+        if (listaUl.hasChildNodes()) {
+            while (listaUl.firstChild) {
+                listaUl.removeChild(listaUl.firstChild);
+            }
+        }
+        document.getElementById("tabla").textContent="Muestra Tabla";
     }
 }
 
@@ -250,6 +268,7 @@ function aleatorio(arrNum) {
 
 function empezar() {
 
+    let muestraTabla=document.getElementById("tabla");
     num = Number(document.getElementById("numero").value);
 
     numOperacionReal = Number(document.getElementById("numOperacion").textCaption);
@@ -294,6 +313,17 @@ function empezar() {
 
         document.getElementById("inp01").focus();
         let i = 1;
+
+        if (muestraTabla.textContent == "Borra Tabla") {
+            let listaUl = document.getElementById("listaResultado");
+    
+            if (listaUl.hasChildNodes()) {
+                while (listaUl.firstChild) {
+                    listaUl.removeChild(listaUl.firstChild);
+                }
+            }
+            document.getElementById("tabla").textContent="Muestra Tabla";
+        }
 
     } else if((accion.textContent == "Repasar")){
         if (numerRepeticiones==resBien){
