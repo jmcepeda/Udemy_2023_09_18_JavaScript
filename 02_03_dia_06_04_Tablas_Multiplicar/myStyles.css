@@ -340,9 +340,11 @@ h1 {
 }
 
 #textoNombre {
-    width: 100px;
+    width: 120px;
     font-size: x-large;
-    height: 80px;
+    height: 60px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 #bien{
