@@ -3,10 +3,11 @@ let arrNum = [];
 let arrRes = [];
 let arrComp = [];
 let num;
-let numOperacionReal;
+let numOperacionReal=0;
 let numerRepeticiones;
 let resBien = 0;
 let resMal = 0;
+let resumen=false;
 
 
 function muestraTabla() {
@@ -271,7 +272,7 @@ function empezar() {
     let muestraTabla=document.getElementById("tabla");
     num = Number(document.getElementById("numero").value);
 
-    numOperacionReal = Number(document.getElementById("numOperacion").textCaption);
+    //numOperacionReal = Number(document.getElementById("numOperacion").textCaption);
 
     let nombre=document.getElementById("textoNombre").value;
 
@@ -326,6 +327,7 @@ function empezar() {
         }
 
     } else if((accion.textContent == "Repasar")){
+        resumen=true;
         if (numerRepeticiones==resBien){
             Swal.fire(
                 {
@@ -390,9 +392,16 @@ function empezar() {
                 });
                 //limpiarTablero();
                 //alert("Se está eliminando Todo y Preparando para Empezar de nuevo");
-                // eliminarTodosListados();
+                // ;
                 // Codigo Anterior
-                eliminarListado("l01");
+                console.log("Numero de Repeticiones: " + numerRepeticiones);
+                console.log("Numero de Operacion Real: " + numOperacionReal);
+                // if (numerRepeticiones == numOperacionReal) {
+                if (resumen==true) {
+                    eliminarTodosListados();
+                } else {
+                    eliminarListado("l01");
+                }
                 document.getElementById("balance").style.visibility="hidden";
                 document.getElementById("IdEmpezar").textContent="Empezar";
                 document.getElementById("repeticiones").disabled = false;
