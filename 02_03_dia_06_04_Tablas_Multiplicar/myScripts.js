@@ -389,7 +389,7 @@ function empezar() {
                     icon: "success"
                 });
                 //limpiarTablero();
-                alert("Se está eliminando Todo y Preparando para Empezar de nuevo");
+                //alert("Se está eliminando Todo y Preparando para Empezar de nuevo");
                 // eliminarTodosListados();
                 // Codigo Anterior
                 eliminarListado("l01");
