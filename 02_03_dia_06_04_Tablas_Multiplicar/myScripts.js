@@ -389,18 +389,24 @@ function empezar() {
                     icon: "success"
                 });
                 //limpiarTablero();
-                eliminarTodosListados();
+                alert("Se está eliminando Todo y Preparando para Empezar de nuevo");
+                // eliminarTodosListados();
+                // Codigo Anterior
+                eliminarListado("l01");
                 document.getElementById("balance").style.visibility="hidden";
                 document.getElementById("IdEmpezar").textContent="Empezar";
                 document.getElementById("repeticiones").disabled = false;
                 document.getElementById("numero").disabled = false;
                 document.getElementById("tabla").disabled=false;
+                document.getElementById("comprobarResultados").style.visibility="hidden";
+                document.getElementById("contenedorRepeticiones").style.visibility="hidden";
                 resBien=0;
                 resMal=0;
                 arrRep=[];
                 arrNum=[];
                 arrRes=[];
                 arrComp=[];
+
 
             } else if (result.isDenied) {
                 swal.fire({
