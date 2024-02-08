@@ -1,0 +1,40 @@
+POST http://localhost:3000/cursos/programacion HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 14,
+    "titulo": "Javascript HyperAvanzado",   
+    "lenguaje": "javascript",
+    "visitas": 300,
+    "nivel": "avanzado"
+}
+
+###############
+
+PUT http://localhost:3000/cursos/programacion/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 10,
+    "titulo": "Python Mega Ultra Avanzado",   
+    "lenguaje": "python",
+    "visitas": 696969,
+    "nivel": "avanzado"
+}
+
+###############
+
+PATCH http://localhost:3000/cursos/programacion/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "titulo": "Python INTERMEDIO Mejorado",   
+    "visitas": 888888
+}
+
+###############
+
+DELETE http://localhost:3000/cursos/programacion/6 HTTP/1.1
+
+
+

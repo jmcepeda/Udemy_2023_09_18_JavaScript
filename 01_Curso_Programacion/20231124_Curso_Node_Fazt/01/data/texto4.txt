@@ -1,0 +1,1 @@
+Este es el cuarto FICHERO, que creamos con fs. En este caso le pasamos el contenido del texto como una variable. Este es el Texto que quiero añadir, este es el texto que se va a añadir, no va a sustituir el texto del fichero existente. Va a Añadirese.

@@ -1,0 +1,21 @@
+{
+  "name": "20231124_curso_node_fazt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon main.js",
+    "start": "node main.js",
+    "cowsay": "./node_modules/.bin/cowsay Hola Vaca",
+    "cowhe": "cowsay Hello Vaca" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "color": "^4.2.3",
+    "colors": "^1.4.0",
+    "cowsay": "^1.5.0"
+  }
+}
