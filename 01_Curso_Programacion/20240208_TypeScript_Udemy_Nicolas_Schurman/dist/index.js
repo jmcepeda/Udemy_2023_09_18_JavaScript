@@ -51,4 +51,67 @@ var Talla3;
     Talla3["Grande"] = "l";
     Talla3["ExtraGrande"] = "xl";
 })(Talla3 || (Talla3 = {}));
+let s = "s";
+let m = "m";
+let l = "l";
+let xl = "xl";
+let msg = `Rabo de toro ${mediana}`;
+const objeto = { id: 1, nombre: "Chanchito Feliz" };
+objeto.nombre = "Hola Mundo";
+const objeto2 = {
+    id: 1,
+    nombre: "Chanchito Feliz"
+};
+const objeto3 = {
+    id: 1,
+    nombre: "Jose"
+};
+const objeto4 = {
+    id: 2
+};
+objeto4.nombre = "Alberto";
+const objeto5 = {
+    id: 2
+};
+const objeto6 = {
+    id: 2,
+    nombre: "Gabriel",
+    talla: "s"
+};
+const objeto7 = {
+    id: 2,
+    nombre: "Gabriel",
+    talla: "s"
+};
+const objeto8 = {
+    id: 2,
+    nombre: "Gabriel",
+    talla: "s",
+    direccion: {
+        municipio: "Santiponce",
+        calle: "Antonio Machado",
+        numero: 10
+    }
+};
+console.log(`Esta es la dirección de mi Vivienda: c/${objeto8.direccion.calle} num: ${objeto8.direccion.numero}, ${objeto8.direccion.municipio}`);
+const objeto9 = {
+    id: 2,
+    nombre: "Gabriel",
+    talla: "s",
+    direccion: {
+        municipio: "Sevilla",
+        calle: "Honderos",
+        numero: 3
+    }
+};
+console.log(`Esta es la dirección de mi Vivienda: c/${objeto9.direccion.calle} num: ${objeto9.direccion.numero}, ${objeto9.direccion.municipio}`);
+const listPers = [];
+console.log(`Esta es la Talla Obtenida del Objeto con Tipo de Dato Talla (Enum): ${objeto6.talla}`);
+const acceso = (edad, msg = "Duro") => {
+    if (edad >= 18)
+        return `Rabo de Toro ${msg}`;
+    else
+        return `Toma del frasco Carrasco`;
+};
+console.log(acceso(15, "Duro"));
 //# sourceMappingURL=index.js.map
