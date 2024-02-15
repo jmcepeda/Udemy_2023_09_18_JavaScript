@@ -187,3 +187,49 @@ const acceso: (a: number, msg: string)=> string = (edad: number, msg:string="Dur
 }
 
 console.log(acceso(15,"Duro"))
+
+function otra(input: string): boolean {
+    if (input=="Hola") 
+        return true
+    else 
+        return false
+}
+
+console.log(`Primera Prueba Funcion definida como function: ${otra("Hola")}`)
+
+console.log(`Segunda Prueba Funcion definida como function: ${otra("Rabo")}`)
+
+// Hay un tipo de datos que se usa exclusivamente cuando se van a utilizar funciones que devolveran ERRORES
+// Este tipo de Dato es "never"
+
+function ErrorUsuario(): never { // Es muy importante destacar que esta funciones solo devolveran error / despacharán error.
+    // Al devolver never, estamos indicando que esta función no puede devolver nada, está pensada exclusivamente para gestionar/lanzar algún tipo de error.
+    throw new Error("Error de Usuario")
+}
+
+
+
+//Union type, es cuando podemos hacer uso de dos tipos de variables para una misma variable
+
+let puntaje: number | string | boolean | Talla4=98;
+
+puntaje="Hola Mundo";
+
+//Union type, no solo sirve para tipos primitivos, también sirve para todos los tipos
+
+type Animal={
+    id: number,
+    estado: string
+}
+
+type Usuario= {
+    id: number,
+    name: string
+}
+
+let animal: Animal | Usuario ={id: 1, estado: "Vivo"}
+let animal2: Animal | Usuario ={id: 1, estado: "Vivo", name: "Jose"}
+
+console.log(`Imprimiendo por Pantalla el Objeto Animal: ${animal.estado}`)
+
+console.log(ErrorUsuario())

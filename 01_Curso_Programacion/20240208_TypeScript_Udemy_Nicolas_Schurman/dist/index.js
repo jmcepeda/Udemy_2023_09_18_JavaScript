@@ -114,4 +114,21 @@ const acceso = (edad, msg = "Duro") => {
         return `Toma del frasco Carrasco`;
 };
 console.log(acceso(15, "Duro"));
+function otra(input) {
+    if (input == "Hola")
+        return true;
+    else
+        return false;
+}
+console.log(`Primera Prueba Funcion definida como function: ${otra("Hola")}`);
+console.log(`Segunda Prueba Funcion definida como function: ${otra("Rabo")}`);
+function ErrorUsuario() {
+    throw new Error("Error de Usuario");
+}
+let puntaje = 98;
+puntaje = "Hola Mundo";
+let animal = { id: 1, estado: "Vivo" };
+let animal2 = { id: 1, estado: "Vivo", name: "Jose" };
+console.log(`Imprimiendo por Pantalla el Objeto Animal: ${animal.estado}`);
+console.log(ErrorUsuario());
 //# sourceMappingURL=index.js.map
