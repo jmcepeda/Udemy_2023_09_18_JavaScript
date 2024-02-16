@@ -130,5 +130,26 @@ puntaje = "Hola Mundo";
 let animal = { id: 1, estado: "Vivo" };
 let animal2 = { id: 1, estado: "Vivo", name: "Jose" };
 console.log(`Imprimiendo por Pantalla el Objeto Animal: ${animal.estado}`);
+function suma2(n) {
+    if (typeof (n) === "number") {
+        return n + 2;
+    }
+    else {
+        if (Number.isNaN(parseInt(n))) {
+            return 33 + 2;
+        }
+        else {
+            return parseInt(n) + 2;
+        }
+    }
+}
+console.log(`Estamos escribiendo resultado de funcrion suma2(): ${suma2("Porra")}`);
+console.log(`Estamos escribiendo resultado de funcrion suma2(): ${suma2(5)}`);
 console.log(ErrorUsuario());
+let chanchito = "feliz";
+const product = {
+    created_at: "",
+    modified_at: "",
+    name: ""
+};
 //# sourceMappingURL=index.js.map

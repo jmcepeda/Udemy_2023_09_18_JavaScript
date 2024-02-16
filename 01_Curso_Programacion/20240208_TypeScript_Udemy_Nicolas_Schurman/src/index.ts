@@ -232,4 +232,38 @@ let animal2: Animal | Usuario ={id: 1, estado: "Vivo", name: "Jose"}
 
 console.log(`Imprimiendo por Pantalla el Objeto Animal: ${animal.estado}`)
 
+function suma2(n: number | string): number {
+    if(typeof(n)==="number"){
+        return n+2
+    } else {
+        if(Number.isNaN(parseInt(n))){
+            return 33 +2
+        } else {
+            return parseInt(n)+2
+        }
+    }
+}
+console.log(`Estamos escribiendo resultado de funcrion suma2(): ${suma2("Porra")}`)
+console.log(`Estamos escribiendo resultado de funcrion suma2(): ${suma2(5)}`)
+
 console.log(ErrorUsuario())
+
+// Vamos a Analizar Ahora como Funcionan los Tipos de Variables 'Intersection type'
+
+let chanchito: number | string = "feliz" 
+
+type Audit = {
+    created_at: string,
+    modified_at: string
+}
+
+type Product ={
+    name: string
+}
+
+// Este es un objeto de Tipo Intersection TypeError. Este Objeto contiene las propiedades de los dos Tipos
+const product: Audit & Product = {
+    created_at: "",
+    modified_at: "",
+    name: ""
+}
