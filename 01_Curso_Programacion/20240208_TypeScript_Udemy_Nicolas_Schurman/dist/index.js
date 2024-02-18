@@ -145,11 +145,91 @@ function suma2(n) {
 }
 console.log(`Estamos escribiendo resultado de funcrion suma2(): ${suma2("Porra")}`);
 console.log(`Estamos escribiendo resultado de funcrion suma2(): ${suma2(5)}`);
-console.log(ErrorUsuario());
 let chanchito = "feliz";
 const product = {
     created_at: "",
     modified_at: "",
     name: ""
 };
+const nDeFibo = 3;
+function toNumber(s) {
+    if (s) {
+        return parseInt(s);
+    }
+    else {
+        return 0;
+    }
+}
+const n = toNumber(null);
+const n2 = toNumber(undefined);
+function getUser(id) {
+    if (id < 0) {
+        return null;
+    }
+    else {
+        return {
+            id: id,
+            name: "Felipe",
+            create_at: new Date()
+        };
+    }
+}
+const userJose = getUser(-1);
+console.log('Usuario: ', userJose === null || userJose === void 0 ? void 0 : userJose.create_at);
+if (userJose && (userJose === null || userJose === void 0 ? void 0 : userJose.create_at)) {
+    console.log('Usuario: ', userJose === null || userJose === void 0 ? void 0 : userJose.create_at);
+}
+else {
+    console.log('Usuario: No Existe ');
+}
+const arr1 = null;
+console.log(arr1 === null || arr1 === void 0 ? void 0 : arr1[0]);
+const fn5 = null;
+console.log(fn5 === null || fn5 === void 0 ? void 0 : fn5());
+const Rabito = () => {
+    console.log("Rabito Bien Duro de la Function fn()");
+};
+function cb(fn) {
+    if (fn) {
+        fn();
+    }
+}
+cb(Rabito);
+const difficulty = null;
+const difficulty2 = 0;
+const user2 = {
+    username: "chanchito feliz",
+    difficulty: difficulty !== null && difficulty !== void 0 ? difficulty : 1
+};
+const user3 = {
+    username: "Chanchito Feliz Perreador",
+    difficulty: difficulty2 !== null && difficulty2 !== void 0 ? difficulty2 : 1
+};
+console.log("Difficulty: ", user2.difficulty);
+console.log(user2);
+console.log(user3);
+const elem2 = null;
+const elem3 = elem2;
+function lala(x) {
+    if (typeof (x) === "number") {
+        return x.toString();
+    }
+    if (typeof (x) === "string") {
+        return x.endsWith("s");
+    }
+    return "Usa un tipo de Dato Valido para la function lala()";
+}
+console.log("Function lala() con un number: ", lala(33));
+console.log("Function lala() con un string: ", lala("Rabito duro"));
+function procesa(algo) {
+    if (typeof algo === "string") {
+        return algo.toUpperCase();
+    }
+    if (typeof algo === "number") {
+        return algo.toString();
+    }
+    return "Introduce un tipo de dato correcto";
+}
+console.log("Resultado de la funcion procesa(): ", procesa("Amapola"));
+console.log("Resultado de la funcion procesa(): ", procesa(44));
 //# sourceMappingURL=index.js.map

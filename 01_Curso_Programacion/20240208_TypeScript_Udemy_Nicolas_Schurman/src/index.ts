@@ -246,7 +246,7 @@ function suma2(n: number | string): number {
 console.log(`Estamos escribiendo resultado de funcrion suma2(): ${suma2("Porra")}`)
 console.log(`Estamos escribiendo resultado de funcrion suma2(): ${suma2(5)}`)
 
-console.log(ErrorUsuario())
+// console.log(ErrorUsuario())
 
 // Vamos a Analizar Ahora como Funcionan los Tipos de Variables 'Intersection type'
 
@@ -267,3 +267,154 @@ const product: Audit & Product = {
     modified_at: "",
     name: ""
 }
+
+// Nos vamos ahora con los Tipos Literales
+// Podemos indicarle los valores que puede tomar una varaible
+
+type Fibo= 0 | 1 | 3 | 5
+
+const nDeFibo: Fibo = 3
+
+//Vamos a Ver como trabajamos con valores Nulos
+//Nullables types
+// Es algo muy positivo que TypeScript me avise/no me permita asignar en código un valor nullo a una función que espera otro tipo de variable
+
+function toNumber(s: string | null | undefined) {
+    if (s){
+        return parseInt(s)
+    } else {
+        return 0
+    }
+}
+
+const n= toNumber(null)
+const n2= toNumber(undefined)
+
+// Ahora Vamos a Ver el Optional Chaining Operator
+//Con este Operador "?" Podemos 
+
+function getUser (id: number) {
+    if (id<0) {
+        return null
+    } else {
+        return {
+            id: id, 
+            name: "Felipe",
+            create_at: new Date()
+        }
+    }
+}
+
+const userJose = getUser(-1)
+
+console.log('Usuario: ', userJose?.create_at)  //Con el Operador "?" antes de la Propiedad del Objeto TypeScript se encarga de verificar si existe o no esa propiedad
+
+// Con este Operador "?" Optional chaining Operator me ahorro tener que escribir todo este código
+// Este operador podemos usarlo cuando tenemos propiedades de Objetos que pueden ser Null or Undefined
+
+if(userJose && userJose?.create_at) {
+    console.log('Usuario: ', userJose?.create_at)
+} else {
+    console.log('Usuario: No Existe ')
+}
+
+const arr1=null
+
+console.log(arr1?.[0])
+
+const fn5:any=null
+
+console.log(fn5?.())
+
+const Rabito=()=>{
+    console.log("Rabito Bien Duro de la Function fn()")
+}
+
+function cb(fn: Function){
+    if (fn) {
+        fn()
+    }
+}
+
+cb(Rabito)
+
+
+// Nullish coalescing Operator
+
+const difficulty: number | null = null
+const difficulty2: number | null = 0
+
+const user2 ={
+    username: "chanchito feliz",
+    // difficulty: difficulty || 1 // Con el Operador || lo que hace es que en caso de que:
+    //     difficulty sea falsey:
+    //         -  ""
+    //         - 0
+    //         - undefined - null
+    //         Toma el otro valor en este caso "1"
+    //     Pero como me interesa que en caso de que sea "0" si coja el valor de cero, necesito usar este otro Operador, Nullish Coalescing Operator
+    difficulty: difficulty ?? 1
+}
+const user3 ={
+    username: "Chanchito Feliz Perreador",
+    difficulty: difficulty2 ?? 1
+}
+
+console.log("Difficulty: " , user2.difficulty)
+
+console.log(user2)
+
+console.log(user3)
+
+
+// Type Assertion 
+// Al parecer lo usamos cuando nosotros sabemos con certeza el tipo de dato, pero es posible que l compilador tenga algun tipo de dificultad a la hora de identificar el tipo de dato.
+
+const elem2: any= null
+
+
+const elem3=elem2 as number // Estamos forzando a que el elem3 sea un number, independientemente del tipo de dato que pueda ser elem2. ¿Esto es necesariamente malo? En este caso no tiene mucho sentido. 
+// Este Operador, en cambio tiene mucho sentido cuando me traigo un dato de la base de datos y yo se que tipo de dato es o cuando me traigo un elemento del DOM con el método por ejemplo getElementbyId()
+
+//const input =document.getElementById('username') as HTMLInputElement 
+//En este caso si es de utilidad. Con esto voy a conseguir que el compilñador de TypeScript me va a ofrecer todas las propiedades de dicho tipo de objeto.
+
+//const input2 =<HTMLInputElement>document.getElementById('username') //Esta es otra manera de hacer uso de Operador Type Assertion
+
+//Type Narrowing
+
+
+function lala(x: number | string) {
+    // type narrowing
+    if(typeof(x)==="number"){
+        return x.toString()
+    }
+    if(typeof(x)==="string"){
+        return x.endsWith("s")
+    }
+
+    return "Usa un tipo de Dato Valido para la function lala()"
+}
+
+console.log("Function lala() con un number: ", lala(33))
+console.log("Function lala() con un string: ", lala("Rabito duro"))
+
+
+// Type Unknown. Este tipo es mejor que Any y Ahora lo vamos a Explicar.
+
+function procesa(algo: unknown) {
+    if(typeof algo ==="string") {
+        return algo.toUpperCase()
+    }
+    if(typeof algo ==="number") {
+        return algo.toString()
+    }
+
+    return "Introduce un tipo de dato correcto"
+}
+
+console.log("Resultado de la funcion procesa(): ", procesa("Amapola"))
+console.log("Resultado de la funcion procesa(): ", procesa(44))
+
+
+
