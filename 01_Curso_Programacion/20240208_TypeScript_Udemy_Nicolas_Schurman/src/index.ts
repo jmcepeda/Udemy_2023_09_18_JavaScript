@@ -417,4 +417,44 @@ console.log("Resultado de la funcion procesa(): ", procesa("Amapola"))
 console.log("Resultado de la funcion procesa(): ", procesa(44))
 
 
+// Clases
+// Esta va a ser nuestra Primera Clase
+class Personaje {
+    id: number
+    name: string
+    nivel: number
+    hp: number
 
+    constructor (id: number, name: string, nivel: number, hp: number ) {
+        this.id=id
+        this.name=name
+        this.nivel=nivel
+        this.hp=hp
+    }
+    subirNivel():number {
+        this.nivel=this.nivel+1
+        return this.nivel
+    }
+    cambiarHP(cantidad: number):number {
+        this.hp=this.hp+cantidad
+        return this.hp
+    }
+}
+
+const personaje=new Personaje(1,"Alberto",1,100)
+
+console.log("Personaje Antes de Actualizar HP: ", personaje)
+
+personaje.cambiarHP(-10)
+
+console.log("Personaje Después de Actualizar HP: ", personaje)
+
+if(true) {
+    console.log("Esto me devuelve que es un objeto. No me sirve de gran cosa: ",  (typeof personaje))
+}
+
+//Para garantizarme saber si esta instancia de clase corresponde con una clase en particular, es necesrio consultarlo de esta forma
+
+if(personaje instanceof Personaje) {
+    console.log("Ok. Con instanceof podemos confirmar si una instancia corresponde a una Clase en Particular: ", personaje instanceof Personaje)
+}

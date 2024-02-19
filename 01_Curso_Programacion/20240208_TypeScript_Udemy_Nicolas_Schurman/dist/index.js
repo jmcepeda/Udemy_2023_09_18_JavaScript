@@ -232,4 +232,30 @@ function procesa(algo) {
 }
 console.log("Resultado de la funcion procesa(): ", procesa("Amapola"));
 console.log("Resultado de la funcion procesa(): ", procesa(44));
+class Personaje {
+    constructor(id, name, nivel, hp) {
+        this.id = id;
+        this.name = name;
+        this.nivel = nivel;
+        this.hp = hp;
+    }
+    subirNivel() {
+        this.nivel = this.nivel + 1;
+        return this.nivel;
+    }
+    cambiarHP(cantidad) {
+        this.hp = this.hp + cantidad;
+        return this.hp;
+    }
+}
+const personaje = new Personaje(1, "Alberto", 1, 100);
+console.log("Personaje Antes de Actualizar HP: ", personaje);
+personaje.cambiarHP(-10);
+console.log("Personaje Después de Actualizar HP: ", personaje);
+if (true) {
+    console.log("Esto me devuelve que es un objeto. No me sirve de gran cosa: ", (typeof personaje));
+}
+if (personaje instanceof Personaje) {
+    console.log("Ok. Con instanceof podemos confirmar si una instancia corresponde a una Clase en Particular: ", personaje instanceof Personaje);
+}
 //# sourceMappingURL=index.js.map
