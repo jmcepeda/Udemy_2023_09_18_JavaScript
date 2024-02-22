@@ -258,4 +258,126 @@ if (true) {
 if (personaje instanceof Personaje) {
     console.log("Ok. Con instanceof podemos confirmar si una instancia corresponde a una Clase en Particular: ", personaje instanceof Personaje);
 }
+class Personaje2 {
+    constructor(id, name, nivel, hp) {
+        this.id = id;
+        this.name = name;
+        this.nivel = nivel;
+        this._hp = hp;
+    }
+    subirNivel() {
+        this.nivel = this.nivel + 1;
+        return this.nivel;
+    }
+    cambiarHP(cantidad) {
+        this._hp = this._hp + cantidad;
+        return this._hp;
+    }
+}
+const personaje2 = new Personaje2(1, "Manuel", 2, 70);
+console.log("Personaje 2 Antes de Actualizar HP: ", personaje2);
+personaje2.cambiarHP(-10);
+console.log("Nivel del Personaje 2: ", personaje2.nivel);
+console.log("Personaje 2 Después de Actualizar HP: ", personaje2);
+class Personaje3 {
+    constructor(id, name, nivel, _hp) {
+        this.id = id;
+        this.name = name;
+        this.nivel = nivel;
+        this._hp = _hp;
+    }
+    subirNivel() {
+        this.nivel = this.nivel + 1;
+        return this.nivel;
+    }
+    cambiarHP(cantidad) {
+        this._hp = this._hp + cantidad;
+        return this._hp;
+    }
+    getHP() {
+        return this._hp;
+    }
+    get hp() {
+        return this._hp;
+    }
+    set hp(cantidad) {
+        this._hp = this._hp + cantidad;
+    }
+}
+const personaje3 = new Personaje3(1, "Jose Luis", 3, 40);
+console.log("Personaje 3 Antes de Actualizar HP: ", personaje3);
+personaje2.cambiarHP(-10);
+console.log("Nivel del Personaje 3: ", personaje3.nivel);
+console.log("Personaje 3 Después de Actualizar HP: ", personaje3);
+console.log("Acceder a propiedad '_hp' desde fuera de la clase con un método: ", personaje3.getHP());
+console.log("Acceder a propiedad '_hp' desde fuera de la clase con un método get de Typescript: ", personaje3.hp);
+personaje3.hp = 350;
+console.log("Modificar a propiedad 'hp' desde fuera de la clase con un método  set, variable virtual: ", personaje3.hp);
+class Personaje4 {
+    constructor(id, name, nivel, _hp) {
+        this.id = id;
+        this.name = name;
+        this.nivel = nivel;
+        this._hp = _hp;
+        this.equipo = 0;
+    }
+    subirNivel() {
+        this.nivel = this.nivel + 1;
+        return this.nivel;
+    }
+    cambiarHP(cantidad) {
+        this._hp = this._hp + cantidad;
+        return this._hp;
+    }
+    getHP() {
+        return this._hp;
+    }
+    agregarPersonaje() {
+        this.equipo++;
+    }
+    get hp() {
+        return this._hp;
+    }
+}
+const personaje4 = new Personaje4(4, "Chanchito", 1, 120);
+const personaje5 = new Personaje4(5, "Tyron", 1, 90);
+personaje4.agregarPersonaje();
+console.log("Personaje 4: ", personaje4);
+console.log("Personaje 5: ", personaje5);
+class Personaje5 {
+    constructor(id, name, nivel, _hp) {
+        this.id = id;
+        this.name = name;
+        this.nivel = nivel;
+        this._hp = _hp;
+    }
+    subirNivel() {
+        this.nivel = this.nivel + 1;
+        return this.nivel;
+    }
+    cambiarHP(cantidad) {
+        this._hp = this._hp + cantidad;
+        return this._hp;
+    }
+    getHP() {
+        return this._hp;
+    }
+    static agregarPersonaje() {
+        Personaje5.equipo++;
+    }
+    get hp() {
+        return this._hp;
+    }
+    static getEquipo() {
+        return Personaje5.equipo;
+    }
+}
+Personaje5.equipo = 0;
+const personaje6 = new Personaje5(6, "Emilio", 1, 120);
+Personaje5.agregarPersonaje();
+const personaje7 = new Personaje5(7, "Andrés", 1, 90);
+Personaje5.agregarPersonaje();
+console.log("Personaje 6: ", personaje6);
+console.log("Personaje 7: ", personaje7);
+console.log("Número de Miembros de este Equipo (Propiedad de la Clase): ", Personaje5.getEquipo());
 //# sourceMappingURL=index.js.map

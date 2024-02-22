@@ -437,6 +437,7 @@ class Personaje {
     }
     cambiarHP(cantidad: number):number {
         this.hp=this.hp+cantidad
+        // No pasarse del Máximo
         return this.hp
     }
 }
@@ -458,3 +459,193 @@ if(true) {
 if(personaje instanceof Personaje) {
     console.log("Ok. Con instanceof podemos confirmar si una instancia corresponde a una Clase en Particular: ", personaje instanceof Personaje)
 }
+
+// Nos interesa que nuestro código sea más robusto y que no todas las propiedades se puedan modificar directamente desde el código. Es una nuena práctica que ciertas propiedades solo sean accesibles desde la clase a través de métodos (get y set, etc).
+
+class Personaje2 {
+    readonly id:  number // Para evitar que puedan modificarse el valor de ciertas propiedades que sabemos que no pueden modificarse pueden definirse las variables como solo lectura.
+    public name: string //A Diferencia de Private, Public, indica que podemos acceder a esta variable desde fuera de la clase
+    nivel: number
+    profesion?: string //Al crear el Personaje no sabemos la profesión del Personaje. Se Asignará despues, por tanto. Con "?" Indicamos que es una propiedad Opcional, no tenemos que definir esta propiedad en el Constructor.
+    private _hp: number // Así con esta Propiedad Privada solo podrá accederse desde la clase para leerla y para modificarla
+    // Es una convención que las Propiedades Privadas inicien con un _ "_hp"
+
+    constructor (id: number, name: string, nivel: number, hp: number ) {
+        this.id=id
+        this.name=name
+        this.nivel=nivel
+        this._hp=hp
+    }
+    subirNivel():number {
+        this.nivel=this.nivel+1
+        return this.nivel
+    }
+    cambiarHP(cantidad: number):number {
+        this._hp=this._hp+cantidad
+        // No pasarse del Máximo
+        return this._hp
+    }
+}
+
+const personaje2=new Personaje2(1,"Manuel",2,70)
+
+console.log("Personaje 2 Antes de Actualizar HP: ", personaje2)
+
+personaje2.cambiarHP(-10)
+console.log("Nivel del Personaje 2: ", personaje2.nivel)
+
+console.log("Personaje 2 Después de Actualizar HP: ", personaje2)
+
+//Vamos a trabajar ahora con Parameters Propierties. Propiedades por Parámetros
+//Vamos a hacer esta misma definición con menos líneas
+//Vamos a Simiplieficar todo esto
+class Personaje3 {
+
+    profesion?: string //Solo necesito Definir fuera del constructor las variables opcionales que no se inicializan en el construcor
+
+    constructor (  
+        public readonly id: number, 
+        public name: string, 
+        public nivel: number, 
+        private _hp: number ) {
+    } // De Igual manera me puedo evitar tener que asignar valores concretos en el constructor, con esta definición se asignan las variables de forma implícita.
+    subirNivel():number {
+        this.nivel=this.nivel+1
+        return this.nivel
+    }
+    cambiarHP(cantidad: number):number {
+        this._hp=this._hp+cantidad
+        // No pasarse del Máximo
+        return this._hp
+    }
+
+    getHP() {
+        return this._hp
+    }
+
+    get hp(): number { // Con el get lo que estamos haciendo es crear una nueva propiedad "virtual" que estará accesible de forma pública. Es por esto que debe llamarse de forma diferente a la propiedad original. Si las propiedades privadas es recomendables que vayan precedidas de un "_" al crear el get la nueva propiedad virtual se recomienda mantener el nombre pero eliminando el "_".
+        return this._hp
+    }
+
+    set hp(cantidad: number) { //Los set no pueden devolver ningún valor. Si tratamos de devolver algún valor el compilador nos genera un error
+        // Esta no es una buena práctica para cambiar una variable, Es mejor cambiar el valor de una propiedad a través de un método con toda la lógica que necesitemos, e este caso "cambiarHP()"
+        this._hp=this._hp+cantidad
+    }
+}
+
+const personaje3=new Personaje3(1,"Jose Luis",3,40)
+
+console.log("Personaje 3 Antes de Actualizar HP: ", personaje3)
+
+personaje2.cambiarHP(-10)
+console.log("Nivel del Personaje 3: ", personaje3.nivel)
+
+console.log("Personaje 3 Después de Actualizar HP: ", personaje3)
+
+// Así es como se hacía en 2015. TypeScript permite hacer esto de una forma más sencilla.
+console.log("Acceder a propiedad '_hp' desde fuera de la clase con un método: ", personaje3.getHP())
+
+// Así es como se hoy día con TypeScript . 
+console.log("Acceder a propiedad '_hp' desde fuera de la clase con un método get de Typescript: ", personaje3.hp)
+
+//Esta opción no tiene mucho sentido, es mejor modificar las propiedades a través de métodos. El Set No tiene mucho sentido hoy en día. No es recomendable, aunque puede usarse.
+personaje3.hp=350;
+
+// Así es como se hoy día con TypeScript . 
+console.log("Modificar a propiedad 'hp' desde fuera de la clase con un método  set, variable virtual: ", personaje3.hp)
+
+
+class Personaje4 {
+
+    profesion?: string 
+    equipo: number=0
+
+    constructor (  
+        public readonly id: number, 
+        public name: string, 
+        public nivel: number, 
+        private _hp: number ) {
+    }
+    subirNivel():number {
+        this.nivel=this.nivel+1
+        return this.nivel
+    }
+    cambiarHP(cantidad: number):number {
+        this._hp=this._hp+cantidad
+        return this._hp
+    }
+
+    getHP() {
+        return this._hp
+    }
+
+    agregarPersonaje(): void{
+        this.equipo ++
+    }
+
+    get hp(): number { 
+        return this._hp
+    }
+}
+
+const personaje4 = new Personaje4(4,"Chanchito", 1,120)
+const personaje5 = new Personaje4(5,"Tyron", 1,90)
+
+personaje4.agregarPersonaje();
+
+console.log("Personaje 4: ", personaje4)
+console.log("Personaje 5: ", personaje5)
+
+// Esto no funciona como teníamos previsto puesto que cada una de las Intancias tiene una Propiedad Individual, pero nos hace falta que todos las Instancias de esa CLASE tengan un propiedad compartida, una propiedad que tenga el mismo valor para todas las Instancias de esa Clase.
+
+
+class Personaje5 {
+
+    profesion?: string 
+    private static  equipo: number=0  // Propiedad Estática. Compartida por todas las Instancias de la Clase
+
+    constructor (  
+        public readonly id: number, 
+        public name: string, 
+        public nivel: number, 
+        private _hp: number ) {
+    }
+    subirNivel():number {
+        this.nivel=this.nivel+1
+        return this.nivel
+    }
+    cambiarHP(cantidad: number):number {
+        this._hp=this._hp+cantidad
+        return this._hp
+    }
+
+    getHP() {
+        return this._hp
+    }
+
+    static agregarPersonaje(): void{  // Método Estático. Compartida por todas las Instancias de la Clase
+        Personaje5.equipo++
+    }
+
+    get hp(): number { 
+        return this._hp
+    }
+    static getEquipo(): number { 
+        return Personaje5.equipo
+    }
+}
+
+const personaje6 = new Personaje5(6,"Emilio", 1,120)
+Personaje5.agregarPersonaje()
+
+const personaje7 = new Personaje5(7,"Andrés", 1,90)
+Personaje5.agregarPersonaje()
+
+console.log("Personaje 6: ", personaje6)
+console.log("Personaje 7: ", personaje7)
+
+console.log("Número de Miembros de este Equipo (Propiedad de la Clase): ", Personaje5.getEquipo())
+
+
+
+
