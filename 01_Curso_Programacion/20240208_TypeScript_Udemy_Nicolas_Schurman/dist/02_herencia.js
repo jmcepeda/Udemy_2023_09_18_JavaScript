@@ -57,4 +57,4 @@ console.log("Este es la Primera Categoría Creado: ", categoria1);
 console.log("Esta es una Descripcion Ampliada con el método override de una clase Heredada: " + producto1.fullDesc);
 console.log("Esta es una Extensión del Método Alegoría con el método override de una clase Heredada: " + producto1.Alegoria);
 console.log("Ejecutando Método Abstracto en Clase Heredada: ", producto1.guardar());
-//# sourceMappingURL=herencia.js.map
+//# sourceMappingURL=02_herencia.js.map
