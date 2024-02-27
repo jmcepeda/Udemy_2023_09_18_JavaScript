@@ -54,5 +54,108 @@ async function main(){
     console.log(user.id)
 }
 
+//Genericos en Clases
+type Computador = {
+    encender: () => void
+    apagar: () => void
+}
+
+class Programador<T> {
+    computador: T
+    constructor (t: T){
+        this.computador=t
+    }
+}
+
+const programador= new Programador<Computador>({encender: () => {}, apagar:() => {}})
+
+console.log(programador.computador.apagar)
+
+const programador1= new Programador<string>("Toma Mi Rabito")
+
+console.log(programador1.computador)
+
+// Pasamos a los genéricos para las Interfaces y para los tipos
+
+interface KeyValue<T,V> {
+    key: T,
+    value: V
+}
+
+interface Product2 {
+    id: string
+}
+
+function fetchProduct (): KeyValue<string,Product2> {
+    return {
+        key: "id de Producto",
+        value: { id: "id de Producto"}
+    }
+}
+
+function fetchStock (): KeyValue<string,number> {
+    return {
+        key: "id de Producto",
+        value: 500
+    }
+}
+
+console.log("Salida de Function fetchProduct(): ",fetchProduct())
+console.log("Salida de Function fetchStock(): ",fetchStock())
 
 
+// Pasamos a Continuación a Ver Restricciones en Genéricos 'Constrains'
+// Pasamos a limitar o Restringir el Tipo de Genético que Podemos pasar en una clase o en una función
+
+function printJ<T>(t: T): T {
+    console.log(t)
+    return t
+}
+
+console.log("Imprimiendo por consola el resultado de la función printJ: ",printJ(42))
+
+console.log("Imprimiendo por consola el resultado de la función printJ: ",printJ("Rabito bien Durito"))
+
+
+function printJ2<T extends boolean>(t: T): T {
+    console.log(t)
+    return t
+}
+
+console.log("Imprimiendo por consola el resultado de la función printJ2: ",printJ2(true))
+
+console.log("Imprimiendo por consola el resultado de la función printJ2: ",printJ2(false))
+
+
+interface Usuario3 {
+    id: string,
+    name: string
+}
+
+function printJ3<T extends Usuario3>(t: T): T {
+    console.log(t.name)
+    console.log(t.id)
+    return t
+}
+
+console.log("Imprimiendo por consola el resultado de la función printJ3: ",printJ3({id: "Rabito", name: "Rabito"}))
+
+console.log("Imprimiendo por consola el resultado de la función printJ3: ",printJ3({id: "Tronquito", name: "Durito"}))
+
+
+// Tambien se puede Restringir por medio de Clases
+
+// Si ponemos la Resticción con una Clas y no con un Interfaces para los constrains en aplicación de Genéricos para las Funciones, solo se exige que al menos tenga el elemento que contiene la Clase, pero puede tener otros elementos adicionales a los definidos en la Clase
+class Usuario4 {
+    constructor(public id: string) {}
+}
+
+function printJ4<T extends Usuario4>(t: T): T {
+    console.log(t.id)
+    return t
+}
+
+
+console.log("Imprimiendo por consola el resultado de la función printJ3: ",printJ4({id: "Rabito", name: "Rabito"}))
+
+console.log("Imprimiendo por consola el resultado de la función printJ3: ",printJ4({id: "Tronquito", name: "Durito"}))

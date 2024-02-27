@@ -45,4 +45,57 @@ function main() {
         console.log(user.id);
     });
 }
+class Programador {
+    constructor(t) {
+        this.computador = t;
+    }
+}
+const programador = new Programador({ encender: () => { }, apagar: () => { } });
+console.log(programador.computador.apagar);
+const programador1 = new Programador("Toma Mi Rabito");
+console.log(programador1.computador);
+function fetchProduct() {
+    return {
+        key: "id de Producto",
+        value: { id: "id de Producto" }
+    };
+}
+function fetchStock() {
+    return {
+        key: "id de Producto",
+        value: 500
+    };
+}
+console.log("Salida de Function fetchProduct(): ", fetchProduct());
+console.log("Salida de Function fetchStock(): ", fetchStock());
+function printJ(t) {
+    console.log(t);
+    return t;
+}
+console.log("Imprimiendo por consola el resultado de la función printJ: ", printJ(42));
+console.log("Imprimiendo por consola el resultado de la función printJ: ", printJ("Rabito bien Durito"));
+function printJ2(t) {
+    console.log(t);
+    return t;
+}
+console.log("Imprimiendo por consola el resultado de la función printJ2: ", printJ2(true));
+console.log("Imprimiendo por consola el resultado de la función printJ2: ", printJ2(false));
+function printJ3(t) {
+    console.log(t.name);
+    console.log(t.id);
+    return t;
+}
+console.log("Imprimiendo por consola el resultado de la función printJ3: ", printJ3({ id: "Rabito", name: "Rabito" }));
+console.log("Imprimiendo por consola el resultado de la función printJ3: ", printJ3({ id: "Tronquito", name: "Durito" }));
+class Usuario4 {
+    constructor(id) {
+        this.id = id;
+    }
+}
+function printJ4(t) {
+    console.log(t.id);
+    return t;
+}
+console.log("Imprimiendo por consola el resultado de la función printJ3: ", printJ4({ id: "Rabito", name: "Rabito" }));
+console.log("Imprimiendo por consola el resultado de la función printJ3: ", printJ4({ id: "Tronquito", name: "Durito" }));
 //# sourceMappingURL=04_genericos.js.map
