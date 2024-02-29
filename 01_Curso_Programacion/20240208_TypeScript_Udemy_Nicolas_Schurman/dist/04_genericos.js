@@ -98,4 +98,48 @@ function printJ4(t) {
 }
 console.log("Imprimiendo por consola el resultado de la función printJ3: ", printJ4({ id: "Rabito", name: "Rabito" }));
 console.log("Imprimiendo por consola el resultado de la función printJ3: ", printJ4({ id: "Tronquito", name: "Durito" }));
+class Estado {
+    constructor() {
+        this.data = [];
+    }
+    agregar(t) {
+        this.data.push(t);
+    }
+    getEstado() {
+        return this.data;
+    }
+}
+const estadoUsuarios = new Estado;
+console.log("Imprimiendo Estado Usuario", estadoUsuarios.getEstado());
+class EstadoEliminar extends Estado {
+    eliminar(id) {
+        this.data = this.data.filter(x => x.id !== id);
+    }
+}
+class EstadoUsuario extends Estado {
+    resetPassword() {
+    }
+}
+const estadoUsuarios2 = new EstadoUsuario();
+const calendar = {
+    id: 1,
+    fuente: "Google",
+    dueno: "yo"
+};
+function getProp(objeto, property) {
+    return objeto[property];
+}
+getProp(calendar, "id");
+getProp(calendar, "fuente");
+const keyval = {
+    "Soy un string": 42
+};
+const p = {
+    x: 1
+};
+const readOnlyP = {
+    x: 1,
+    y: 2,
+    desc: "Hola Mundo"
+};
 //# sourceMappingURL=04_genericos.js.map

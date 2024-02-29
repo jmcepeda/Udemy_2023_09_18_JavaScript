@@ -159,3 +159,119 @@ function printJ4<T extends Usuario4>(t: T): T {
 console.log("Imprimiendo por consola el resultado de la función printJ3: ",printJ4({id: "Rabito", name: "Rabito"}))
 
 console.log("Imprimiendo por consola el resultado de la función printJ3: ",printJ4({id: "Tronquito", name: "Durito"}))
+
+// Aplicación de Genéricos y Herencia
+
+class Estado<T> {
+    protected data: T[]=[]
+
+    agregar(t: T): void {
+        this.data.push(t)
+    }
+
+    getEstado(): T[] {
+        return this.data
+    }
+}
+
+const estadoUsuarios=new Estado<Usuario>
+
+console.log("Imprimiendo Estado Usuario", estadoUsuarios.getEstado())
+
+type ObjetcId = {
+    id: string
+}
+
+class EstadoEliminar<T extends ObjetcId> extends Estado<T> { // De esta manera es como pasamos el Genérico desde la Clase Estado a una Clase Heredada que trabajará con ese mismo Genérico
+// Con esto lo que estamos haciendo es pasar los Genéricos con Restricciones
+    eliminar(id: string) {
+        this.data=this.data.filter(x => x.id !== id)
+    }
+}
+
+// Pasar Genérico
+// Pasar Genético con Restricciones
+class EstadoUsuario extends Estado<Usuario4> { // A esto se le llama pasar el Genérico Fijo
+    resetPassword (){
+    }
+}
+
+// Pasar Genérico Fijo
+// Estas son las tres formas de PAsar Genérico cuando Aplicamos Herencia
+const estadoUsuarios2=new EstadoUsuario()
+
+// A Continuación vamos a ver Operador keyof
+
+type Calendar = {
+    id: number,
+    fuente: string,
+    dueno: string
+}
+
+
+const calendar: Calendar ={
+    id: 1,
+    fuente: "Google",
+    dueno: "yo"
+}
+
+function getProp<T>(objeto: T, property: keyof T):unknown { // Con keyof estamos asegurándonos que se está comprobando que esas propiedades existen
+    return objeto[property]
+}
+
+getProp<Calendar>(calendar,"id")
+getProp<Calendar>(calendar,"fuente")
+// getProp<Calendar>(calendar,"propertyQueNoExiste")  // El Compilador no me permite introduir como parámetro un propiedad del objeto que no existe
+
+
+// Utility types
+
+type Punto = {
+    x: number,
+    y: number,
+    desc?: string
+}
+
+type PuntoOpcional = {
+    x?: number,
+    y?: number,
+    desc?: string
+}
+
+// Utility Types
+// TypeScript me permite hacer esto msimo, pero utilizando bastante menos líneas de Código
+// Con esto defino un Tipo a partir de un tipo existente en el que todas las propiedades son opcionales
+type PuntoOpcional2 = Partial<Punto>
+
+// Con esto defino un Tipo a partir de un tipo existente en el que todas las propiedades son Obligatorias/Requeridas Obligatoriamente
+type PuntoRequerido = Required<Punto>
+
+// Otro Utility Type es Record
+const keyval: Record<string, number> = { // Con Record estoy definiendo el Tipo del par Clave y Valor de un Objeto
+    "Soy un string": 42
+}
+
+type kv= {[key: string]: number} //Esto es lo mismo que utilizar la definición de Record usada Anteriormente.
+
+// Otro Utility Type es Ommit
+
+const p: Omit<Punto, "desc" | "y"> = {  // Con esto lo que estamos diciendo es que queremos definir un nuevo elemento del Tipo "Punto" pero que no contenga ni elementos "y" ni "desc"
+    x: 1
+}
+
+const readOnlyP: Readonly<Punto> ={ // Con esta definición no podremos cambiar ninguna de las Propiedades del Punto readOnlyP
+    x: 1,
+    y: 2, 
+    desc: "Hola Mundo"
+} 
+
+
+
+
+
+
+
+
+
+
+
