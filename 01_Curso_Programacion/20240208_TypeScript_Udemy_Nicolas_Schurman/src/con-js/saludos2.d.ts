@@ -1,0 +1,1 @@
+export declare function holamundo2(mensaje: string, mensaje2:string): string 

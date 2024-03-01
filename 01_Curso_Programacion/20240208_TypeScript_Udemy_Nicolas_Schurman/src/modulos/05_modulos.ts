@@ -20,7 +20,27 @@ console.log("Impriendo por consola, objeto importado desde un módulo, que tiene
 
 console.log("Impriendo por consola, objeto importado desde un módulo, que tiene exportación por defecto: " , arbolito)
 
-console.log("Impriendo por consola, objeto importado desde un módulo, que tiene exportación por defecto: " , bomboncito)
+console.log("Impriendo por consola, objeto importado desde un módulo, que tiene exportación por defecto: " , bomboncito.name)
+
+
+// Ahora vamos a ver los WildCard, que nos permiten importar todo los elementos de un módulo de una sola tacada.
+// Esta posiblemente no es la mejor opción, pues pierdes parte del control de lo que se importa
+// Es una buena practica importar elemento a elemento para tener un control de que elementos tengo disponibles
+
+import * as Tremendo from "./Tremendo"
+
+const tremendo = new Tremendo.default(56,"Esto es Tremendo")
+
+console.log("Imprimiendo de una WildCard Import: ", Tremendo.arquimides.des)
+console.log("Imprimiendo propiedad de una instancia de una clase importada con una WildCard Import: ", tremendo.name)
+
+// Vamos a importar las Diferentes Clases del Modulo Animales
+
+import { Objeto } from "./Animales/Objeto";
+import { Caballo } from "./Animales/Caballo";
+import { Animal } from "./Animales/Animal";
+
+console.log(Animal.name,Caballo.name, Objeto.name)
 
 
 

@@ -33,5 +33,13 @@ let group = new Group_1.Group(1, "SuperGrupo");
 let bomboncito = new Bomboncito_1.default(3, "Alberto Malo");
 console.log("Impriendo por consola, objeto importado desde un módulo, que tiene exportación por defecto: ", Bomboncito_2.rabito);
 console.log("Impriendo por consola, objeto importado desde un módulo, que tiene exportación por defecto: ", Bomboncito_1.arbolito);
-console.log("Impriendo por consola, objeto importado desde un módulo, que tiene exportación por defecto: ", bomboncito);
+console.log("Impriendo por consola, objeto importado desde un módulo, que tiene exportación por defecto: ", bomboncito.name);
+const Tremendo = __importStar(require("./Tremendo"));
+const tremendo = new Tremendo.default(56, "Esto es Tremendo");
+console.log("Imprimiendo de una WildCard Import: ", Tremendo.arquimides.des);
+console.log("Imprimiendo propiedad de una instancia de una clase importada con una WildCard Import: ", tremendo.name);
+const Objeto_1 = require("./Animales/Objeto");
+const Caballo_1 = require("./Animales/Caballo");
+const Animal_1 = require("./Animales/Animal");
+console.log(Animal_1.Animal.name, Caballo_1.Caballo.name, Objeto_1.Objeto.name);
 //# sourceMappingURL=05_modulos.js.map
