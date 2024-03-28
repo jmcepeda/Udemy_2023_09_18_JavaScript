@@ -23,15 +23,19 @@ console.log("Rabito")
 const holamundo: string="Hola Mundo"
 
 console.log("Imprimiendo por Pantalla: ",holamundo)
-
 //Importante tener claro como se importa express
 
 import express from "express"
 
-const app = express()
+import userRoute from "./users/index"
 
-app.get("/", (req,res)=>{
-    res.send("Hola Perrita")
-})
+const app = express()
+app.use(express.json()) // Con Esta Línea habilitamos un middleware que snos permite recibir peticiones POST con contenido JSON
+
+app.use('/', userRoute)
+
 const PORT=3000
 app.listen(PORT,() => console.log("El Servidor esta corriendo en el puerto: ", PORT))
+
+
+
