@@ -1,10 +1,12 @@
 import React from "react";
 //import ReactDOM from "react-dom/client";
 
-export function Greeting() {
+export function Greeting(props) {
   const prueba = "Prueba de Funcionamiento de Texto en React";
   const prueba2 = "Otra Prueba de Funcionamiento de Texto en React";
   const prueba3 = "Tercera Prueba de Funcionamiento de Texto en React";
+
+  console.log(props);
 
   const name = "Troncoman";
   const married = false;
@@ -34,6 +36,7 @@ export function Greeting() {
   return (
     <>
       <div>
+        <h1> Este es el Texto que se pasa como props en el Objeto de React: {props.title}</h1>
         <h1>{prueba}</h1>
         {prueba2}
         <br></br>
