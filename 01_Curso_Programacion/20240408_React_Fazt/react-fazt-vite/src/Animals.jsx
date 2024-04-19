@@ -1,3 +1,11 @@
+import PropTypes from "prop-types";
+// import Address from './Address';
+
+Animals.propTypes = {
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string,
+};
+
 function Animals({ title, name = "Nombre-Usuarios" }) {
   console.log(title);
   return (
@@ -15,6 +23,22 @@ function Animals({ title, name = "Nombre-Usuarios" }) {
   );
 }
 
+
+Plants.propTypes = {
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  amount: PropTypes.number,
+  points: PropTypes.array,
+  married: PropTypes.bool,
+  address: PropTypes.shape({
+    city: PropTypes.string,
+    street: PropTypes.string,
+  }),
+  greet: PropTypes.func,
+};
+
+
+
 export function Plants({
   name,
   title,
@@ -22,7 +46,6 @@ export function Plants({
   points,
   married,
   address,
-  greet,
 }) {
   return (
     <>

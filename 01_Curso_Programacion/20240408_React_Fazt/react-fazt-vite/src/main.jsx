@@ -1,19 +1,23 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { Greeting } from "./Greeting";
-import { UserCard } from "./UserCard";
-import Animals, { Plants } from "./Animals";
-import { Button } from "./Button";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+// import App from './App'
+import { Greeting } from './Greeting'
+// import ComponenteJMC from './ComponenteJMC'
+// import './index.css'
 
-const rootElement = document.getElementById("root");
+// import { UserCard } from "./UserCard";
+// import Animals, { Plants } from "./Animals";
+import { Button } from './Button'
 
-const root = ReactDOM.createRoot(rootElement);
+
 const Algoritmos = { title: "Algoritmos", name: "Ramona" };
 
-root.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
   <>
     <Greeting />
     <Button title="Boton de Componente" amount={2345} activated={true} />
+    {/* <Button title="Boton de Componente" amount={2345} activated={true} />
     <Button title="Alarma" amount={2345} activated={true} />
     <Button title="Rápido" amount={2345} activated={true} />
     <Button title={{ text: "Amapola" }} amount={2345} activated={true} />
@@ -52,6 +56,7 @@ root.render(
       <Greeting title="Amapola" name="Irene" />
       <Greeting title="Acantilado" name="Sofia" />
       {Greeting(Algoritmos)}
-    </div>
+    </div> */}
   </>
-);
+  </React.StrictMode>,
+)
