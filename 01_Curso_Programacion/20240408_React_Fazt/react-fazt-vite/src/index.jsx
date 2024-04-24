@@ -5,6 +5,7 @@ import { UserCard } from "./UserCard";
 import Animals, { Plants } from "./Animals";
 import { Button } from "./Button";
 
+
 const rootElement = document.getElementById("root");
 
 const root = ReactDOM.createRoot(rootElement);

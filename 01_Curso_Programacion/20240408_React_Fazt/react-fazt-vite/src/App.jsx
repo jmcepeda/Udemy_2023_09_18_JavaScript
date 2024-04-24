@@ -17,11 +17,11 @@ function App() {
         <Button title="Boton de Componente" amount={2345} activated={true} />
         <Button title="Alarma" amount={2345} activated={true} />
         <Button title="Rápido" amount={2345} activated={true} />
-        <Button title={{ text: "Amapola" }} amount={2345} activated={true} />
+        {/* <Button title={{ text: "Amapola" }} amount={2345} activated={true} /> */}
         <UserCard />
         <Animals title="Animales de todas las Clases" name="Manuel" />
         <Animals title="Más Animales, para que no falten" />
-        <Plants
+       <Plants
           title="Rabito"
           name="Alberto"
           amount={3000}

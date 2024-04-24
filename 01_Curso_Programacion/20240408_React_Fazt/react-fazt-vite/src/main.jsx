@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import App from './App'
-// import { Greeting } from './Greeting'
+import App from './App'
+import { Greeting } from './Greeting'
 // import ComponenteJMC from './ComponenteJMC'
 // import './index.css'
 
-// import { UserCard } from "./UserCard";
-// import Animals, { Plants } from "./Animals";
-// import { Button } from './Button'
+import { UserCard } from "./UserCard";
+import Animals, { Plants } from "./Animals";
+import { Button } from './Button'
 
 import { ComponenteCombinado } from './ComponenteCombinado';
 
@@ -16,7 +16,7 @@ import { ComponenteCombinado } from './ComponenteCombinado';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
   <>
-    {/* <Greeting />
+    <Greeting />
     <Button title="Boton de Componente" amount={2345} activated={true} />
     <UserCard />
     <Plants
@@ -32,7 +32,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         );
       }}
     />
-    <Animals title="Animales de todas las Clases" name="Manuel" /> */}
+    <Animals title="Animales de todas las Clases" name="Manuel" />
+    
+    <App />
 
     <ComponenteCombinado />
 
